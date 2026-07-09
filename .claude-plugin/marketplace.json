@@ -5,13 +5,11 @@
     "email": "hello@avqn.ch"
   },
   "description": "Marketplace de skills AVQN pour Claude.",
-  "version": "0.1.0",
   "plugins": [
     {
       "name": "avqn-skills",
       "source": "./plugins/avqn-skills",
       "description": "Collection de skills AVQN — visuels réseaux sociaux, et plus à venir.",
-      "version": "0.1.0",
       "author": {
         "name": "Emmanuel Bernard",
         "email": "hello@avqn.ch"

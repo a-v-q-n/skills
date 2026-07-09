@@ -36,12 +36,14 @@ plugins/
 
 ## Ajouter un skill
 
-1. Créer `plugins/avqn-skills/skills/<nom-du-skill>/SKILL.md`
-   (frontmatter `name` + `description`, puis les ressources/templates au besoin).
-2. Bumper `version` dans `plugin.json` et dans l'entrée `avqn-skills` de
-   `marketplace.json`.
-3. Commiter et pousser. Les skills du dossier `skills/` sont découverts
-   automatiquement — rien à déclarer.
+1. `/new-skill <nom>` — scaffolde le dossier et un `SKILL.md` pré-rempli.
+2. Rédiger le skill (corps + `references/`/`templates/` au besoin) et l'ajouter à la
+   table ci-dessous.
+3. `/check-skills` — valider, puis commiter et pousser.
+
+Les skills du dossier `skills/` sont découverts automatiquement — rien à déclarer.
+Aucune version à gérer : chaque push devient la nouvelle version, tirée côté client
+par `/plugin marketplace update avqn`. La méthodologie complète est dans `CLAUDE.md`.
 
 ## Skills disponibles
 

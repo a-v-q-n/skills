@@ -1,7 +1,6 @@
 {
   "name": "avqn-skills",
   "description": "Skills AVQN pour Claude — recettes maison (visuels réseaux sociaux, et plus à venir).",
-  "version": "0.1.0",
   "author": {
     "name": "Emmanuel Bernard",
     "email": "hello@avqn.ch"
