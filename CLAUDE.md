@@ -101,6 +101,9 @@ Un skill n'embarque que les dossiers utiles ; seul `SKILL.md` est obligatoire.
 7. Côté client : cliquer « Mettre à jour » sur le plugin (ou `/plugin marketplace update avqn`
    en CLI).
 
+Une fois la tranche validée (`/check-skills` vert), l'agent commite et pousse de lui-même,
+sans redemander.
+
 ## Métier générique
 
 Pour l'artisanat d'un bon skill (rédiger la `description`, structurer, vérifier), s'appuyer
