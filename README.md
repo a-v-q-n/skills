@@ -52,3 +52,4 @@ Le numéro de `version` déclenche la mise à jour côté claude.ai (bouton « M
 | Skill | Rôle |
 | :---- | :--- |
 | `avqn-social-visuals` | Assets visuels réseaux sociaux dans la charte AVQN (HTML→PNG, images IA, carrousels PDF). |
+| `hello-world` | Skill de test minimal (vérifie le déploiement du plugin). |
