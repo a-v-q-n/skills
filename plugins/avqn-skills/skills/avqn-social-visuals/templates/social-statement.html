@@ -1,0 +1,42 @@
+<!-- AVQN · GABARIT « Statement » (clair).
+ Cas d'usage : une prise de position forte, une idée qui tient en une phrase. Le geste éditorial de base.
+ FIGÉ : ambiance papier quadrillé · eyebrow mono + carré vermillon + filet · gros titre serif aligné à
+   l'épine gauche · UN seul fragment en .acc (italique vermillon) · filet de séparation + appui de conclusion.
+ À REMPLACER : eyebrow, les lignes du titre (retours à la main), le fragment .acc, la phrase d'appui.
+ FORMAT : 4:5 (1080×1350). wait_for ~1500ms. -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Geist:wght@400;500;600&family=Geist+Mono:wght@500;600&family=Instrument+Serif:ital@0;1&display=swap');
+:root{--W:1080px;--H:1350px;--paper:#FAF8F3;--ink:#211C17;--red:#E0542B;--grey:#7A726A;--filet:#E7E1D8;
+  --serif:"Instrument Serif",serif;--sans:"Geist",sans-serif;--mono:"Geist Mono",monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+.c{position:relative;width:var(--W);height:var(--H);overflow:hidden;color:var(--ink);font-family:var(--serif);
+  background:repeating-linear-gradient(0deg,rgba(33,28,23,.04) 0 1px,transparent 1px 46px),
+            repeating-linear-gradient(90deg,rgba(33,28,23,.04) 0 1px,transparent 1px 46px),var(--paper)}
+.wrap{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;padding:104px 92px}
+.eyebrow{font-family:var(--mono);font-weight:600;font-size:34px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--red);display:flex;align-items:center;gap:20px;line-height:1}
+.eyebrow::before{content:"";width:18px;height:18px;background:var(--red);flex:none}
+.filet{height:6px;width:120px;background:var(--red);margin-top:30px}
+.stmt{flex:1;display:flex;flex-direction:column;justify-content:center;
+  font-weight:400;font-size:158px;line-height:1.0;letter-spacing:-.01em}
+.acc{font-style:italic;color:var(--red)}
+footer{display:flex;flex-direction:column;gap:36px}
+.rule{height:1px;background:var(--filet)}
+.sub{font-family:var(--sans);font-weight:500;font-size:40px;line-height:1.42;color:var(--grey);max-width:90%}
+.sub b{color:var(--ink);font-weight:600}
+</style></head><body>
+<div class="c">
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Sous le capot</div>
+      <div class="filet"></div>
+    </header>
+    <h1 class="stmt">On croit<br>manquer de <span class="acc">temps.</span></h1>
+    <footer>
+      <div class="rule"></div>
+      <p class="sub">On manque surtout de <b>process</b>. L'IA ne fait pas gagner des heures : elle supprime les tâches qui n'auraient jamais dû être manuelles.</p>
+    </footer>
+  </div>
+</div>
+</body></html>

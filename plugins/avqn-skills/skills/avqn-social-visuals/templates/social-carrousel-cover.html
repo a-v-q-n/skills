@@ -1,0 +1,40 @@
+<!-- AVQN · GABARIT « Carrousel — couverture » (clair).
+ Cas d'usage : slide 1 d'un carrousel. Titre fort + invitation à défiler. Les slides suivantes piochent au
+   catalogue en ALTERNANT clair / nocturne pour le rythme.
+ FIGÉ : ambiance papier quadrillé · eyebrow « Carrousel » · titre serif (fragment .acc) · filet vermillon ·
+   pied « Faites défiler » mono + chevrons vermillon. UN seul accent vermillon.
+ À REMPLACER : eyebrow, les lignes du titre, le fragment .acc, le libellé du pied.
+ FORMAT : 4:5 (1080×1350) · suit aussi en 1:1 / 9:16. wait_for ~1500ms. -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Geist:wght@400;500;600&family=Geist+Mono:wght@500;600&family=Instrument+Serif:ital@0;1&display=swap');
+:root{--W:1080px;--H:1350px;--paper:#FAF8F3;--ink:#211C17;--red:#E0542B;--grey:#7A726A;--filet:#E7E1D8;
+  --serif:"Instrument Serif",serif;--sans:"Geist",sans-serif;--mono:"Geist Mono",monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+.c{position:relative;width:var(--W);height:var(--H);overflow:hidden;color:var(--ink);font-family:var(--serif);
+  background:repeating-linear-gradient(0deg,rgba(33,28,23,.04) 0 1px,transparent 1px 46px),
+            repeating-linear-gradient(90deg,rgba(33,28,23,.04) 0 1px,transparent 1px 46px),var(--paper)}
+.wrap{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;padding:104px 92px}
+.eyebrow{font-family:var(--mono);font-weight:600;font-size:34px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--red);display:flex;align-items:center;gap:20px;line-height:1}
+.eyebrow::before{content:"";width:18px;height:18px;background:var(--red);flex:none}
+.title{flex:1;display:flex;flex-direction:column;justify-content:center;
+  font-weight:400;font-size:150px;line-height:1.0;letter-spacing:-.01em}
+.acc{font-style:italic;color:var(--red)}
+.filet{height:6px;width:120px;background:var(--red);margin-bottom:56px}
+footer{display:flex;align-items:center;justify-content:space-between}
+.go{font-family:var(--mono);font-weight:600;font-size:34px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+.chev{font-family:var(--mono);font-weight:600;font-size:40px;letter-spacing:.06em;color:var(--red)}
+</style></head><body>
+<div class="c">
+  <div class="wrap">
+    <div class="eyebrow">Carrousel</div>
+    <div class="title">7 tâches que<br>tu confies déjà<br><span class="acc">sans le savoir.</span></div>
+    <div class="filet"></div>
+    <footer>
+      <div class="go">Faites défiler</div>
+      <div class="chev">&rsaquo;&rsaquo;&rsaquo;</div>
+    </footer>
+  </div>
+</div>
+</body></html>
