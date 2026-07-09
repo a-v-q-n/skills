@@ -9,8 +9,8 @@
     {
       "name": "avqn-skills",
       "source": "./plugins/avqn-skills",
-      "version": "0.5.0",
-      "description": "Collection de skills AVQN — visuels réseaux sociaux, et plus à venir.",
+      "version": "0.6.0",
+      "description": "Les skills AVQN pour Claude.",
       "author": {
         "name": "Emmanuel Bernard",
         "email": "hello@avqn.ch"
