@@ -52,4 +52,3 @@ Le numéro de `version` déclenche la mise à jour côté claude.ai (bouton « M
 | Skill | Rôle |
 | :---- | :--- |
 | `avqn-social-visuals` | Assets visuels réseaux sociaux dans la charte AVQN (HTML→PNG, images IA, carrousels PDF). |
-| `voix-manu` | Rédige, réécrit ou corrige tout contenu en français dans la voix de Manu (posts, ressources, emails). |
