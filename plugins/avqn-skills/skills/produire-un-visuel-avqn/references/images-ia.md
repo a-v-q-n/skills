@@ -48,5 +48,7 @@ Visages encouragés : des gens crédibles saisis dans un moment (jamais posés f
 ## Poser l'image
 
 Génération via `media_generate_image` (MCP médiathèque) → URL galerie. On la pose :
-- dans le `<img>` du gabarit `social-image-editorial` (image en grand + titre serif dessous), ou
+- **en grand** dans une mise en page hero (image + titre serif dessous), ou
 - **plein cadre en duotone** sur un fond nocturne (niveaux de gris + voile encre + vignette), le texte crème par-dessus.
+
+La recette qui exploite l'image fournit le gabarit (ex. `creer-un-visuel-social` → gabarit image-éditorial).

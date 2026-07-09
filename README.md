@@ -55,4 +55,7 @@ Le numéro de `version` déclenche la mise à jour côté claude.ai (bouton « M
 | `ecrire-pour-linkedin` | recette | Rédige un post LinkedIn dans la voix de Manu. |
 | `ecrire-pour-threads` | recette | Rédige un post Threads (court, spontané, chaînable) dans la voix de Manu. |
 | `ecrire-une-ressource` | recette | Rédige une ressource pédagogique (module, leçon, support) dans la voix de Manu. |
-| `creer-un-visuel-social` | recette | Visuels réseaux sociaux dans la charte AVQN (HTML→PNG, images IA, carrousels PDF). |
+| `produire-un-visuel-avqn` | socle | La charte visuelle AVQN + l'acte de base (composer un HTML on-charte → rendre → vérifier). Chargé par les recettes visuelles. |
+| `creer-un-visuel-social` | recette | Visuels réseaux sociaux (formats, gabarits, carrousel). Charge le socle visuel. |
+| `creer-une-cover-ressource` | recette | Bannière 16:9 d'une ressource, portée par une accroche-objectif. Charge le socle visuel. |
+| `creer-un-pdf` | mécanique | Assemble N images en un PDF multi-pages. Brand-neutral, appelé par les recettes. |

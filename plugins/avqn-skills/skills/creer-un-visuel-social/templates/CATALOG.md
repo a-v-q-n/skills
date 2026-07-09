@@ -2,7 +2,7 @@
 
 **Index vivant des gabarits.** Pour faire évoluer la liste : ajouter/retirer une ligne ici, et créer/supprimer le `.html` correspondant. Un gabarit = un fichier autonome. Rien d'autre à toucher.
 
-Choisir d'après la **forme du contenu** (colonne « Cas d'usage »), pas d'après l'esthétique — l'esthétique est commune à tous (`references/charte-visuelle.md`).
+Choisir d'après la **forme du contenu** (colonne « Cas d'usage »), pas d'après l'esthétique — l'esthétique est commune à tous (la charte du socle `produire-un-visuel-avqn`).
 
 | Gabarit (fichier) | Cas d'usage | Mode | Format natif | Suit aussi |
 |---|---|---|---|---|
@@ -26,7 +26,7 @@ En carrousel, **alterner clair / nocturne** donne le rythme.
 Chaque `.html` est autonome (fonts Google en `@import`, tout le CSS inline) et suit la même ossature :
 
 - un conteneur `.c` aux dimensions `var(--W)` × `var(--H)` (le format) ;
-- les tokens de marque en `:root` (issus de `references/charte-visuelle.md §10`) ;
+- les tokens de marque en `:root` (issus de la charte du socle `produire-un-visuel-avqn`, §10) ;
 - l'ambiance posée sur `.c` (papier quadrillé, ou nocturne + `::after` vignette) ;
 - un en-tête de commentaire qui dit : le cas d'usage, ce qui est **figé**, ce qu'on **remplace**, le `wait_for` conseillé ;
 - des placeholders textuels à remplacer (**retours à la ligne à la main**, un seul fragment `.acc`).

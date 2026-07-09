@@ -1,10 +1,10 @@
-# AVQN — Charte visuelle des réseaux sociaux
+# AVQN — Charte visuelle
 
-**Le socle de tous les visuels sociaux AVQN.** Éditorial, chaud, aéré : fond papier écru ou encre profonde, un seul accent vermillon, la serif qui porte le message. International Typographic Style tempéré d'une chaleur analogique — beaucoup d'air, peu d'éléments par visuel, des alignements qui portent du sens.
+**Le socle de tous les visuels AVQN.** Éditorial, chaud, aéré : fond papier écru ou encre profonde, un seul accent vermillon, la serif qui porte le message. International Typographic Style tempéré d'une chaleur analogique — beaucoup d'air, peu d'éléments par visuel, des alignements qui portent du sens.
 
 Marché : indépendants de Suisse romande. Sujets : n8n, Claude, IA, automatisation.
 
-Pour produire un visuel : ce socle + un gabarit du catalogue. Pour une image IA : ce socle + `images-ia.md`.
+Le langage est transverse : chaque recette (`creer-un-visuel-social`, `creer-une-cover-ressource`…) l'applique en ajoutant ses formats et ses gabarits. Pour une image IA : ce socle + `images-ia.md`.
 
 ---
 
@@ -79,7 +79,7 @@ Blocs CSS canoniques en §10.
 
 ## 7. Images IA
 
-Direction unique : **« l'anticipation douce »** (`images-ia.md`). Photo cinématique 35 mm, mondes-couleurs, **un objet vermillon sémantique**, **jamais de texte dans l'image** — les mots vivent dans la mise en page. Une image générée se pose plein cadre en duotone (fond nocturne) ou en grand dans le gabarit hero. La génération passe par le MCP médiathèque (`media_generate_image`).
+Direction unique : **« l'anticipation douce »** (`images-ia.md`). Photo cinématique 35 mm, mondes-couleurs, **un objet vermillon sémantique**, **jamais de texte dans l'image** — les mots vivent dans la mise en page. Une image générée se pose plein cadre en duotone (fond nocturne) ou en grand dans une mise en page hero. La génération passe par le MCP médiathèque (`media_generate_image`).
 
 ---
 
@@ -89,18 +89,11 @@ La collection média **n8n-node** (médiathèque) contient les icônes officiell
 
 ---
 
-## 9. Formats
+## 9. Formats — piloté par width/height
 
-Piloté par `width`/`height` passés à `media_render_html`, alignés sur `--W`/`--H` du gabarit.
+Un visuel n'a pas de format figé : il est piloté par `width`/`height` passés à `media_render_html`, alignés sur `--W`/`--H` du gabarit dans `:root`. **Chaque recette déclare les formats de son canal** (réseaux : 4:5 1080×1350, 1:1, 9:16, 16:9 lien · cover ressource : 16:9 1280×720).
 
-| Format | Dimensions | Usage |
-|--------|------------|-------|
-| **4:5 vertical** | 1080 × 1350 | **défaut**, portée max (LinkedIn, IG portrait, Threads) |
-| **1:1 carré** | 1080 × 1080 | feed universel |
-| **9:16 vertical** | 1080 × 1920 | stories / couverture verticale |
-| **16:9 horizontal** | 1200 × 627 | aperçu de lien |
-
-En carrousel, **alterner clair / nocturne** donne le rythme. Le catalogue note, par gabarit, les formats qui suivent proprement et ceux qui demandent d'ajuster les offsets.
+Un gabarit en flux suit un changement de ratio proprement ; un gabarit à positionnement tenu demande d'ajuster quelques offsets, puis de re-rendre et **vérifier à l'œil**.
 
 ---
 
