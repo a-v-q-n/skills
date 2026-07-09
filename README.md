@@ -53,5 +53,6 @@ Le numéro de `version` déclenche la mise à jour côté claude.ai (bouton « M
 | :---- | :----- | :--- |
 | `ecrire-comme-manu` | socle | La voix de Manu : essence, règles non négociables, lexique, adresse. Chargé par les skills d'écriture. |
 | `ecrire-pour-linkedin` | recette | Rédige un post LinkedIn dans la voix de Manu. |
+| `ecrire-pour-threads` | recette | Rédige un post Threads (court, spontané, chaînable) dans la voix de Manu. |
 | `ecrire-une-ressource` | recette | Rédige une ressource pédagogique (module, leçon, support) dans la voix de Manu. |
 | `creer-un-visuel-social` | recette | Visuels réseaux sociaux dans la charte AVQN (HTML→PNG, images IA, carrousels PDF). |
