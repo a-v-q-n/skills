@@ -1,5 +1,5 @@
 ---
-name: avqn-social-visuals
+name: creer-un-visuel-social
 description: >-
   Produit les assets visuels des réseaux sociaux AVQN (LinkedIn, Threads, Instagram) dans la
   charte de la marque : éditorial chaud, papier écru ou encre à lueur vermillon, serif qui porte
@@ -9,7 +9,7 @@ description: >-
   aux réseaux sociaux d'AVQN. NE COUVRE PAS la vidéo ni les visuels de ressources — autres périmètres.
 ---
 
-# AVQN — Assets visuels réseaux sociaux
+# Créer un visuel pour les réseaux sociaux
 
 Composer des visuels de posts **on-charte** — l'univers des vidéos AVQN porté à l'image fixe : palette chaude (papier `#FAF8F3`, encre `#211C17`, un seul vermillon `#E0542B`), la serif **Instrument Serif** qui porte le message (accent italique vermillon), **Anton** pour le hook display, **Geist / Geist Mono** pour les appuis et labels. Deux ambiances : **papier quadrillé** (clair) et **nocturne** (encre + lueur vermillon qui respire + quadrillage + vignette). Atmosphère éditoriale, aérée, peu d'éléments par visuel.
 
@@ -28,7 +28,7 @@ Périmètre : réseaux sociaux uniquement (LinkedIn en tête, décliné Threads 
 
 ## Boucle de production
 
-1. **Cadrer le message** — une idée par visuel, le hook (résultat brut ou objection nommée). Charger la voix si le texte doit sonner AVQN (skill `voix-manu`).
+1. **Cadrer le message** — une idée par visuel, le hook (résultat brut ou objection nommée). Charger la voix si le texte doit sonner AVQN (skill `ecrire-comme-manu`).
 2. **Choisir un gabarit** dans `templates/CATALOG.md`, d'après la **forme du contenu** (statement, manifeste, chiffre, liste, citation, terminal, carrousel-cover, image-éditorial).
 3. **Remplir le texte** — prendre le `.html`, remplacer les placeholders, **retours à la ligne à la main**. Un seul fragment en `.acc` (italique vermillon). Pour un format ≠ natif, régler `--W`/`--H` dans `:root` sur les dimensions cibles.
 4. **Rendre** via `media_render_html` (`width`/`height` = les dimensions du format, `wait_for` adapté).

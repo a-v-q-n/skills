@@ -31,7 +31,7 @@ plugins/
 └── avqn-skills/
     ├── .claude-plugin/plugin.json   Manifeste du plugin
     └── skills/
-        └── avqn-social-visuals/     Un skill = un dossier avec un SKILL.md
+        └── <nom-du-skill>/          Un skill = un dossier (socle ou recette)
 ```
 
 ## Ajouter un skill
@@ -49,7 +49,9 @@ Le numéro de `version` déclenche la mise à jour côté claude.ai (bouton « M
 
 ## Skills disponibles
 
-| Skill | Rôle |
-| :---- | :--- |
-| `avqn-social-visuals` | Assets visuels réseaux sociaux dans la charte AVQN (HTML→PNG, images IA, carrousels PDF). |
-| `voix-manu` | Rédige, réécrit ou corrige tout contenu en français dans la voix de Manu (posts, ressources, emails). |
+| Skill | Couche | Rôle |
+| :---- | :----- | :--- |
+| `ecrire-comme-manu` | socle | La voix de Manu : essence, règles non négociables, lexique, adresse. Chargé par les skills d'écriture. |
+| `ecrire-pour-linkedin` | recette | Rédige un post LinkedIn dans la voix de Manu. |
+| `ecrire-une-ressource` | recette | Rédige une ressource pédagogique (module, leçon, support) dans la voix de Manu. |
+| `creer-un-visuel-social` | recette | Visuels réseaux sociaux dans la charte AVQN (HTML→PNG, images IA, carrousels PDF). |

@@ -1,6 +1,17 @@
-# Extension — Posts LinkedIn
+---
+name: ecrire-pour-linkedin
+description: >-
+  À utiliser dès qu'on rédige, réécrit ou corrige un post LinkedIn pour Manu. Porte les
+  spécificités du canal (hook de 2 lignes, longueur, structure type, registres de post,
+  adresse au tu) et charge d'abord le socle ecrire-comme-manu pour la voix. NE COUVRE PAS
+  la voix elle-même (socle ecrire-comme-manu) ni le visuel du post (creer-un-visuel-social).
+---
 
-Adresse : **tutoiement**, cohérence stricte.
+# Écrire un post LinkedIn
+
+**Commencer par charger le skill `ecrire-comme-manu`** : il porte la voix (essence, règles non négociables, lexique, checklist anti-tics). Ce skill-ci n'ajoute que ce qui est propre à LinkedIn.
+
+Adresse : **tu**, cohérence stricte.
 
 ## Format
 

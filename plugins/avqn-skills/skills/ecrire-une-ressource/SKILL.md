@@ -1,4 +1,16 @@
-# Extension — Ressources pédagogiques (modules, leçons, supports de formation)
+---
+name: ecrire-une-ressource
+description: >-
+  À utiliser dès qu'on rédige, réécrit ou corrige une ressource pédagogique de Manu (module,
+  leçon, support de formation). Porte la posture de formateur, le principe « problème humain
+  d'abord », le format et l'adresse au vous collectif, et charge d'abord le socle
+  ecrire-comme-manu pour la voix. NE COUVRE PAS la voix elle-même (socle ecrire-comme-manu)
+  ni la création ou la publication de la ressource dans l'espace ressources.
+---
+
+# Écrire une ressource pédagogique
+
+**Commencer par charger le skill `ecrire-comme-manu`** : il porte la voix. Ce skill-ci ajoute la posture de formateur et le format ressource.
 
 Adresse : **vous collectif chaleureux** (le groupe d'apprenants), jamais froid ni scolaire.
 
