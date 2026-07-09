@@ -1,5 +1,9 @@
 # Images IA — « l'anticipation douce »
 
+> **Source unique : [styleguide.avqn.ch/doctrine/da-image.md](https://styleguide.avqn.ch/doctrine/da-image.md).**
+> La doctrine complète de la DA image (grade, mondes-couleur, vermillon sémantique, touche futur,
+> gabarit) y vit. Ce fichier en est le rappel opérationnel ; le styleguide fait foi.
+
 Le rendu des visuels générés reprend la DA photo des vidéos : le monde d'un indépendant, décalé de deux degrés vers le futur, photographié comme un film 35 mm des années 70. **Crédible d'abord, futur ensuite, rétro dans le rendu.** Références : *Her*, *Severance*, *Foundation*, pellicule Cinestill 800T (la halation).
 
 Toujours : **jamais de texte dans l'image** — les mots vivent dans la mise en page, jamais dans l'image générée.

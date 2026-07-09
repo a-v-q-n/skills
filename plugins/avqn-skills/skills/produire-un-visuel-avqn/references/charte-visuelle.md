@@ -1,5 +1,10 @@
 # AVQN — Charte visuelle
 
+> **Source unique : [styleguide.avqn.ch](https://styleguide.avqn.ch).** La charte de marque AVQN
+> (couleur, typographie, ambiances, DA image) y vit — lis `styleguide.avqn.ch/llms.txt` en premier.
+> Ce fichier n'en est que le **miroir opérationnel** pour les gabarits HTML de ce skill ; en cas de
+> doute ou d'évolution, le styleguide fait foi.
+
 **Le socle de tous les visuels AVQN.** Éditorial, chaud, aéré : fond papier écru ou encre profonde, un seul accent vermillon, la serif qui porte le message. International Typographic Style tempéré d'une chaleur analogique — beaucoup d'air, peu d'éléments par visuel, des alignements qui portent du sens.
 
 Marché : indépendants de Suisse romande. Sujets : n8n, Claude, IA, automatisation.
