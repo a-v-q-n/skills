@@ -39,11 +39,13 @@ plugins/
 1. `/new-skill <nom>` — scaffolde le dossier et un `SKILL.md` pré-rempli.
 2. Rédiger le skill (corps + `references/`/`templates/` au besoin) et l'ajouter à la
    table ci-dessous.
-3. `/check-skills` — valider, puis commiter et pousser.
+3. Bumper la `version` (même valeur dans `plugin.json` et dans l'entrée `avqn-skills`
+   de `marketplace.json`).
+4. `/check-skills` — valider, puis commiter et pousser.
 
 Les skills du dossier `skills/` sont découverts automatiquement — rien à déclarer.
-Aucune version à gérer : chaque push devient la nouvelle version, tirée côté client
-par `/plugin marketplace update avqn`. La méthodologie complète est dans `CLAUDE.md`.
+Le numéro de `version` déclenche la mise à jour côté claude.ai (bouton « Mettre à jour »
+/ `/plugin marketplace update avqn`). La méthodologie complète est dans `CLAUDE.md`.
 
 ## Skills disponibles
 

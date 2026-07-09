@@ -55,12 +55,14 @@ Un skill n'embarque que les dossiers utiles ; seul `SKILL.md` est obligatoire.
 1. `/new-skill <nom>` — scaffolde le dossier et un `SKILL.md` pré-rempli.
 2. Rédiger le skill (corps + `references/`/`templates/` au besoin).
 3. Ajouter le skill à la table de `README.md`.
-4. `/check-skills` — valider la marketplace et les skills.
-5. Commit (message descriptif, emoji 🤖) + push.
-6. Côté client : `/plugin marketplace update avqn`.
-
-Aucune version à épingler : les plugins n'ont pas de champ `version`, donc chaque
-commit fait foi et la mise à jour se tire directement du dernier push.
+4. **Bumper la version** : même valeur dans `plugins/avqn-skills/.claude-plugin/plugin.json`
+   et dans l'entrée `avqn-skills` de `.claude-plugin/marketplace.json`. C'est ce numéro
+   qui déclenche le bouton « Mettre à jour » côté claude.ai — sans bump, la mise à jour
+   ne se propage pas.
+5. `/check-skills` — valider (JSON, frontmatter, versions cohérentes).
+6. Commit (message descriptif, emoji 🤖) + push.
+7. Côté client : cliquer « Mettre à jour » sur le plugin (ou `/plugin marketplace update avqn`
+   en CLI).
 
 ## Métier générique
 

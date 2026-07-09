@@ -52,8 +52,8 @@ Ton français, état-cible : décrire ce qui est, sans « désormais » ni « au
 ## Publier
 
 1. Ajouter le skill à la table de `README.md`.
-2. `/check-skills` — valider.
-3. Commit 🤖 + push.
-4. Côté client : `/plugin marketplace update avqn`.
-
-Pas de version à gérer : les plugins n'épinglent pas de `version`, chaque push fait foi.
+2. Bumper la `version` (même valeur dans `plugin.json` et dans l'entrée `avqn-skills`
+   de `marketplace.json`) — c'est ce numéro qui déclenche « Mettre à jour » côté claude.ai.
+3. `/check-skills` — valider.
+4. Commit 🤖 + push.
+5. Côté client : « Mettre à jour » sur le plugin (ou `/plugin marketplace update avqn`).

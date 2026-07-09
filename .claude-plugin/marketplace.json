@@ -9,6 +9,7 @@
     {
       "name": "avqn-skills",
       "source": "./plugins/avqn-skills",
+      "version": "0.2.0",
       "description": "Collection de skills AVQN — visuels réseaux sociaux, et plus à venir.",
       "author": {
         "name": "Emmanuel Bernard",
