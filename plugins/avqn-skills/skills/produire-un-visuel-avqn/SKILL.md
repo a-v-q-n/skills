@@ -38,7 +38,7 @@ Le détail complet — palette, gamme typo, les deux ambiances, gestes-signature
 
 ## Image IA (« anticipation douce »)
 
-La direction d'image générée de la marque (`references/images-ia.md`) : photo cinématique 35 mm, mondes-couleurs, **un objet vermillon sémantique**, **toujours sans texte dans l'image**. Générer via `media_generate_image`, puis poser l'URL en grand dans une mise en page hero, ou plein cadre en duotone sur un fond nocturne.
+La direction d'image générée de la marque (`references/images-ia.md`) : photo cinématique 35 mm, recettes de lumière, **un objet vermillon sémantique**, **toujours sans texte dans l'image**. Générer via `media_generate_image`, puis poser l'URL en grand dans une mise en page hero, ou plein cadre en duotone sur un fond nocturne.
 
 ## Composer et déléguer
 

@@ -84,7 +84,7 @@ Blocs CSS canoniques en §10.
 
 ## 7. Images IA
 
-Direction unique : **« l'anticipation douce »** (`images-ia.md`). Photo cinématique 35 mm, mondes-couleurs, **un objet vermillon sémantique**, **jamais de texte dans l'image** — les mots vivent dans la mise en page. Une image générée se pose plein cadre en duotone (fond nocturne) ou en grand dans une mise en page hero. La génération passe par le MCP médiathèque (`media_generate_image`).
+Direction unique : **« l'anticipation douce »** (`images-ia.md`). Photo cinématique 35 mm, recettes de lumière, **un objet vermillon sémantique**, **jamais de texte dans l'image** — les mots vivent dans la mise en page. Une image générée se pose plein cadre en duotone (fond nocturne) ou en grand dans une mise en page hero. La génération passe par le MCP médiathèque (`media_generate_image`).
 
 ---
 

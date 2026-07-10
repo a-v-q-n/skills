@@ -1,7 +1,7 @@
 # Images IA — « l'anticipation douce »
 
 > **Source unique : [styleguide.avqn.ch/doctrine/da-image.md](https://styleguide.avqn.ch/doctrine/da-image.md).**
-> La doctrine complète de la DA image (grade, mondes-couleur, vermillon sémantique, touche futur,
+> La doctrine complète de la DA image (grade, recettes de lumière, vermillon sémantique, touche futur,
 > gabarit) y vit. Ce fichier en est le rappel opérationnel ; le styleguide fait foi.
 
 Le rendu des visuels générés reprend la DA photo des vidéos : le monde d'un indépendant, décalé de deux degrés vers le futur, photographié comme un film 35 mm des années 70. **Crédible d'abord, futur ensuite, rétro dans le rendu.** Références : *Her*, *Severance*, *Foundation*, pellicule Cinestill 800T (la halation).
@@ -23,19 +23,19 @@ Noirs chauds jamais bleus ni purs, hautes lumières crème jamais cliniques, sat
 
 UN détail impossible aujourd'hui, analogique et chaud — terminal à écran bombé et texte ambré, e-paper souple, molette physique pilotant un système intelligent, diode de présence qui veille. **Dans un coin, jamais au centre.** Jamais d'hologramme bleu, de robot, de HUD flottant. La techno de cet univers est chaude, tactile, en bois / métal brossé / tissu technique.
 
-## Les mondes = des recettes de lumière (paires, jamais monochromes)
+## Les recettes de lumière (paires, jamais monochromes)
 
 UNE recette par image : une **dominante + un contrepoint**. C'est le contrepoint qui rend la couleur intelligente ; un plan monochrome est un plan raté.
 
-| monde | lumière | dominante | contrepoint |
-|-------|---------|-----------|-------------|
+| recette | lumière | dominante | contrepoint |
+|---------|---------|-----------|-------------|
 | `ardoise` | nuit, heure bleue | bleus d'ombre `#46647A` | tungstène ambré |
 | `ambre` | matin, soleil rasant | ors chauds `#C89B5A` | une ombre ardoise froide |
 | `sauge` | plein jour, végétal | verts doux `#71805F` | bois et terre argile |
 | `argile` | intérieur doré, humain | terracotta / peau `#BC8272` | crème et blancs cassés |
 | `prune` | crépuscule, focus | violets sourds `#5F5069` | une lueur chaude |
 
-Nommer explicitement la paire dans le prompt (ex. `warm amber golden light dominates, counterpointed by one cool slate-blue shadow area`). Jamais deux mondes dominants dans le même plan.
+Nommer explicitement la paire dans le prompt (ex. `warm amber golden light dominates, counterpointed by one cool slate-blue shadow area`). Jamais deux recettes dominantes dans le même plan.
 
 ## Le vermillon sémantique (la signature)
 
@@ -47,7 +47,7 @@ Visages encouragés : des gens crédibles saisis dans un moment (jamais posés f
 
 ## Gabarit de prompt
 
-`Cinematic editorial photograph, vertical composition` + **la scène** (sujet, action, moment — dire aussi ce qui est absent) + **la paire du monde** + **l'objet vermillon et son sens** + **la touche futur** + le grade commun. Peu d'éléments, de l'air, un premier plan travaillé.
+`Cinematic editorial photograph, vertical composition` + **la scène** (sujet, action, moment — dire aussi ce qui est absent) + **la paire de la recette** + **l'objet vermillon et son sens** + **la touche futur** + le grade commun. Peu d'éléments, de l'air, un premier plan travaillé.
 
 ## Poser l'image
 

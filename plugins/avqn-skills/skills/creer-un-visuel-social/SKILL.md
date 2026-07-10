@@ -27,6 +27,10 @@ Composer les visuels de posts AVQN — statements, chiffres, listes, citations, 
 
 ## Formats & multi-réseaux
 
+> **Source unique : [styleguide.avqn.ch/doctrine/formats-sociaux.md](https://styleguide.avqn.ch/doctrine/formats-sociaux.md).**
+> Les formats, règles d'affichage et familles de composition du support social y vivent ; ce
+> tableau en est le rappel opérationnel — en cas de doute, le styleguide fait foi.
+
 Le format se règle en passant `width`/`height` à `media_render_html` **et** en alignant `--W`/`--H` du gabarit sur ces mêmes dimensions.
 
 | Format | Dimensions | Usage |
