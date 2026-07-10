@@ -23,19 +23,21 @@ Noirs chauds jamais bleus ni purs, hautes lumières crème jamais cliniques, sat
 
 UN détail impossible aujourd'hui, analogique et chaud — terminal à écran bombé et texte ambré, e-paper souple, molette physique pilotant un système intelligent, diode de présence qui veille. **Dans un coin, jamais au centre.** Jamais d'hologramme bleu, de robot, de HUD flottant. La techno de cet univers est chaude, tactile, en bois / métal brossé / tissu technique.
 
-## Les recettes de lumière (paires, jamais monochromes)
+## Les recettes de lumière (une palette, pas des règles)
 
-UNE recette par image : une **dominante + un contrepoint**. C'est le contrepoint qui rend la couleur intelligente ; un plan monochrome est un plan raté.
+Cinq ambiances possibles, à choisir selon le propos — des **directions artistiques**, pas des contraintes. Une dominante suffit ; un contrepoint (une zone qui répond) enrichit souvent le plan.
 
-| recette | lumière | dominante | contrepoint |
-|---------|---------|-----------|-------------|
+| recette | lumière | dominante | contrepoint possible |
+|---------|---------|-----------|----------------------|
 | `ardoise` | nuit, heure bleue | bleus d'ombre `#46647A` | tungstène ambré |
 | `ambre` | matin, soleil rasant | ors chauds `#C89B5A` | une ombre ardoise froide |
 | `sauge` | plein jour, végétal | verts doux `#71805F` | bois et terre argile |
 | `argile` | intérieur doré, humain | terracotta / peau `#BC8272` | crème et blancs cassés |
 | `prune` | crépuscule, focus | violets sourds `#5F5069` | une lueur chaude |
 
-Nommer explicitement la paire dans le prompt (ex. `warm amber golden light dominates, counterpointed by one cool slate-blue shadow area`). Jamais deux recettes dominantes dans le même plan.
+## Les lieux sont contemporains
+
+Le rétro vit dans le **rendu** (grain, halation), jamais dans le **décor** : intérieurs modernes, lignes nettes, mobilier actuel — pas de vieilles fermes ni de poutres rustiques. Le dire dans le prompt (`contemporary interior, modern furniture, no vintage furniture, no rustic beams; the retro lives only in the film rendering`).
 
 ## Le vermillon sémantique (la signature)
 
@@ -47,7 +49,7 @@ Visages encouragés : des gens crédibles saisis dans un moment (jamais posés f
 
 ## Gabarit de prompt
 
-`Cinematic editorial photograph, vertical composition` + **la scène** (sujet, action, moment — dire aussi ce qui est absent) + **la paire de la recette** + **l'objet vermillon et son sens** + **la touche futur** + le grade commun. Peu d'éléments, de l'air, un premier plan travaillé.
+`Cinematic editorial photograph, vertical composition` + **la scène contemporaine** (sujet, action, moment — dire aussi ce qui est absent) + **la direction de couleur** (si elle sert le propos) + **l'objet vermillon et son sens** + **la touche futur** + le grade commun. Peu d'éléments, de l'air, un premier plan travaillé. Fixer l'intention — la phrase que l'image porte toute seule — avant de générer ; la banque de référence ([styleguide.avqn.ch/media/photo](https://styleguide.avqn.ch/media/photo)) donne des prompts réels appariés à leur résultat, par usage (b-rolls vidéo, posts).
 
 ## Poser l'image
 

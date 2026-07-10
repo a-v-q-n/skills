@@ -26,7 +26,7 @@ Le détail complet — palette, gamme typo, les deux ambiances, gestes-signature
 
 - **Rendre** → `media_render_html` : `html` (le gabarit rempli), `width`, `height`, `wait_for` (ms — laisser fonts + fonds finir : **composés ~1500**, **hero avec image distante ~2600**), `name`, `tags`. Sortie PNG, renvoie l'URL galerie.
 - **Nommer le livrable** → `media_update`. **Retrouver un média / les icônes n8n** → `media_list_images`.
-- **Générer une image IA** → `media_generate_image` (voir `references/images-ia.md`).
+- **Générer une image IA** → `media_generate_image` (photo : `references/images-ia.md` · schéma : `references/images-schema.md`).
 
 ## L'acte de base : composer → rendre → vérifier
 
@@ -36,9 +36,12 @@ Le détail complet — palette, gamme typo, les deux ambiances, gestes-signature
 4. **Vérifier à l'œil** — charger l'image produite. Corriger débordements, veuves, alignements, contraste, la lueur nocturne. Re-rendre. **Cette étape n'est pas optionnelle.**
 5. **Livrer** — ou nommer via `media_update`.
 
-## Image IA (« anticipation douce »)
+## Images IA — deux styles
 
-La direction d'image générée de la marque (`references/images-ia.md`) : photo cinématique 35 mm, recettes de lumière, **un objet vermillon sémantique**, **toujours sans texte dans l'image**. Générer via `media_generate_image`, puis poser l'URL en grand dans une mise en page hero, ou plein cadre en duotone sur un fond nocturne.
+Deux directions d'image générée, une par usage — générer via `media_generate_image`, puis poser l'URL dans la mise en page :
+
+- **Photo** — « l'anticipation douce » (`references/images-ia.md`) : montrer un monde. Cinématique 35 mm, lieux contemporains, un objet vermillon sémantique, **jamais de texte dans l'image**. Se pose en grand dans une mise en page hero, ou plein cadre en duotone sur un fond nocturne.
+- **Schéma** — la figure technique (`references/images-schema.md`) : expliquer une idée, un flux, un système. Mécanismes à l'encre sur papier crème, un vermillon porteur, **labels courts autorisés**, ni cadre ni cartouche.
 
 ## Composer et déléguer
 
@@ -50,9 +53,10 @@ La direction d'image générée de la marque (`references/images-ia.md`) : photo
 ## Références
 
 - `references/charte-visuelle.md` — le langage : palette, typo, ambiances, gestes, tokens CSS, do/don't.
-- `references/images-ia.md` — la direction d'image générée « anticipation douce ».
+- `references/images-ia.md` — la direction d'image « anticipation douce » (photo).
+- `references/images-schema.md` — la direction d'image « figure technique » (schémas explicatifs).
 - `assets/n8n-logo.svg` — logo n8n officiel (asset de marque ; les autres icônes via `media_list_images(collection='n8n-node')`).
 
 ## Règles d'or (rappel)
 
-Un seul vermillon porteur par visuel · la serif porte, le mono recule · alignements porteurs de sens · retours à la ligne à la main · beaucoup d'air, jamais vide de sens · la lueur ne vit que sur nocturne · ni cadre à ombre dure, ni arrondi, ni trame · coins libres · images IA sans faux texte · **toujours vérifier le rendu à l'œil avant de livrer.**
+Un seul vermillon porteur par visuel · la serif porte, le mono recule · alignements porteurs de sens · retours à la ligne à la main · beaucoup d'air, jamais vide de sens · la lueur ne vit que sur nocturne · ni cadre à ombre dure, ni arrondi, ni trame · coins libres · images photo sans texte, schémas aux labels courts · **toujours vérifier le rendu à l'œil avant de livrer.**
