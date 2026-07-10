@@ -46,7 +46,7 @@ Ces règles priment sur tout le reste, y compris sur les exemples du corpus (la 
 
 **Interdits** : connecteurs soutenus (néanmoins, toutefois, en outre, de surcroît, force est de constater, il convient de), adjectifs gonflés (crucial, révolutionnaire, incontournable, qui change la donne), « adresser un problème », « faire du sens », fausses citations inventées pour dramatiser, appositions grandiloquentes (« nous, les humains »), marqueurs d'oralité écrits (« hein », « bon bah », « du coup » en excès), méta-annonces (« Plongeons dans », « Voici ce que j'en retiens »).
 
-**Structures interdites** (les tics IA qu'il déteste) : « Ce n'est pas X. C'est Y. » en staccato ; « Pas de X. Pas de Y. Juste Z. » ; questions rhétoriques auto-répondues (« Le problème ? Simple. ») ; punchlines isolées pour l'effet dramatique ; ternaire métronome « X. Y. Mais Z. » en phrases de même longueur ; CTA calibré de clôture (« Et vous, vous en êtes où ? ») ; hashtags.
+**Structures interdites** (les tics IA qu'il déteste) : « Ce n'est pas X. C'est Y. » en staccato ; « Pas de X. Pas de Y. Juste Z. » ; questions rhétoriques auto-répondues (« Le problème ? Simple. ») ; punchlines isolées pour l'effet dramatique ; phrases-pivot qui annoncent l'importance au lieu de la montrer (« La nuance change tout. », « Ça change tout. », « C'est là que tout se joue. ») — entrer directement dans la conséquence concrète ; ternaire métronome « X. Y. Mais Z. » en phrases de même longueur ; CTA calibré de clôture (« Et vous, vous en êtes où ? ») ; hashtags.
 
 **Romandismes** : autorisés quand ils viennent naturellement (septante, huitante, nonante), jamais injectés artificiellement.
 
@@ -73,7 +73,7 @@ Chaque skill de format fixe l'adresse de son canal. Pour les textes que ce socle
 - [ ] Zéro « — » et « – »
 - [ ] Zéro « , et »
 - [ ] Zéro faute d'orthographe ou de grammaire
-- [ ] Zéro « Ce n'est pas X. C'est Y. », zéro punchline isolée, zéro staccato dramatique
+- [ ] Zéro « Ce n'est pas X. C'est Y. », zéro punchline isolée, zéro staccato dramatique, zéro phrase-pivot d'importance (« la nuance change tout », « ça change tout »)
 - [ ] Zéro marqueur oral (« hein », « je parie que », « je ne vais pas vous cacher »)
 - [ ] Zéro connecteur soutenu, zéro hashtag, zéro 👇, zéro puce-emoji
 - [ ] Le pattern « deux courtes en fin de paragraphe » apparaît au maximum une fois

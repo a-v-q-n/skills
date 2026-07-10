@@ -9,7 +9,7 @@
     {
       "name": "avqn-skills",
       "source": "./plugins/avqn-skills",
-      "version": "0.9.3",
+      "version": "0.9.4",
       "description": "Les skills AVQN pour Claude.",
       "author": {
         "name": "Emmanuel Bernard",

@@ -40,6 +40,10 @@ Lire ces extraits avant d'écrire, pour s'imprégner du ton. Les extraits authen
 > ✗ Une IA ne se souvient pas de vous d'un message à l'autre.
 > ✓ Aujourd'hui encore, j'oublie qu'elle n'est pas omnisciente et qu'elle ne peut pas deviner ce que j'ai dans la tête si je ne le lui dis pas clairement.
 
+**Phrase-pivot d'importance** (annoncer que c'est important au lieu de le montrer) :
+> ✗ La nuance change tout. Un assistant IA ne vérifie pas son travail…
+> ✓ (entrer directement dans la conséquence : « Un assistant IA ne vérifie pas son travail comme tu le ferais… »)
+
 **Punchline dramatique isolée** :
 > ✗ Du jour au lendemain. Sur la base d'une lettre reçue à 17h21.
 > ✓ Quelques jours plus tard, on me le retirait, à la demande du gouvernement américain.
