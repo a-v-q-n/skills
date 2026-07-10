@@ -20,6 +20,10 @@ Adresse : **tu**, cohérence stricte.
 - **Aération maximale** : paragraphes de 1 à 3 phrases, une ligne seule pour l'idée pivot.
 - **Listes** : « 1/ 2/ 3/ » pour des étapes, tirets simples pour des éléments. Jamais de puce-emoji.
 - **Emojis** : 2-3 par post, en fin de phrase ou de ligne (🙂 ☀️ 🙏 👋 🚀), jamais en début.
+- **Jamais de lien dans le corps du post.** Tout lien (ressource, article, jeu) vit dans le
+  premier commentaire ; le corps l'annonce simplement (« le lien est en premier
+  commentaire »). Le texte du premier commentaire se livre avec le post, dans un bloc
+  « Premier commentaire » à la suite du corps.
 
 ## Structure type (à varier, pas un gabarit rigide)
 
