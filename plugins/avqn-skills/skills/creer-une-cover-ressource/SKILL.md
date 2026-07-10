@@ -13,6 +13,10 @@ description: >-
 
 Composer la **bannière de couverture** d'une ressource — le visage d'un lead magnet, d'un guide, d'un tuto ou d'une cheatsheet dans l'espace ressources. Une seule chose la porte : une **accroche-objectif** qui dit clairement ce qu'on va apprendre.
 
+> **Source unique : [styleguide.avqn.ch/doctrine/ressources.md](https://styleguide.avqn.ch/doctrine/ressources.md).**
+> Le format, la doctrine de l'accroche (formes + tests) et le climat + objet y vivent ; ce skill
+> en est le rappel opérationnel — en cas de doute, le styleguide fait foi.
+
 **Commencer par charger `produire-un-visuel-avqn`.** La charte (palette, typo, ambiances, gestes, tokens) et l'acte de base (composer → rendre via `media_render_html` → vérifier à l'œil) viennent du socle. Ce skill ajoute le format, la doctrine de l'accroche et les objets.
 
 ## Format

@@ -59,3 +59,4 @@ Le numéro de `version` déclenche la mise à jour côté claude.ai (bouton « M
 | `creer-un-visuel-social` | recette | Visuels réseaux sociaux (formats, gabarits, carrousel). Charge le socle visuel. |
 | `creer-une-cover-ressource` | recette | Bannière 16:9 d'une ressource, portée par une accroche-objectif. Charge le socle visuel. |
 | `creer-un-pdf` | mécanique | Assemble N images en un PDF multi-pages. Brand-neutral, appelé par les recettes. |
+| `creer-une-illustration-ui` | recette | Maquette filaire qui enseigne un élément d'interface. Charge le socle visuel. |
