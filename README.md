@@ -60,3 +60,4 @@ Le numéro de `version` déclenche la mise à jour côté claude.ai (bouton « M
 | `creer-une-cover-ressource` | recette | Bannière 16:9 d'une ressource, portée par une accroche-objectif. Charge le socle visuel. |
 | `creer-un-pdf` | mécanique | Assemble N images en un PDF multi-pages. Brand-neutral, appelé par les recettes. |
 | `creer-une-illustration-ui` | recette | Maquette filaire qui enseigne un élément d'interface. Charge le socle visuel. |
+| `creer-une-facture` | recette | Prépare, émet et envoie une facture client (domaine facturation d'AVQN OS) : gabarit A4 on-charte, PDF texte, conventions suisses. |
