@@ -45,9 +45,12 @@ le PDF est généré directement depuis le HTML rempli.
 
 ## Émetteur
 
-L'identité, l'adresse et l'IBAN vivent **dans le gabarit**, pas dans l'OS. Les champs
-marqués `[À COMPLÉTER : …]` (rue, IBAN) doivent être remplis dans le gabarit une fois pour
-toutes ; tant qu'ils y figurent, **bloquer l'envoi** et le signaler.
+L'identité, l'adresse et l'IBAN vivent **dans le gabarit**, pas dans l'OS : AVQN — Emmanuel
+Bernard, Av. Charles Dickens 10, 1006 Lausanne ; compte PostFinance IBAN
+CH10 0900 0000 1686 7016 2 (bénéficiaire « Bernard Emmanuel David — AVQN »). Ces coordonnées
+se maintiennent dans `templates/facture.html` (la référence bancaire vit dans la note carnet
+« Admin » de l'OS). Avant l'envoi, vérifier qu'aucun placeholder `{{…}}` ne reste dans le
+document.
 
 ## QR-facture (plus tard)
 
