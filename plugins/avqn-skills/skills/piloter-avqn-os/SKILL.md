@@ -4,7 +4,7 @@ description: >-
   À charger avant toute action dans AVQN OS (le MCP `avqn-os` : CRM, tâches, carnet, temps,
   facturation, agenda, mail, pilotage). Porte la grammaire des objets — la partie
   personne|organisation comme unité du CRM, les rôles dérivés jamais saisis, le projet comme
-  pivot, le carnet comme magasin unique de notes — le réflexe `recall`/`contexte` avant toute
+  pivot, la fiche comme état d'un objet et le carnet comme journal — le réflexe `recall`/`contexte` avant toute
   recherche, et les invariants à ne jamais violer. Socle chargé par tenir-le-crm,
   gerer-les-taches, tenir-le-carnet, suivre-le-temps et creer-une-facture. NE COUVRE PAS les
   gestes d'un domaine précis (voir la recette correspondante) ni l'infra (OS séparé `ops`).
@@ -69,12 +69,28 @@ Une **affiliation** relie une personne à une organisation, en N-N et datée. Un
 Containment optionnel avec **héritage vers le haut** : on s'attache au niveau le plus fin connu,
 et partie / projet / taux se **dérivent** en remontant — jamais recopiés.
 
-### Le carnet — LE magasin de notes
+### La fiche et le carnet — l'état et l'événement
 
-Une seule table de notes pour tout l'OS. Le titre est **optionnel** (une note de fil n'en a pas).
-Une note porte **N liens typés** (`partie`, `deal`, `project`, `task`) : elle peut viser une
-personne *et* un deal *et* un projet. **La cascade frappe le lien, jamais la note** — supprimer un
-deal ne détruit pas sa documentation.
+Avant d'écrire quoi que ce soit, une seule question :
+
+> **Est-ce que ça a une date qui compte ?**
+> **Oui** → c'est un **événement** → une note du carnet, datée et liée.
+> **Non**, ça décrit ce qu'un objet **est** maintenant → c'est son **état** → sa **fiche**.
+
+**La fiche** est un champ de l'objet (`partie`, `deal`, `project`, `task`, `offre`), en markdown.
+Une par sujet, et elle doit rester **juste** : on la corrige, on ne l'empile pas. Elle s'écrit par
+le tool de son domaine (`partie_update {fiche}`) ou, pour ajouter sans relire un long document,
+par **`avqn-os:fiche_append`**.
+
+La fiche décrit ce que le sujet **est** ; elle n'accueille pas tout ce qui le **concerne**. Un bloc
+qui a une vie propre — qu'on voudra compter, dater, relier ou retrouver seul — est un objet, pas
+une section. Quand un document n'a pas de sujet, il ne manque pas un tiroir : **il manque un
+objet**.
+
+**Le carnet** est le journal : une seule table de notes pour tout l'OS, toutes datées. Le titre est
+**optionnel** (une note de fil n'en a pas). Une note porte **N liens typés** (`partie`, `deal`,
+`project`, `task`) : elle peut viser une personne *et* un deal *et* un projet. **La cascade frappe
+le lien, jamais la note** — supprimer un deal ne détruit pas sa documentation.
 
 ### Les tâches — un engagement, pas un statut
 
@@ -93,14 +109,17 @@ Quatre postures (`Capture`, `Aujourd'hui`, `Plus tard`, `Peut-être`) et des **f
 - **Le journal s'écrit tout seul** : ne pas chercher à le tenir à la main.
 - **Ne pas recopier ce qui se dérive** (le client d'un temps, le taux d'un projet) : lire la
   valeur résolue, ne pas la figer ailleurs.
+- **Une fiche fausse est pire qu'une fiche absente** : l'agent la lit comme vraie. Ce qui change
+  se corrige dans la fiche ; si le changement compte, il devient aussi une note datée.
 
 ## Les domaines et leur recette
 
 | Domaine | Outils | Recette |
 |---|---|---|
-| CRM | `partie_*`, `affiliation_*`, `deal_*` | `tenir-le-crm` |
+| CRM | `partie_*`, `affiliation_*`, `deal_*`, `offre_*` | `tenir-le-crm` |
 | Tâches | `task_*`, `project_*` | `gerer-les-taches` |
 | Carnet | `carnet_*` | `tenir-le-carnet` |
+| Fiches | `fiche_append` (transverse) | ce socle |
 | Temps | `timesheet_*`, `activity_*` | `suivre-le-temps` |
 | Facturation | `invoice_*` | `creer-une-facture` |
 | Agenda | `cal_*` | — outils directs (CalDAV) |

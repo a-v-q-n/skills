@@ -10,6 +10,11 @@
 | Affiliation | `avqn_affiliation` | Personne ↔ organisation, N-N, datée (`role`, `startedOn`, `endedOn`). |
 | Deal | `avqn_deal` | Le commercial. Vise **une partie**, FK non nulle. |
 | Participant | `avqn_deal_participant` | Les interlocuteurs d'un deal (décideur, prescripteur, utilisateur). Plusieurs par deal. |
+| Offre | `avqn_offre` | Ce qu'AVQN vend. `price` nullable = sur devis. `avqn_deal.offre_id` dit ce que l'affaire vend. |
+
+AVQN elle-même est une partie, marquée `soi` : c'est elle qui émet les factures et se tient en
+face de chaque deal. Elle est exclue des listes de l'annuaire et de la dérivation des rôles — être
+client de soi-même n'a pas de sens.
 
 ### Mots qui n'existent plus
 
@@ -49,10 +54,17 @@ Les **facettes** ne sont jamais des statuts :
 - `dueDate` — échéance externe ; dépassée, la tâche remonte dans Aujourd'hui où qu'elle soit ;
 - `waitingOn` — en attente de quelqu'un, grisée sur place.
 
-## Le carnet
+## La fiche et le carnet
 
-`avqn_note` — `title` **nullable**, `body` markdown, `noteDate` (le jour concerné, ≠ `createdAt`),
-`tags[]`, `pinned`, archive douce (`archivedAt`).
+Deux natures, une seule question pour les séparer : **est-ce que ça a une date qui compte ?**
+
+**La fiche** — colonne `fiche` (markdown) sur `avqn_partie`, `avqn_deal`, `avqn_project`,
+`avqn_task`, `avqn_offre`. Ce que l'objet **est** maintenant. Une par sujet : c'est une colonne,
+elle ne peut pas exister en double. Elle n'a pas de date — l'`updatedAt` de l'objet suffit.
+
+**Le carnet** — `avqn_note` : `title` **nullable**, `body` markdown, `noteDate` (le jour concerné,
+≠ `createdAt`), archive douce (`archivedAt`). Ce qui s'est **passé**. Ni tags ni épinglage : dans
+un journal daté et lié, l'ordre du temps et le rattachement suffisent à retrouver.
 
 `avqn_note_lien` — une ligne = un lien, une seule cible parmi `partie`, `deal`, `project`, `task`,
 par une vraie clé étrangère. `on delete cascade` porte sur **le lien**.
@@ -80,7 +92,9 @@ Les colonnes de snapshot gardent le préfixe `client_` : sur une pièce comptabl
 ## L'index de recherche
 
 `avqn_rag_chunk` est une **projection dérivée reconstructible**, jamais une source de vérité.
-Sortes indexées : `partie`, `deal`, `project`, `task`, `timesheet`, `note`, `mail`, `event`.
+Sortes indexées : `partie`, `deal`, `project`, `task`, `timesheet`, `offre`, `note`, `mail`,
+`event`. La fiche d'un objet est indexée **avec lui** : chercher un mot de la fiche remonte
+l'objet, avec de quoi ouvrir son dossier — pas un document flottant qui parle de lui.
 Le document d'une personne agrège ses organisations d'affiliation — c'est ce qui la rend trouvable
 par le nom de sa boîte. `avqn-os:rag_status` dit où en est l'index ; `avqn-os:rag_reindex` le
 reconstruit (par sorte ou en entier).
