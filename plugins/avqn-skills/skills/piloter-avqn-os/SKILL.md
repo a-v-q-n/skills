@@ -6,7 +6,8 @@ description: >-
   personne|organisation comme unité du CRM, les rôles dérivés jamais saisis, le projet comme
   pivot, la fiche comme état d'un objet et le carnet comme journal — le réflexe `recall`/`contexte` avant toute
   recherche, et les invariants à ne jamais violer. Socle chargé par tenir-le-crm,
-  gerer-les-taches, tenir-le-carnet, suivre-le-temps, suivre-les-objectifs et creer-une-facture. NE COUVRE PAS les
+  gerer-les-projets, gerer-les-taches, tenir-le-carnet, suivre-le-temps, suivre-les-objectifs et
+  creer-une-facture. NE COUVRE PAS les
   gestes d'un domaine précis (voir la recette correspondante) ni l'infra (OS séparé `ops`).
 ---
 
@@ -69,6 +70,9 @@ Une **affiliation** relie une personne à une organisation, en N-N et datée. Un
 Containment optionnel avec **héritage vers le haut** : on s'attache au niveau le plus fin connu,
 et partie / projet / taux se **dérivent** en remontant — jamais recopiés.
 
+Nom, format de fiche, dates et cycle de vie du statut (dont l'absence de suppression dure) :
+**`gerer-les-projets`**.
+
 ### La fiche et le carnet — l'état et l'événement
 
 Avant d'écrire quoi que ce soit, une seule question :
@@ -117,7 +121,8 @@ Quatre postures (`Capture`, `Aujourd'hui`, `Plus tard`, `Peut-être`) et des **f
 | Domaine | Outils | Recette |
 |---|---|---|
 | CRM | `partie_*`, `affiliation_*`, `deal_*`, `offre_*` | `tenir-le-crm` |
-| Tâches | `task_*`, `project_*` | `gerer-les-taches` |
+| Projets | `project_*` | `gerer-les-projets` |
+| Tâches | `task_*` | `gerer-les-taches` |
 | Carnet | `carnet_*` | `tenir-le-carnet` |
 | Fiches | `fiche_append` (transverse) | ce socle |
 | Temps | `timesheet_*`, `activity_*` | `suivre-le-temps` |

@@ -60,7 +60,8 @@ Le numéro de `version` déclenche la mise à jour côté claude.ai (bouton « M
 | `creer-une-cover-ressource` | recette | Bannière 16:9 d'une ressource, portée par une accroche-objectif. Charge le socle visuel. |
 | `piloter-avqn-os` | socle | La grammaire des objets d'AVQN OS (parties, rôles dérivés, projet pivot, carnet), le réflexe recall/contexte et les invariants. Chargé par les recettes de l'OS. |
 | `tenir-le-crm` | recette | Annuaire, affiliations, deals et interlocuteurs. Charge le socle OS. |
-| `gerer-les-taches` | recette | Capture, postures d'engagement, facettes, projets. Charge le socle OS. |
+| `gerer-les-projets` | recette | Le projet comme engagement : nommage, fiche unifiée, dates, cycle de vie du statut (active/paused/done/dropped). Charge le socle OS. |
+| `gerer-les-taches` | recette | Capture, postures d'engagement, facettes, rattachement au projet. Charge le socle OS. |
 | `tenir-le-carnet` | recette | Notes du carnet, liens typés, fils de relation. Charge le socle OS. |
 | `suivre-le-temps` | recette | Saisies, activités, taux dérivé, rapport. Charge le socle OS. |
 | `suivre-les-objectifs` | recette | Pilotage : objectifs trimestriels, métriques (jauge/compteur), cibles et mesures. Charge le socle OS. |

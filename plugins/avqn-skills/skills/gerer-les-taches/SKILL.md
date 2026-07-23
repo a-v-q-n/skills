@@ -4,9 +4,10 @@ description: >-
   À utiliser dès que Manu mentionne quelque chose à faire, veut trier sa journée, replanifier,
   déléguer ou clore une tâche. Orchestre le domaine tâches d'AVQN OS — capture sans friction,
   quatre postures d'engagement (Capture, Aujourd'hui, Plus tard, Peut-être) et des facettes
-  (planifiée, échéance, en attente) qui ne sont jamais des statuts, plus les projets qui
-  regroupent. Charge d'abord le socle piloter-avqn-os. NE COUVRE PAS les tâches de dev (elles
-  vont en Issue GitHub) ni le temps passé dessus (suivre-le-temps).
+  (planifiée, échéance, en attente) qui ne sont jamais des statuts, et le rattachement d'une
+  tâche à son projet. Charge d'abord le socle piloter-avqn-os. NE COUVRE PAS les tâches de dev
+  (elles vont en Issue GitHub), le temps passé dessus (suivre-le-temps) ni la tenue des projets
+  eux-mêmes — nom, fiche, statut (gerer-les-projets).
 ---
 
 # Gérer les tâches
@@ -63,13 +64,11 @@ la sortir de la liste parce qu'on attend : poser `waitingOn`.
 Les sous-étapes sont une **checklist markdown dans `notes`** (`- [ ] …`), pas des sous-tâches :
 il n'y a pas d'arbre.
 
-## Les projets
+## Ranger une tâche dans son projet
 
-`avqn-os:project_list` / `project_get` / `project_create` / `project_update`. Un projet regroupe
-tâches, temps et notes, et se rattache à une **partie** (`partieId`) et éventuellement au deal
-d'où il vient.
-
-Un projet **gagné** naît tout seul : `deal_win` le crée. Ne pas le créer à la main dans ce cas.
+Une tâche se rattache à un projet — le pivot qui regroupe tâches, temps et notes :
+`avqn-os:task_update { projectId }`. Ici on ne fait que **rattacher**. Créer, nommer, dater,
+clore ou fusionner un projet, c'est **`gerer-les-projets`**.
 
 `repo` (au format `owner/nom`) fait d'un projet un projet de dev : son travail vit alors en
 Issues GitHub, pas en tâches maison.
