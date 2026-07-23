@@ -63,6 +63,7 @@ Le numéro de `version` déclenche la mise à jour côté claude.ai (bouton « M
 | `gerer-les-taches` | recette | Capture, postures d'engagement, facettes, projets. Charge le socle OS. |
 | `tenir-le-carnet` | recette | Notes du carnet, liens typés, fils de relation. Charge le socle OS. |
 | `suivre-le-temps` | recette | Saisies, activités, taux dérivé, rapport. Charge le socle OS. |
+| `suivre-les-objectifs` | recette | Pilotage : objectifs trimestriels, métriques (jauge/compteur), cibles et mesures. Charge le socle OS. |
 | `creer-un-pdf` | mécanique | Assemble N images en un PDF multi-pages. Brand-neutral, appelé par les recettes. |
 | `creer-une-illustration-ui` | recette | Maquette filaire qui enseigne un élément d'interface. Charge le socle visuel. |
 | `creer-une-facture` | recette | Orchestre la facturation AVQN OS : brouillon, proforma et PDF+QR rendus par le serveur (invoice_render_pdf), émission, envoi, encaissement. |

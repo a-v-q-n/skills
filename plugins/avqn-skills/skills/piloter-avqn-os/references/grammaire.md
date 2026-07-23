@@ -89,6 +89,20 @@ ensuite, la facture jamais. Montants en **centimes**.
 Les colonnes de snapshot gardent le préfixe `client_` : sur une pièce comptable, le destinataire
 **est** le client, qu'il soit une personne ou une entreprise.
 
+## Le pilotage
+
+| Objet | Ce que c'est |
+|---|---|
+| Objectif | Le cap d'un trimestre, qualitatif, sans chiffre. Clé `2026-q3.o1`. |
+| Métrique | Ce qu'on mesure. Unique et permanente, ne porte jamais de valeur cible. `jauge` (un état) ou `compteur` (un événement du jour). |
+| Cible | L'ambition datée : amener une métrique de A à B. Période héritée de l'objectif, échéance au dernier jour du trimestre. Clé `2026-q3.o1.kr1`. |
+| Mesure | Une valeur sur (métrique, jour), signée d'une `source`. Upsert : rejouer un jour corrige le point. |
+
+Une jauge se lit à la dernière mesure ; un compteur se somme sur la période. Le départ d'une
+cible se dérive (jauge : l'état à l'entrée de la période ; compteur : zéro). Supprimer un
+objectif emporte ses cibles mais jamais les mesures ; supprimer une métrique détruit sa série
+et est refusé tant qu'une cible s'appuie dessus — l'archive douce est `active=false`.
+
 ## L'index de recherche
 
 `avqn_rag_chunk` est une **projection dérivée reconstructible**, jamais une source de vérité.

@@ -6,7 +6,7 @@ description: >-
   personne|organisation comme unité du CRM, les rôles dérivés jamais saisis, le projet comme
   pivot, la fiche comme état d'un objet et le carnet comme journal — le réflexe `recall`/`contexte` avant toute
   recherche, et les invariants à ne jamais violer. Socle chargé par tenir-le-crm,
-  gerer-les-taches, tenir-le-carnet, suivre-le-temps et creer-une-facture. NE COUVRE PAS les
+  gerer-les-taches, tenir-le-carnet, suivre-le-temps, suivre-les-objectifs et creer-une-facture. NE COUVRE PAS les
   gestes d'un domaine précis (voir la recette correspondante) ni l'infra (OS séparé `ops`).
 ---
 
@@ -124,7 +124,7 @@ Quatre postures (`Capture`, `Aujourd'hui`, `Plus tard`, `Peut-être`) et des **f
 | Facturation | `invoice_*` | `creer-une-facture` |
 | Agenda | `cal_*` | — outils directs (CalDAV) |
 | Mail | `mail_*` | — outils directs (IMAP) |
-| Pilotage | `objective_*`, `indicator_*`, `measure_*`, `pilotage_*` | — outils directs |
+| Pilotage | `objectif_*`, `metrique_*`, `cible_*`, `mesure_record`, `pilotage_dashboard` | `suivre-les-objectifs` |
 
 Le vocabulaire complet, avec les correspondances depuis l'ancienne grammaire, est dans
 `references/grammaire.md` — à charger si un doute subsiste sur un nom d'objet.
