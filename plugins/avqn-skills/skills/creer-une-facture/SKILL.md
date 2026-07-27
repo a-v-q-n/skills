@@ -35,8 +35,14 @@ Trois questions, trois objets — tout le reste se dérive, jamais ne se saisit 
   (une pièce couvre une ligne, garde-fou serveur).
 - **Encaissé** → les paiements (`paiement_record`) : l'argent réellement arrivé, N par pièce.
 
-Les états se lisent, ne s'écrivent pas : « à facturer » = ligne sans pièce émise ;
-« en attente » = pièce émise non soldée ; `paid` = cache de Σ paiements ≥ total.
+Les états se lisent, ne s'écrivent pas. Une ligne du plan se lit en quatre temps —
+**à facturer** (aucune pièce, ou pièce annulée) / **brouillon prêt** (la pièce est écrite,
+pas émise : ne pas en refaire une) / **facturée** / **payée** ; une facture est *en attente*
+tant qu'elle est émise et non soldée, et `paid` n'est qu'un cache de Σ paiements ≥ total.
+
+Où lire : le **calendrier du règlement** (`/facturation/echeancier` du cockpit) montre tous
+les plans groupés par projet ; le bloc « À facturer » de la rubrique montre le geste à faire ;
+`echeancier_get` rend le plan d'un projet et son règlement dérivé.
 
 ## Le grain : une pièce par versement
 
@@ -59,6 +65,11 @@ versement a sa pièce) et la seule voie d'émission.
 1. **Poser le plan** — dès l'accord conclu : `avqn-os:tranche_add` sur le projet, une ligne
    par versement (libellé, centimes, date prévue). Relire l'échéancier avec Manu avant de
    facturer quoi que ce soit (`avqn-os:echeancier_get`).
+   **Un dossier repris a presque toujours son plan quelque part** : il vit dans la
+   proposition ou le contrat envoyé au client, pas dans le mail de facture — qui se contente
+   d'un « comme convenu ». Le chercher (`mail_search` sur le fil de la proposition, `recall`)
+   avant de demander à Manu, et surtout avant de laisser une tranche sans date : une date
+   prévue est un engagement pris, jamais une valeur inventée.
 2. **Préparer la pièce du jalon** — retrouver le client (`contexte` / `recall`), les lignes
    et montants (en **centimes** : 180.00 CHF → 18000). Adresse postale du client inconnue ?
    La demander à Manu ou la chercher (mails) : sans elle le QR laisse « Payable par » vide —
@@ -79,6 +90,19 @@ versement a sa pièce) et la seule voie d'émission.
 8. **Encaisser** — à chaque arrivée réelle d'argent : `avqn-os:paiement_record
    { invoiceId, paidOn, amountCents }`. `invoice_mark_paid` est le sucre qui solde le
    restant en un geste. Le statut `paid` se dérive seul.
+
+## Ce qui se prépare, ce qui se pose au jalon
+
+Une pièce **naît** à son émission : c'est `invoice_issue` qui pose le numéro et la date
+d'émission, le jour réel, jamais d'avance. Émettre en avance inscrirait dans les livres une
+créance qui n'existe pas encore, et un changement de plan se paierait alors en annulations
+au lieu d'une simple suppression de brouillon.
+
+Se prépare donc à l'avance, sans rien engager : le brouillon (lignes, snapshot client), son
+**échéance** (`dueDate` — posée sur le brouillon, elle est conservée par l'émission), le
+**jalon** de la tranche (`expectedOn` = le jour où la pièce doit partir), et le proforma
+relu. Quand le jalon est lointain, **poser une tâche datée** (`task_create` avec
+`scheduledFor`, rattachée au projet) : elle dort jusqu'au jour dit puis remonte seule.
 
 ## Corrections et numérotation
 
