@@ -2,12 +2,12 @@
 name: piloter-avqn-os
 description: >-
   À charger avant toute action dans AVQN OS (le MCP `avqn-os` : CRM, tâches, carnet, temps,
-  facturation, agenda, mail, pilotage). Porte la grammaire des objets — la partie
-  personne|organisation comme unité du CRM, les rôles dérivés jamais saisis, le projet comme
-  pivot, la fiche comme état d'un objet et le carnet comme journal — le réflexe `recall`/`contexte` avant toute
-  recherche, et les invariants à ne jamais violer. Socle chargé par tenir-le-crm,
-  gerer-les-projets, gerer-les-taches, tenir-le-carnet, suivre-le-temps, suivre-les-objectifs et
-  creer-une-facture. NE COUVRE PAS les
+  facturation, agenda, mail, pilotage). Porte la grammaire des objets — la partie personne|
+  organisation comme unité du CRM, les rôles dérivés jamais saisis, le projet comme pivot, la
+  fiche comme état d'un objet et le carnet comme journal — la matrice de rangement (où va quelle
+  information), le réflexe `recall`/`contexte` avant toute recherche, et les invariants à ne
+  jamais violer. Socle chargé par tenir-le-crm, gerer-les-projets, gerer-les-taches,
+  tenir-le-carnet, suivre-le-temps, suivre-les-objectifs et creer-une-facture. NE COUVRE PAS les
   gestes d'un domaine précis (voir la recette correspondante) ni l'infra (OS séparé `ops`).
 ---
 
@@ -73,13 +73,32 @@ et partie / projet / taux se **dérivent** en remontant — jamais recopiés.
 Nom, format de fiche, dates et cycle de vie du statut (dont l'absence de suppression dure) :
 **`gerer-les-projets`**.
 
-### La fiche et le carnet — l'état et l'événement
+## La matrice de rangement
 
-Avant d'écrire quoi que ce soit, une seule question :
+Avant d'écrire quoi que ce soit, une seule question : **de quoi cette information est-elle la
+réponse ?**
 
-> **Est-ce que ça a une date qui compte ?**
+| Objet | Répond à | Exemple |
+|---|---|---|
+| **Fiche de partie** | Qui c'est, comment travailler avec | « Ne pas court-circuiter Sébastien » |
+| **Fiche de deal** | Ce qui se vend, à quelles conditions | « 1'100 CHF, payé après chaque phase » |
+| **Fiche de projet** | Ce qu'on a fait, ce qu'on en retient | Les phases livrées, les enseignements |
+| **Note de carnet** | Quand, et ce qui s'est dit ce jour-là | « Session 3 à Payerne » |
+| **Tâche** | Ce qui reste à faire | « Relancer Antoine » |
+| **Facture** | L'argent et son état | 10'000 CHF, émise, impayée |
+
+Deux tests, dans cet ordre :
+
+> **1. Est-ce que ça a une date qui compte ?**
 > **Oui** → c'est un **événement** → une note du carnet, datée et liée.
 > **Non**, ça décrit ce qu'un objet **est** maintenant → c'est son **état** → sa **fiche**.
+
+> **2. Est-ce que cette phrase pourrait être copiée telle quelle dans un autre objet ?**
+> **Oui** → elle est au mauvais endroit dans au moins un des deux. Trancher, et faire renvoyer
+> l'un vers l'autre plutôt que de dupliquer.
+
+Une fiche qui grossit est presque toujours une fiche qui a absorbé ce qui appartient à un autre
+objet : le déroulé d'un mandat, sa chronologie, l'état d'une créance.
 
 **La fiche** est un champ de l'objet (`partie`, `deal`, `project`, `task`, `offre`), en markdown.
 Une par sujet, et elle doit rester **juste** : on la corrige, on ne l'empile pas. Elle s'écrit par
@@ -91,16 +110,45 @@ qui a une vie propre — qu'on voudra compter, dater, relier ou retrouver seul �
 une section. Quand un document n'a pas de sujet, il ne manque pas un tiroir : **il manque un
 objet**.
 
-**Le carnet** est le journal : une seule table de notes pour tout l'OS, toutes datées. Le titre est
-**optionnel** (une note de fil n'en a pas). Une note porte **N liens typés** (`partie`, `deal`,
-`project`, `task`) : elle peut viser une personne *et* un deal *et* un projet. **La cascade frappe
-le lien, jamais la note** — supprimer un deal ne détruit pas sa documentation.
+**Le carnet** est le journal : une seule table de notes pour tout l'OS, toutes datées. Le titre
+suit la portée (jalon titré, note de fil sans titre). Une note porte **UN rattachement** — l'endroit
+le plus fin que l'événement concerne (**tâche > projet > deal > partie**) — et **des présents**
+(les personnes impliquées que le graphe ne déduit pas). Tout le reste **se dérive à la lecture** :
+le dossier d'une partie hérite des notes de ses deals et de ses projets, on ne re-lie donc jamais un
+ancêtre. **La cascade frappe le lien, jamais la note** — supprimer un deal détache sa documentation
+sans la détruire. Règle complète : `tenir-le-carnet`.
 
 ### Les tâches — un engagement, pas un statut
 
 Quatre postures (`Capture`, `Aujourd'hui`, `Plus tard`, `Peut-être`) et des **facettes**
 (`scheduledFor`, `dueDate`, `waitingOn`) qui ne sont jamais des statuts. Détail dans
 `gerer-les-taches`.
+
+## Écrire juste
+
+**Une fiche fausse est pire qu'une fiche absente** : l'agent la lit comme vraie et agit dessus.
+
+- **Ne consigner que ce que la source établit.** Un numéro de téléphone plausible, un rôle déduit
+  d'un nom de domaine, un déroulé de séance reconstitué de mémoire : ce sont des inventions. Un
+  champ vide, ou un marqueur explicite (*« à confirmer »*, *« contenu non consigné »*), vaut mieux.
+- **Croiser avant de conclure.** Un mail d'invitation ne prouve pas qu'une réunion a eu lieu ; une
+  saisie de temps, oui. Un dossier qui semble réussi peut avoir une fin manquée que seuls les
+  derniers mails racontent.
+- **Distinguer le fait de la lecture.** « Il ne s'est pas présenté » est un fait ; « il se
+  désintéresse » est une interprétation. Écrire les deux, en les distinguant.
+- **Les données structurées vont dans leurs champs**, pas dans le corps d'une fiche. Une
+  coordonnée noyée dans du markdown n'est ni cherchable, ni reprise par la facturation.
+
+## Lire ce qu'on écrit
+
+L'objet renvoyé par un tool d'écriture porte ce que le serveur a réellement enregistré, y compris
+ce qu'il a **dérivé** : l'id du projet créé par `deal_win`, le taux résolu d'une saisie de temps,
+le numéro attribué à l'émission d'une facture. Le lire plutôt que le supposer — c'est de là que
+vient l'id qu'on passera à l'étape suivante.
+
+Quand une opération ne peut pas aboutir — un statut qui interdit le geste, une suppression refusée
+— **s'arrêter et le dire à Manu**, plutôt que de contourner par un chemin qui laisserait des
+références cassées. Le refus est presque toujours un garde-fou, pas un obstacle.
 
 ## Invariants
 
@@ -113,8 +161,8 @@ Quatre postures (`Capture`, `Aujourd'hui`, `Plus tard`, `Peut-être`) et des **f
 - **Le journal s'écrit tout seul** : ne pas chercher à le tenir à la main.
 - **Ne pas recopier ce qui se dérive** (le client d'un temps, le taux d'un projet) : lire la
   valeur résolue, ne pas la figer ailleurs.
-- **Une fiche fausse est pire qu'une fiche absente** : l'agent la lit comme vraie. Ce qui change
-  se corrige dans la fiche ; si le changement compte, il devient aussi une note datée.
+- **Une fiche fausse est pire qu'une fiche absente.** Ce qui change se corrige dans la fiche ; si
+  le changement compte, il devient aussi une note datée.
 
 ## Les domaines et leur recette
 

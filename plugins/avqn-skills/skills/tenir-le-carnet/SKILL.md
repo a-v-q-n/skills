@@ -3,10 +3,11 @@ name: tenir-le-carnet
 description: >-
   À utiliser dès qu'on consigne ou retrouve ce qui S'EST PASSÉ dans AVQN OS : « prends note
   que… », un compte rendu, le suivi d'un échange, une décision prise un jour donné. Orchestre le
-  carnet — le journal daté de l'OS, titre optionnel, N liens typés par note (partie, deal, projet,
-  tâche), archive douce, recherche plein-texte française. Charge d'abord le socle piloter-avqn-os.
-  NE COUVRE PAS ce qu'un objet EST (sa fiche, écrite par le tool de son domaine), ce qu'il faut
-  faire (gerer-les-taches) ni la recherche transversale mails/agenda (outil recall du socle).
+  carnet — le journal daté de l'OS, titre selon la portée, UN rattachement par note (le plus fin :
+  tâche > projet > deal > partie) plus les présents, dérivation à la lecture, archive douce,
+  recherche plein-texte française. Charge d'abord le socle piloter-avqn-os. NE COUVRE PAS ce qu'un
+  objet EST (sa fiche, écrite par le tool de son domaine), ce qu'il faut faire (gerer-les-taches)
+  ni la recherche transversale mails/agenda (outil recall du socle).
 ---
 
 # Tenir le carnet
@@ -30,50 +31,136 @@ carnet la condamne à vieillir sans que personne ne la corrige — et l'agent la
 Quand le monde change, **corriger la fiche** ; si le changement compte en lui-même (un
 déménagement, une signature), ajouter **aussi** une note datée.
 
-## Deux façons d'écrire
+### Le corollaire : une note ne dit pas ce qu'un objet est
 
-**La note de fil** — un post rapide dans le suivi d'une partie ou d'un deal. **Pas de titre** :
+Une note qui décrit un profil, un métier, une manière de travailler est mal rangée : son contenu
+appartient à une fiche. La note garde l'événement, la fiche reçoit ce qu'on en a appris.
+
+> « Appel de cadrage. Elle est plus avancée qu'attendu : Summit de l'IA, formation Copilot,
+> bidouille en AppleScript. Son vrai besoin est de montrer des exemples dans sa boîte. »
+
+L'appel a une date — la note le garde. Le niveau et le besoin réel n'en ont pas — ils vont dans sa
+fiche, et la note y renvoie : *« profil et vrai besoin consignés dans sa fiche »*.
+
+## Le titre : selon la portée
+
+- **Jalon** — quelque chose qu'on voudra retrouver dans six mois (une signature, une livraison, une
+  séance, une rupture) : **titre**, court et factuel. C'est ce qui rend un fil lisible d'un coup
+  d'œil.
+- **Note de fil** — un point de suivi courant, un échange sans conséquence : **pas de titre**.
 
 ```
 avqn-os:carnet_create {
   body: "Appelé Antoine, il rappelle en septembre.",
-  liens: [{ kind: "partie", targetId: "<id>" }]
+  lien: { kind: "deal", targetId: "<id-deal>" },
+  interlocuteurs: ["<id-antoine>"]
 }
 ```
-
-**Le compte rendu** — titré, parce qu'il se retrouvera dans une liste :
 
 ```
 avqn-os:carnet_create {
-  title: "Kickoff — cadrage technique",
+  title: "Livraison du dashboard et clôture du mandat",
   body: "…",
-  liens: [{ kind: "project", targetId: "<id>" }, { kind: "partie", targetId: "<id>" }]
+  lien: { kind: "project", targetId: "<id-projet>" },
+  interlocuteurs: ["<id-interlocuteur>"]
 }
 ```
 
-## Les liens
+## Le rattachement — un seul, le plus fin
 
-Une note porte **N liens**, chacun visant exactement une cible : `partie`, `deal`, `project`,
-`task`. Une note de réunion peut viser à la fois la personne, le deal et le projet — **la lier
-partout où elle est vraie** plutôt que de choisir ou de la dupliquer.
+Une note porte **UN rattachement** (0..1) : l'endroit le plus fin que l'événement concerne. La
+hiérarchie décide, il n'y a rien à arbitrer :
 
-**La cascade frappe le lien, jamais la note** : supprimer un deal retire le rattachement et laisse
-la note au carnet. Retirer une note d'un fil, c'est retirer **le lien** — pas la note.
+> **tâche > projet > deal > partie**
 
-`carnet_update { liens }` **remplace l'ensemble** des liens. Pour en ajouter un, relire d'abord la
-note (`carnet_get`) et renvoyer la liste complète, sous peine d'effacer les autres.
+Tout le reste **se dérive à la lecture**. Le dossier d'une partie hérite des notes de ses deals et
+de ses projets, avec le motif du rattachement (`via`) : une note liée au projet apparaît chez le
+client sans lui être liée. C'est pour ça qu'on ne re-lie **jamais** un ancêtre — poser à la fois le
+projet et sa partie duplique une information que la lecture sait reconstruire, et brouille la
+question « qu'est-ce que cette note concerne exactement ? ».
+
+Une note sans rattachement est une **note libre** du journal : une idée, un apprentissage
+transversal, une réflexion qui ne concerne aucun objet en particulier.
+
+### Les présents, à côté du rattachement
+
+`interlocuteurs` consigne les **personnes présentes** à l'événement (0..N) — même modèle que les
+participants d'un deal. On n'y met que ce que le graphe CRM ne sait pas déduire : la personne
+rattachée à l'organisation cliente, l'interlocuteur habituel d'un deal se dérivent déjà. Un tiers
+venu à la séance, un décideur croisé une fois, un collègue du client présent à l'atelier : eux
+méritent d'y figurer.
+
+### Par type d'événement
+
+| L'événement | Le rattachement |
+|---|---|
+| Lead entrant, premier contact, appel de cadrage | le **deal** (ou la **partie** si aucun deal n'est ouvert) |
+| Offre envoyée, relance, négociation, acceptation, perte | le **deal** |
+| Séance, atelier, livrable | le **projet** |
+| Facture émise, encaissement, clôture de mandat | le **projet** |
+| Échange sans objet à vendre (réseau) | la **partie** |
+| Avancement d'un engagement précis | la **tâche** |
+| Apprentissage transversal (un format qui naît, un tarif qui se fixe) | rien — note libre, ou le deal d'où il vient |
+
+Le deal documente **la conquête**, pas la livraison : il s'arrête à l'étape qui clôt l'affaire.
+Tout ce qui suit — séances, livrables, factures, encaissements — vise le **projet**. Sans cette
+borne, les deals gagnés accumulent de la matière de production et le pipeline devient illisible.
+
+### Mécanique
+
+**La cascade frappe le lien, jamais la note** : supprimer un deal détache la note, qui survit au
+carnet. Retirer une note d'un fil, c'est retirer **le rattachement** — pas la note
+(`carnet_update { lien: null }`). `interlocuteurs` se remplace en bloc : renvoyer la liste
+complète, jamais le seul nom qu'on ajoute.
+
+## Le grain : un jalon, une note
+
+Une note par événement qui compte. Ni plus fin, ni plus gros.
+
+- **Trop fin** — « il a répondu », « rendez-vous décalé », « correction : c'est lundi pas mardi ».
+  Ça n'est pas un événement, c'est de la logistique. Ça se fond dans la note du jalon voisin, ou ça
+  ne s'écrit pas.
+- **Trop gros** — trois semaines de mandat dans une seule note. Le fil ne se lit plus, et rien n'est
+  retrouvable.
+
+**Une note ne corrige pas une note.** Une erreur de chiffre, de date ou de lecture se répare dans
+la note elle-même (`carnet_update`). Empiler une note de correction laisse les deux versions
+vivantes, et la fausse remonte aussi bien que la vraie dans `recall`.
+
+**Une note ne dit pas ce qu'il faut faire.** Un « next step » consigné au carnet n'est ni rappelé,
+ni échéancé, ni clôturable. Ce qui est à faire est une tâche (`gerer-les-taches`) ; la note garde
+seulement ce qui s'est passé.
+
+## Reconstituer un fil a posteriori
+
+Quand un dossier ancien n'a pas été suivi au fil de l'eau, le fil se reconstitue depuis les sources
+de l'OS plutôt que de mémoire : `recall` pour balayer, `mail_search` / `mail_read` pour le contenu
+réel des échanges, `cal_event_list` pour les dates et les durées, `timesheet_list` pour ce qui a été
+fait et combien de temps ça a pris.
+
+Deux précautions :
+
+- **Ne consigner que ce que la source établit.** Une séance dont le contenu n'est nulle part se note
+  avec sa date et sa durée, et un marqueur explicite — *« contenu non consigné, à compléter »*.
+  Inventer un déroulé plausible est pire que de laisser un trou.
+- **Croiser avant de conclure.** Un mail d'invitation ne prouve pas qu'une séance a eu lieu ; une
+  saisie de temps, oui. Un dossier qui semble s'être bien terminé peut avoir une fin manquée que
+  seuls les derniers mails racontent.
 
 ## Les gestes
 
 - **`avqn-os:carnet_list`** — les plus récentes d'abord. Filtres `cible` (`{ kind, targetId }` —
   c'est ce qui rend le fil d'une partie ou d'un deal), `includeArchived`.
-- **`avqn-os:carnet_get`** — la note complète avec ses liens et le nom de chaque cible.
-- **`avqn-os:carnet_update`** — titre, corps, date, `archived`, liens.
+- **`avqn-os:carnet_get`** — la note complète avec son rattachement et ses présents, noms inclus.
+  `carnet_list` rend un résumé : passer par `carnet_get` pour lire un corps en entier.
+- **`avqn-os:carnet_update`** — titre, corps, date, `archived`, `lien` (`null` détache),
+  `interlocuteurs`.
 - **`avqn-os:carnet_delete`** — destructif, `confirm` requis. **Y penser à deux fois** : archiver
   suffit presque toujours.
 
 `noteDate` est **le jour concerné** par la note, pas celui de la saisie. Consigner une réunion de
-mardi le jeudi : poser `noteDate` au mardi.
+mardi le jeudi : poser `noteDate` au mardi. Pour un événement étalé (une formation sur deux mois),
+poser la date de **début** et donner la période dans le corps.
 
 ## Chercher
 
@@ -85,5 +172,8 @@ aussi les fiches, les mails et l'agenda) plutôt que de parcourir `carnet_list`.
 
 - Écrire au carnet ce qu'un objet **est** : ça va dans sa fiche.
 - Créer une note pour dire quoi faire : c'est une tâche (`gerer-les-taches`).
-- Dupliquer une note pour la rattacher à deux entités : lui poser deux liens.
-- Supprimer une note pour la sortir d'un fil : retirer le lien.
+- Écrire une note qui en corrige une autre : corriger la première.
+- Re-lier un ancêtre du rattachement (le projet *et* sa partie) : la lecture le dérive déjà.
+- Garder le rattachement au `deal` sur une livraison postérieure au gain : c'est le projet.
+- Mettre dans `interlocuteurs` une personne que le graphe CRM déduit seul.
+- Supprimer une note pour la sortir d'un fil : la détacher (`lien: null`).
