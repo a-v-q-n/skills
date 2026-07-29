@@ -5,15 +5,16 @@ description: >-
   dans l'annuaire, rattacher une personne à une organisation, ouvrir ou faire avancer un deal,
   noter un échange, savoir qui est client, réparer un rattachement erroné. Orchestre le domaine
   CRM d'AVQN OS — parties (personne|organisation), affiliations datées, deals à étapes et leurs
-  interlocuteurs, catalogue d'offres. Charge d'abord le socle piloter-avqn-os. NE COUVRE PAS la
+  interlocuteurs, catalogue d'offres. Commence par la grammaire du serveur (avqn-os:grammaire).
+  NE COUVRE PAS la
   facturation (creer-une-facture), le carnet lui-même (tenir-le-carnet) ni le temps passé
   (suivre-le-temps).
 ---
 
 # Tenir le CRM
 
-Commencer par charger **`piloter-avqn-os`** : la grammaire des parties et des rôles dérivés y est
-posée, ce skill ne la répète pas.
+Commencer par appeler **`avqn-os:grammaire`** (sans argument, puis `{domaine: "crm"}`) : la
+grammaire des parties et des rôles dérivés y est posée, ce skill ne la répète pas.
 
 ## Avant d'écrire, chercher
 

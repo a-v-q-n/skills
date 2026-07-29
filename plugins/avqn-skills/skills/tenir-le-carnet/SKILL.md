@@ -5,14 +5,14 @@ description: >-
   que… », un compte rendu, le suivi d'un échange, une décision prise un jour donné. Orchestre le
   carnet — le journal daté de l'OS, titre selon la portée, UN rattachement par note (le plus fin :
   tâche > projet > deal > partie) plus les présents, dérivation à la lecture, archive douce,
-  recherche plein-texte française. Charge d'abord le socle piloter-avqn-os. NE COUVRE PAS ce qu'un
-  objet EST (sa fiche, écrite par le tool de son domaine), ce qu'il faut faire (gerer-les-taches)
-  ni la recherche transversale mails/agenda (outil recall du socle).
+  recherche plein-texte française. Commence par la grammaire du serveur (avqn-os:grammaire).
+  NE COUVRE PAS ce qu'un objet EST (sa fiche, écrite par le tool de son domaine), ce qu'il faut
+  faire (gerer-les-taches) ni la recherche transversale mails/agenda (outil recall).
 ---
 
 # Tenir le carnet
 
-Commencer par charger **`piloter-avqn-os`**.
+Commencer par appeler **`avqn-os:grammaire`** (sans argument, puis `{domaine: "carnet"}`).
 
 Le carnet est le **journal** de l'OS : ce qui s'est passé, daté. Le compte rendu d'une réunion, le
 suivi d'une relation, une décision prise ce jour-là.

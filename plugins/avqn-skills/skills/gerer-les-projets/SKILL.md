@@ -5,15 +5,16 @@ description: >-
   d'AVQN OS — ou qu'on remet de l'ordre dans la liste des projets. Orchestre le domaine projet :
   le projet comme engagement réel (jamais sur-découpé), la convention de nommage, le format de
   fiche unifié (Objectif / Cadre / Points clés), les dates de période et le cycle de vie du
-  statut (active, paused, done, dropped — pas de suppression dure). Charge d'abord le socle
-  piloter-avqn-os. NE COUVRE PAS les tâches d'un projet (gerer-les-taches), le temps passé
+  statut (active, paused, done, dropped — pas de suppression dure). Commence par la grammaire
+  du serveur (avqn-os:grammaire). NE COUVRE PAS les tâches d'un projet (gerer-les-taches), le temps passé
   (suivre-le-temps), la facturation (creer-une-facture) ni la naissance d'un projet gagné
   (deal_win, voir tenir-le-crm).
 ---
 
 # Gérer les projets
 
-Commencer par charger **`piloter-avqn-os`**.
+Commencer par appeler **`avqn-os:grammaire`** (sans argument, puis `{domaine: "taches"}` — le
+projet y vit avec les tâches).
 
 Un projet (`avqn_project`) est le **pivot** : il agrège tâches, temps et notes autour d'une
 partie / d'un deal. Ce skill porte ce qu'un projet **est** et comment le tenir propre ; les

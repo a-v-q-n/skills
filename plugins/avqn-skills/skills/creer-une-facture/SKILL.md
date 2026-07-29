@@ -7,15 +7,17 @@ description: >-
   proforma et PDF final générés PAR LE SERVEUR (invoice_render_pdf : corps A4 on-charte +
   QR-facture suisse), émission (invoice_issue), envoi (mail_draft), encaissement
   (paiement_record). Porte le jugement (grain du plan, lignes, libellés, adresses à réclamer,
-  relecture), jamais le dessin du document. Charge le socle piloter-avqn-os. NE COUVRE PAS le
+  relecture), jamais le dessin du document. Commence par la grammaire du serveur
+  (avqn-os:grammaire). NE COUVRE PAS le
   rendu lui-même (fonction serveur invoice_render_pdf) ni le reporting revenu (rubrique
   Facturation du cockpit, lecture seule).
 ---
 
 # Créer une facture
 
-Commencer par charger **`piloter-avqn-os`** : la grammaire des parties (une personne physique se
-facture au même titre qu'une organisation) et les invariants de l'OS y sont posés.
+Commencer par appeler **`avqn-os:grammaire`** (sans argument, puis `{domaine: "facturation"}`) :
+la grammaire des parties (une personne physique se facture au même titre qu'une organisation) et
+les invariants de l'OS y sont posés.
 
 Produire une facture client AVQN de bout en bout. **Le MCP rend, l'agent décide** : les
 données ET le dessin du document (PDF A4 on-charte + QR suisse) vivent dans AVQN OS

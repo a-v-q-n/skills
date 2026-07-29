@@ -57,7 +57,6 @@ avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.m
 | `produire-un-visuel-avqn` | socle | La charte visuelle AVQN + l'acte de base (composer un HTML on-charte → rendre → vérifier). Chargé par les recettes visuelles. |
 | `creer-un-visuel-social` | recette | Visuels réseaux sociaux (formats, gabarits, carrousel). Charge le socle visuel. |
 | `creer-une-cover-ressource` | recette | Bannière 16:9 d'une ressource, portée par une accroche-objectif. Charge le socle visuel. |
-| `piloter-avqn-os` | socle | La grammaire des objets d'AVQN OS (parties, rôles dérivés, projet pivot, carnet), le réflexe recall/contexte et les invariants. Chargé par les recettes de l'OS. |
 | `tenir-le-crm` | recette | Annuaire, affiliations, deals et interlocuteurs. Charge le socle OS. |
 | `gerer-les-projets` | recette | Le projet comme engagement : nommage, fiche unifiée, dates, cycle de vie du statut (active/paused/done/dropped). Charge le socle OS. |
 | `gerer-les-taches` | recette | Capture, postures d'engagement, facettes, rattachement au projet. Charge le socle OS. |

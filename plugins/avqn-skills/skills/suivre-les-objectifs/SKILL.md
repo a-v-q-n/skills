@@ -5,14 +5,14 @@ description: >-
   trimestre (OKR), définir des cibles chiffrées, créer ou corriger une métrique, enregistrer
   ou rattraper des mesures, ou lire l'avancement (« où en est le trimestre ? »). Orchestre le
   domaine pilotage — objectif qualitatif par trimestre, métrique unique et permanente
-  (jauge|compteur), cible datée posée sur une métrique, mesure par (métrique, jour). Charge
-  d'abord le socle piloter-avqn-os. NE COUVRE PAS le relevé quotidien automatique des réseaux
+  (jauge|compteur), cible datée posée sur une métrique, mesure par (métrique, jour). Commence
+  par la grammaire du serveur (avqn-os:grammaire). NE COUVRE PAS le relevé quotidien automatique des réseaux
   (routine cloud « zernio-daily ») ni les statistiques sociales elles-mêmes (MCP Zernio).
 ---
 
 # Suivre les objectifs
 
-Commencer par charger le socle `piloter-avqn-os`.
+Commencer par appeler **`avqn-os:grammaire`** (sans argument, puis `{domaine: "pilotage"}`).
 
 ## La grammaire du pilotage
 

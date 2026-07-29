@@ -5,14 +5,14 @@ description: >-
   déléguer ou clore une tâche. Orchestre le domaine tâches d'AVQN OS — capture sans friction,
   quatre postures d'engagement (Capture, Aujourd'hui, Plus tard, Peut-être) et des facettes
   (planifiée, échéance, en attente) qui ne sont jamais des statuts, et le rattachement d'une
-  tâche à son projet. Charge d'abord le socle piloter-avqn-os. NE COUVRE PAS les tâches de dev
+  tâche à son projet. Commence par la grammaire du serveur (avqn-os:grammaire). NE COUVRE PAS les tâches de dev
   (elles vont en Issue GitHub), le temps passé dessus (suivre-le-temps) ni la tenue des projets
   eux-mêmes — nom, fiche, statut (gerer-les-projets).
 ---
 
 # Gérer les tâches
 
-Commencer par charger **`piloter-avqn-os`**.
+Commencer par appeler **`avqn-os:grammaire`** (sans argument, puis `{domaine: "taches"}`).
 
 ## Capturer d'abord, trier ensuite
 

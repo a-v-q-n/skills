@@ -5,13 +5,13 @@ description: >-
   combien d'heures sont allées où : « j'ai passé 2 h sur… », « combien sur ce client ce mois-ci ? ».
   Orchestre le domaine temps d'AVQN OS — saisies rattachées au niveau le plus fin, activités
   comme référentiel de prestations, taux dérivé par cascade, rapport par client, projet ou
-  activité. Charge d'abord le socle piloter-avqn-os. NE COUVRE PAS la facturation de ces heures
+  activité. Commence par la grammaire du serveur (avqn-os:grammaire). NE COUVRE PAS la facturation de ces heures
   (creer-une-facture) ni les tâches elles-mêmes (gerer-les-taches).
 ---
 
 # Suivre le temps
 
-Commencer par charger **`piloter-avqn-os`**.
+Commencer par appeler **`avqn-os:grammaire`** (sans argument, puis `{domaine: "temps"}`).
 
 ## S'accrocher au niveau le plus fin connu
 
