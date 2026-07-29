@@ -57,12 +57,5 @@ avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.m
 | `produire-un-visuel-avqn` | socle | La charte visuelle AVQN + l'acte de base (composer un HTML on-charte → rendre → vérifier). Chargé par les recettes visuelles. |
 | `creer-un-visuel-social` | recette | Visuels réseaux sociaux (formats, gabarits, carrousel). Charge le socle visuel. |
 | `creer-une-cover-ressource` | recette | Bannière 16:9 d'une ressource, portée par une accroche-objectif. Charge le socle visuel. |
-| `tenir-le-crm` | recette | Annuaire, affiliations, deals et interlocuteurs. Charge le socle OS. |
-| `gerer-les-projets` | recette | Le projet comme engagement : nommage, fiche unifiée, dates, cycle de vie du statut (active/paused/done/dropped). Charge le socle OS. |
-| `gerer-les-taches` | recette | Capture, postures d'engagement, facettes, rattachement au projet. Charge le socle OS. |
-| `tenir-le-carnet` | recette | Notes du carnet, liens typés, fils de relation. Charge le socle OS. |
-| `suivre-le-temps` | recette | Saisies, activités, taux dérivé, rapport. Charge le socle OS. |
-| `suivre-les-objectifs` | recette | Pilotage : objectifs trimestriels, métriques (jauge/compteur), cibles et mesures. Charge le socle OS. |
 | `creer-un-pdf` | mécanique | Assemble N images en un PDF multi-pages. Brand-neutral, appelé par les recettes. |
 | `creer-une-illustration-ui` | recette | Maquette filaire qui enseigne un élément d'interface. Charge le socle visuel. |
-| `creer-une-facture` | recette | Orchestre la facturation AVQN OS : brouillon, proforma et PDF+QR rendus par le serveur (invoice_render_pdf), émission, envoi, encaissement. |
