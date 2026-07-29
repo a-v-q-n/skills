@@ -23,22 +23,21 @@ def load(p):
 mkt = load('.claude-plugin/marketplace.json')
 plg = load('plugins/avqn-skills/.claude-plugin/plugin.json')
 
-# Version : présente et identique entre l'entrée marketplace et plugin.json.
-# C'est ce numéro qui déclenche « Mettre à jour » côté claude.ai.
-mkt_ver = None
+# Version : ABSENTE des deux fichiers. Sans champ `version`, chaque commit poussé est une
+# version (SHA git) et la mise à jour se propage seule côté claude.ai. Une version posée
+# ÉPINGLE le plugin : les clients gardent leur copie tant que la chaîne ne change pas.
 if mkt:
     entry = next((p for p in mkt.get('plugins', []) if p.get('name') == 'avqn-skills'), None)
     if not entry:
         problems.append("marketplace.json : entrée 'avqn-skills' introuvable")
-    else:
-        mkt_ver = entry.get('version')
-        if not mkt_ver:
-            problems.append("marketplace.json : 'version' absente de l'entrée avqn-skills")
-plg_ver = plg.get('version') if plg else None
-if plg is not None and not plg_ver:
-    problems.append("plugin.json : 'version' absente")
-if mkt_ver and plg_ver and mkt_ver != plg_ver:
-    problems.append(f"Versions incohérentes : marketplace={mkt_ver} ≠ plugin.json={plg_ver}")
+    elif entry.get('version'):
+        problems.append(
+            f"marketplace.json : 'version' ({entry['version']}) épingle le plugin — la retirer "
+            "(sans elle, chaque commit se propage seul)")
+if plg is not None and plg.get('version'):
+    problems.append(
+        f"plugin.json : 'version' ({plg['version']}) épingle le plugin — la retirer "
+        "(sans elle, chaque commit se propage seul)")
 
 # Skills : SKILL.md présent, frontmatter avec name (== dossier) et description.
 skill_dirs = sorted(glob.glob('plugins/avqn-skills/skills/*/'))
@@ -67,6 +66,6 @@ if problems:
     for x in problems:
         print(" -", x)
     sys.exit(1)
-print(f"OK — marketplace et skills valides ({len(skill_dirs)} skill(s), version {mkt_ver}).")
+print(f"OK — marketplace et skills valides ({len(skill_dirs)} skill(s), versionnage par SHA git).")
 PY
 ```

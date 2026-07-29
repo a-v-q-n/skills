@@ -40,9 +40,8 @@ Crée un nouveau skill nommé `$ARGUMENTS` dans ce repo. Charge d'abord le skill
 
 5. **Rappeler** (sans les faire tout de suite) : compléter la `description`
    (déclencheurs + limite), ajouter `references/`/`templates/`/`examples/`/`assets/`
-   au besoin, ajouter le skill à la table de `README.md`, **bumper la `version`**
-   (même valeur dans `plugin.json` et dans l'entrée `avqn-skills` de `marketplace.json`),
-   puis lancer `/check-skills` avant de commiter.
+   au besoin, ajouter le skill à la table de `README.md`, puis lancer `/check-skills`
+   avant de commiter. Pas de version à bumper : chaque commit poussé se propage seul.
 
 Ne pas créer de dossiers vides — `references/`, `templates/`, etc. s'ajoutent quand
 ils servent.
