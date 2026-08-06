@@ -4,7 +4,7 @@ description: >-
   À utiliser dès qu'on rédige, réécrit ou corrige un post LinkedIn pour Manu. Porte les
   spécificités du canal (hook de 2 lignes, longueur, structure type, registres de post,
   adresse au tu) et charge d'abord le socle ecrire-comme-manu pour la voix. NE COUVRE PAS
-  la voix elle-même (socle ecrire-comme-manu) ni le visuel du post (creer-un-visuel-social).
+  la voix elle-même (socle ecrire-comme-manu) ni le visuel du post.
 ---
 
 # Écrire un post LinkedIn

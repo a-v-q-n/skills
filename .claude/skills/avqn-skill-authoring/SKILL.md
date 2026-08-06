@@ -6,7 +6,7 @@ description: >-
   critère skill-ou-référence, la composition — et les conventions maison : anatomie
   (SKILL.md + references/templates/examples/assets), frontmatter en français avec
   déclencheurs, divulgation progressive, workflow de publication (/new-skill →
-  /check-skills → push → /plugin marketplace update). S'appuie sur
+  /check-skills → push, sans champ version : le SHA git fait foi). S'appuie sur
   superpowers:writing-skills pour le métier générique. NE COUVRE PAS l'écriture du
   contenu métier d'un skill donné.
 ---
@@ -21,8 +21,8 @@ vit dans `CLAUDE.md` ; ce skill l'applique au geste de création.
 
 Avant d'écrire une ligne, situer le skill.
 
-- **Recette** — une action de bout en bout (`creer-un-post`, `ecrire-pour-linkedin`). Elle
-  orchestre : elle route, appelle les outils MCP, et compose le socle.
+- **Recette** — une action de bout en bout (`ecrire-pour-linkedin`, `emettre-une-offre`).
+  Elle orchestre : elle route, appelle les outils MCP, et compose le socle.
 - **Socle** — un *craft* transverse réutilisé par plusieurs recettes (`ecrire-comme-manu`).
 
 Puis trancher skill-à-part contre simple fichier avec **le critère** :
@@ -64,14 +64,15 @@ Concis, état-cible : décrire ce qui est, sans « désormais » ni « au lieu d
 l'essentiel et renvoie vers `references/` pour le reste.
 
 Une **recette compose son socle** : écrire en tête du corps, noir sur blanc, « commencer par
-charger `ecrire-comme-manu` » (ou le socle concerné). Les outils MCP se citent en nom qualifié
-`Serveur:outil`.
+charger `ecrire-comme-manu` » (ou le socle concerné). Les outils MCP se citent par leur nom
+d'usage (`invoice_render_pdf`) avec une formulation française de l'usage ; la mécanique d'un
+domaine AVQN OS vit dans `grammaire {domaine}` côté serveur et ne se redocumente pas.
 
 ## 6. Publier
 
 1. Ajouter le skill à la table de `README.md`.
-2. Bumper la `version` (même valeur dans `plugin.json` et dans l'entrée `avqn-skills` de
-   `marketplace.json`) — ce numéro déclenche « Mettre à jour » côté claude.ai.
-3. `/check-skills` — valider.
-4. Commit 🤖 + push.
-5. Côté client : « Mettre à jour » sur le plugin (ou `/plugin marketplace update avqn`).
+2. `/check-skills` — valider (le contrôle échoue si un champ `version` traîne : sans version,
+   chaque commit poussé est une version, le SHA git fait foi).
+3. Commit 🤖 + push.
+4. La mise à jour se propage seule ; au besoin, forcer côté client : « Mettre à jour » sur le
+   plugin, ou `/plugin marketplace update avqn` en CLI.

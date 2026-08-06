@@ -1,7 +1,8 @@
 # AVQN — Skills
 
 Marketplace de plugins Claude qui regroupe les skills AVQN. Un seul plugin,
-`avqn-skills`, embarque toutes les recettes maison.
+`avqn-skills`, embarque le craft du business : la voix de Manu, les canaux d'écriture,
+et les recettes qui orchestrent AVQN OS (`os.avqn.ch`).
 
 ## Installer dans Claude
 
@@ -53,9 +54,4 @@ avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.m
 | `ecrire-comme-manu` | socle | La voix de Manu : essence, règles non négociables, lexique, adresse. Chargé par les skills d'écriture. |
 | `ecrire-pour-linkedin` | recette | Rédige un post LinkedIn dans la voix de Manu. |
 | `ecrire-pour-threads` | recette | Rédige un post Threads (court, spontané, chaînable) dans la voix de Manu. |
-| `ecrire-une-ressource` | recette | Rédige une ressource pédagogique (module, leçon, support) dans la voix de Manu. |
-| `produire-un-visuel-avqn` | socle | La charte visuelle AVQN + l'acte de base (composer un HTML on-charte → rendre → vérifier). Chargé par les recettes visuelles. |
-| `creer-un-visuel-social` | recette | Visuels réseaux sociaux (formats, gabarits, carrousel). Charge le socle visuel. |
-| `creer-une-cover-ressource` | recette | Bannière 16:9 d'une ressource, portée par une accroche-objectif. Charge le socle visuel. |
-| `creer-un-pdf` | mécanique | Assemble N images en un PDF multi-pages. Brand-neutral, appelé par les recettes. |
-| `creer-une-illustration-ui` | recette | Maquette filaire qui enseigne un élément d'interface. Charge le socle visuel. |
+| `emettre-une-offre` | recette | Transforme un accord de vive voix en proposition écrite : devis, validation, PDF, email. Orchestre AVQN OS, charge la voix. |

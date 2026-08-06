@@ -4,11 +4,15 @@ Ce repo est **le dépôt unique de tous les skills AVQN**. Il publie une marketp
 avec un seul plugin, `avqn-skills`, poussé sur `a-v-q-n/skills` et branché à claude.ai via
 Extensions → Marketplaces.
 
-Tous les skills vivent ici. Les MCP (contentos, avqn-os, médiathèque…) ne fournissent que
-des **outils** ; les **recettes** qui les pilotent sont des skills de ce repo.
+**Périmètre** : la gestion du business AVQN via AVQN OS (`os.avqn.ch`) et l'écriture dans
+la voix de Manu. La production visuelle vit dans son propre plugin ; l'infra et le dev
+(Coolify, Hetzner, DNS, backups) restent dans Claude Code. Ni l'un ni l'autre n'entrent ici.
 
-**Périmètre** : production de média et gestion du business. L'infra et le dev (Coolify,
-Hetzner, DNS, backups) restent dans Claude Code et n'entrent pas ici.
+**La frontière avec le serveur** : AVQN OS embarque sa propre grammaire (tool `grammaire` —
+socle transverse + détail par domaine). Le fonctionnement des objets (partie, deal, projet,
+facture, note…) vit là-bas et ne se redocumente jamais ici. Les skills de ce repo portent
+ce que le serveur ne peut pas porter : le **craft** et le **jugement** — la voix, la méthode
+d'une offre, ce qui se valide avec Manu avant d'agir.
 
 Les principes de travail généraux vivent dans `~/.claude/CLAUDE.md`. Ce fichier ne couvre
 que la production de skills dans ce repo.
@@ -17,12 +21,11 @@ que la production de skills dans ce repo.
 
 Deux couches, et une seule règle pour ranger n'importe quel skill.
 
-- **Socle** — le *craft* transverse, réutilisable : la voix (`ecrire-comme-manu`), le design
-  (la charte visuelle). Un skill de socle ne se déclenche presque jamais seul ; les recettes
-  le composent.
-- **Recettes** — des skills-actions qui vont de bout en bout : `creer-un-post`,
-  `ecrire-pour-linkedin`, `creer-un-visuel`, `creer-une-ressource`. Une recette **orchestre** :
-  elle route, appelle les outils MCP, et tire le socle.
+- **Socle** — le *craft* transverse, réutilisable : la voix (`ecrire-comme-manu`). Un skill
+  de socle ne se déclenche presque jamais seul ; les recettes le composent.
+- **Recettes** — des skills-actions qui vont de bout en bout : `ecrire-pour-linkedin`,
+  `emettre-une-offre`. Une recette **orchestre** : elle route, appelle les outils MCP, et
+  tire le socle.
 
 Physiquement, socle et recettes sont tous des dossiers de `skills/`. C'est le rôle et le
 nommage qui les distinguent, pas l'arborescence.
@@ -83,7 +86,10 @@ Un skill n'embarque que les dossiers utiles ; seul `SKILL.md` est obligatoire.
   décide du déclenchement — la soigner.
 - **Divulgation progressive** : `SKILL.md` porte l'essentiel et pointe vers `references/` pour
   le reste. On ne charge pas tout d'un coup.
-- **Outils MCP** : toujours en nom qualifié `Serveur:outil` pour éviter les « tool not found ».
+- **Outils MCP** : cités par leur nom d'usage (`invoice_render_pdf`, `mail_draft_reply`),
+  accompagnés d'une formulation française de l'usage — les descriptions serveur sont
+  rédigées en français, ce sont elles qui matchent quand les tools sont différés. Ne jamais
+  redocumenter la mécanique d'un domaine : elle vit dans `grammaire {domaine}` côté serveur.
 - **Langue et ton** : français, état-cible (décrire ce qui est, sans « désormais » ni « au
   lieu de »).
 
