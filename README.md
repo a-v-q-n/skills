@@ -49,9 +49,14 @@ avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.m
 
 ## Skills disponibles
 
-| Skill | Couche | Rôle |
+Les recettes suivent le cycle de vie du client — un skill par moment, chacun orchestre
+AVQN OS et charge la voix.
+
+| Skill | Couche | Moment |
 | :---- | :----- | :--- |
-| `ecrire-comme-manu` | socle | La voix de Manu : essence, règles non négociables, lexique, adresse. Chargé par les skills d'écriture. |
-| `ecrire-pour-linkedin` | recette | Rédige un post LinkedIn dans la voix de Manu. |
-| `ecrire-pour-threads` | recette | Rédige un post Threads (court, spontané, chaînable) dans la voix de Manu. |
-| `emettre-une-offre` | recette | Transforme un accord de vive voix en proposition écrite : devis, validation, PDF, email. Orchestre AVQN OS, charge la voix. |
+| `ecrire-comme-manu` | socle | La voix de Manu : essence, règles non négociables, lexique, adresse. Chargé par toutes les recettes. |
+| `accueillir-une-prise-de-contact` | recette | Quelqu'un contacte AVQN : enquêter, consigner au CRM, ouvrir le deal, répondre. |
+| `relancer-un-prospect` | recette | Le prospect reste silencieux : timing, ton, relance dans le fil, sortie propre. |
+| `emettre-une-offre` | recette | Accord de vive voix : devis, validation, PDF, email d'accompagnement. |
+| `envoyer-une-facture` | recette | Un jalon se facture : pièce, proforma relu, émission, PDF QR, email d'envoi. |
+| `relancer-une-facture` | recette | Une facture reste impayée : vérifier le paiement, palier de relance, brouillon. |

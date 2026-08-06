@@ -7,8 +7,8 @@ description: >-
   trois blocs (situation, proposition, ce que vous recevez), validation interactive du
   texte AVANT toute génération, échéancier, PDF en pièce jointe, email court en réponse
   dans le fil. Charge d'abord le socle ecrire-comme-manu pour la voix. NE COUVRE PAS la
-  qualification du besoin en amont, la facturation en aval (invoice_*), ni les emails de
-  prospection à froid.
+  prise de contact en amont (accueillir-une-prise-de-contact), la relance d'une offre sans
+  réponse (relancer-un-prospect) ni la facturation en aval (envoyer-une-facture).
 ---
 
 # Émettre une offre
@@ -60,7 +60,7 @@ Une fois le texte validé : `devis_create` (ou `devis_update` si un brouillon ex
 
 ### 5. Après l'envoi
 
-Sur retour de Manu : `devis_update { sentOn }` quand c'est parti, `{ acceptedOn }` à l'accord du client, puis `deal_win { devisId }` pour créer le projet et ses tranches, et enfin la facture d'acompte.
+Sur retour de Manu : `devis_update { sentOn }` quand c'est parti, `{ acceptedOn }` à l'accord du client, puis `deal_win { devisId }` pour créer le projet et ses tranches. La facture d'acompte se prépare avec `envoyer-une-facture` ; une offre restée sans réponse se traite avec `relancer-un-prospect`.
 
 ## Anatomie de l'offre
 

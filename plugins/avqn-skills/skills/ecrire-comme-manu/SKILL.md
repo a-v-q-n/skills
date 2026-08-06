@@ -3,15 +3,15 @@ name: ecrire-comme-manu
 description: >-
   À utiliser pour écrire, réécrire ou corriger tout texte en français au nom de Manu
   (Emmanuel Bernard) sans canal dédié (email, message, newsletter…), et comme socle chargé
-  par les skills de format (ecrire-pour-linkedin, ecrire-pour-threads, emettre-une-offre…).
-  Porte la voix
+  par les recettes du cycle client (accueillir-une-prise-de-contact, emettre-une-offre,
+  envoyer-une-facture…). Porte la voix
   authentique de Manu : essence, règles non négociables, lexique, adresse, checklist anti-tics.
-  NE COUVRE PAS les spécificités d'un canal — elles vivent dans le skill de format correspondant.
+  NE COUVRE PAS les spécificités d'un moment du cycle client — elles vivent dans la recette correspondante.
 ---
 
 # Écrire dans la voix de Manu
 
-Manu est entrepreneur, développeur et formateur en IA en Suisse romande (AVQN, ContentOS). Ce skill capture sa voix pour que chaque texte produit en son nom sonne comme s'il l'avait écrit lui-même, un bon jour, avec le temps de bien faire. C'est le **socle** : les skills de format (`ecrire-pour-linkedin`, `ecrire-pour-threads`, `emettre-une-offre`…) le chargent et n'ajoutent que leurs spécificités. Il sert aussi directement pour tout texte sans canal dédié.
+Manu est entrepreneur, développeur et formateur en IA en Suisse romande (AVQN, ContentOS). Ce skill capture sa voix pour que chaque texte produit en son nom sonne comme s'il l'avait écrit lui-même, un bon jour, avec le temps de bien faire. C'est le **socle** : les recettes du cycle client (`accueillir-une-prise-de-contact`, `emettre-une-offre`, `envoyer-une-facture`…) le chargent et n'ajoutent que leurs spécificités. Il sert aussi directement pour tout texte sans canal dédié.
 
 ## L'essence de la voix
 
@@ -55,7 +55,7 @@ Ces règles priment sur tout le reste, y compris sur les exemples du corpus (la 
 
 L'adresse suit la relation, jamais le hasard : **tu** quand le lien est proche ou direct, **vous** quand il est distant, collectif ou formel. **Jamais de mélange tu/vous dans un même texte.**
 
-Chaque skill de format fixe l'adresse de son canal. Pour les textes que ce socle traite directement (email, message), elle suit le destinataire :
+Chaque recette fixe l'adresse de son contexte. Pour les textes que ce socle traite directement (email, message), elle suit le destinataire :
 
 | Destinataire | Adresse |
 |---|---|
@@ -64,7 +64,7 @@ Chaque skill de format fixe l'adresse de son canal. Pour les textes que ce socle
 
 ## Processus de rédaction
 
-1. **Identifier le format et l'audience** → choisir l'adresse (voir « Adresse » ci-dessus). Si un skill de format dédié existe (`ecrire-pour-linkedin`, `emettre-une-offre`), c'est lui qui pilote et charge ce socle ; sinon, écrire directement ici.
+1. **Identifier le format et l'audience** → choisir l'adresse (voir « Adresse » ci-dessus). Si une recette dédiée existe (`emettre-une-offre`, `relancer-une-facture`…), c'est elle qui pilote et charge ce socle ; sinon, écrire directement ici.
 2. **Trouver l'entrée concrète** : quelle anecdote, quel moment vécu, quelle situation ouvre le texte ? Si le brief n'en contient pas, en demander une à Manu plutôt que d'en inventer une fausse.
 3. **Écrire** en suivant le mouvement de pensée (concret → idée → nuance → avance → chute douce).
 4. **Relire contre la checklist** ci-dessous, puis vérifier la variété (patterns et mots répétés).
@@ -89,4 +89,4 @@ Avant d'écrire, s'ancrer dans `references/exemples.md` (extraits authentiques d
 
 ## Boucle d'amélioration
 
-Quand Manu corrige un texte : ne pas se contenter de corriger le texte. Identifier la règle manquante ou fautive, l'ajouter à ce socle (ou au skill de format concerné) avec un exemple contrastif. C'est ainsi que ce skill a été construit et c'est ainsi qu'il reste vivant.
+Quand Manu corrige un texte : ne pas se contenter de corriger le texte. Identifier la règle manquante ou fautive, l'ajouter à ce socle (ou à la recette concernée) avec un exemple contrastif. C'est ainsi que ce skill a été construit et c'est ainsi qu'il reste vivant.

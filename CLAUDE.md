@@ -23,9 +23,13 @@ Deux couches, et une seule règle pour ranger n'importe quel skill.
 
 - **Socle** — le *craft* transverse, réutilisable : la voix (`ecrire-comme-manu`). Un skill
   de socle ne se déclenche presque jamais seul ; les recettes le composent.
-- **Recettes** — des skills-actions qui vont de bout en bout : `ecrire-pour-linkedin`,
+- **Recettes** — des skills-actions qui vont de bout en bout : `accueillir-une-prise-de-contact`,
   `emettre-une-offre`. Une recette **orchestre** : elle route, appelle les outils MCP, et
   tire le socle.
+
+Le grain d'une recette est **le moment de vie du client** (une prise de contact, un jalon à
+facturer), jamais le geste unitaire d'un domaine (« créer un deal », « ajouter une note ») :
+ces gestes sont des étapes des recettes, et leur mécanique vit dans la grammaire du serveur.
 
 Physiquement, socle et recettes sont tous des dossiers de `skills/`. C'est le rôle et le
 nommage qui les distinguent, pas l'arborescence.
@@ -35,8 +39,9 @@ nommage qui les distinguent, pas l'arborescence.
 > Un bloc devient un **skill à part** quand il a un **usage indépendant** — on l'invoque seul,
 > ou plusieurs recettes le réutilisent. Sinon, il reste un **fichier `references/`** de son parent.
 
-Corollaire (YAGNI) : on ne crée pas un skill par anticipation. Un nouveau canal ou format
-(Instagram, YouTube…) devient un skill fin le jour où on en écrit un vrai, pas avant.
+Corollaire (YAGNI) : on ne crée pas un skill par anticipation. Un nouveau moment du cycle
+(préparer un rendez-vous, faire le point, boucler un projet…) devient un skill le jour où
+un vrai cas le réclame, pas avant.
 
 ### Composition
 

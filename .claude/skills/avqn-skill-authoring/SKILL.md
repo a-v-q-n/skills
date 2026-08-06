@@ -21,7 +21,7 @@ vit dans `CLAUDE.md` ; ce skill l'applique au geste de création.
 
 Avant d'écrire une ligne, situer le skill.
 
-- **Recette** — une action de bout en bout (`ecrire-pour-linkedin`, `emettre-une-offre`).
+- **Recette** — une action de bout en bout (`emettre-une-offre`, `envoyer-une-facture`).
   Elle orchestre : elle route, appelle les outils MCP, et compose le socle.
 - **Socle** — un *craft* transverse réutilisé par plusieurs recettes (`ecrire-comme-manu`).
 
