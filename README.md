@@ -56,6 +56,8 @@ AVQN OS et charge la voix.
 | :---- | :----- | :--- |
 | `ecrire-comme-manu` | socle | La voix de Manu : essence, règles non négociables, lexique, adresse. Chargé par toutes les recettes. |
 | `accueillir-une-prise-de-contact` | recette | Quelqu'un contacte AVQN : enquêter, consigner au CRM, ouvrir le deal, répondre. |
+| `preparer-un-rendez-vous` | recette | Un call approche : le dossier relu et condensé en brief. Lecture seule. |
+| `debriefer-un-rendez-vous` | recette | Le call est passé : le débrief trié dans tout l'OS — note, fiches, deal, tâches, agenda, temps. |
 | `relancer-un-prospect` | recette | Le prospect reste silencieux : timing, ton, relance dans le fil, sortie propre. |
 | `emettre-une-offre` | recette | Accord de vive voix : devis, validation, PDF, email d'accompagnement. |
 | `envoyer-une-facture` | recette | Un jalon se facture : pièce, proforma relu, émission, PDF QR, email d'envoi. |

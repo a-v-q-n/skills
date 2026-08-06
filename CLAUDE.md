@@ -40,8 +40,8 @@ nommage qui les distinguent, pas l'arborescence.
 > ou plusieurs recettes le réutilisent. Sinon, il reste un **fichier `references/`** de son parent.
 
 Corollaire (YAGNI) : on ne crée pas un skill par anticipation. Un nouveau moment du cycle
-(préparer un rendez-vous, faire le point, boucler un projet…) devient un skill le jour où
-un vrai cas le réclame, pas avant.
+(faire le point, boucler un projet…) devient un skill le jour où un vrai cas le réclame,
+pas avant.
 
 ### Composition
 

@@ -24,7 +24,8 @@ Adresse : **vous**, du devis comme de l'email. Un prospect qui n'a pas encore si
 Une offre écrite ne précède jamais l'accord, elle le formalise. Avant d'ouvrir ce skill, il faut :
 
 - un **deal** existant dans l'OS, avec sa partie ;
-- un **échange de vive voix** déjà eu (appel, rendez-vous), consigné au carnet ;
+- un **échange de vive voix** déjà eu (appel, rendez-vous), consigné au carnet — c'est
+  `debriefer-un-rendez-vous` qui l'y a rangé ;
 - un **accord de principe sur le prix et le format**.
 
 Si l'un des trois manque, le dire à Manu plutôt que d'écrire. Une proposition envoyée avant l'accord se négocie ; une proposition envoyée après l'accord se signe.

@@ -81,7 +81,9 @@ envoie. La réponse :
 ### 7. Programmer la suite
 
 Une tâche rattachée au deal (ou à la partie) : `waitingOn` tant qu'on attend sa réponse.
-Si elle ne répond pas, c'est `relancer-un-prospect` qui prend le relais.
+Si elle ne répond pas, c'est `relancer-un-prospect` qui prend le relais. Le rendez-vous
+obtenu se pose à l'agenda, se prépare avec `preparer-un-rendez-vous` et se consigne avec
+`debriefer-un-rendez-vous`.
 
 ## Checklist avant de rendre la main
 
