@@ -1,7 +1,8 @@
 ---
 name: debriefer-un-rendez-vous
 description: >-
-  À utiliser après un call, un rendez-vous ou une séance, quand Manu débriefe (souvent en
+  À utiliser après tout rendez-vous, quel que soit le canal (call, visio, présentiel) et
+  le registre (appel découverte comme séance de coaching), quand Manu débriefe (souvent en
   vocal) : trier la matière et la ranger dans tout l'OS — la note de carnet, les fiches à
   mettre à jour, le deal à ouvrir ou faire avancer, les tâches, le prochain rendez-vous à
   l'agenda, la séance à saisir en temps — puis restituer à Manu ce qui a été rangé où.
@@ -26,9 +27,15 @@ matrice de rangement vit là-bas, ce skill l'applique au geste du débrief.
 ### 1. Situer
 
 De quel rendez-vous s'agit-il ? `contexte` sur le dossier (partie, deal ou projet), et au
-besoin l'agenda pour la date exacte. Le rattachement de la note en dépend : un appel de
-cadrage ou une négociation vise le **deal**, une séance ou un livrable vise le **projet**,
-un échange de réseau vise la **partie**.
+besoin l'agenda pour la date exacte. Le registre décide du centre de gravité du tri :
+
+- **Conquête** (appel découverte, cadrage, négociation) — la note vise le **deal**, et le
+  tri surveille surtout l'étape, la probabilité et l'accord qui déclencherait l'offre.
+- **Livraison** (séance de coaching, formation, atelier) — la note vise le **projet**, et
+  le tri ajoute la saisie de temps de la séance et la prochaine séance à l'agenda.
+- Un échange de réseau sans objet vise la **partie**.
+
+Le canal (call, visio, présentiel) ne change rien au tri — seul le registre compte.
 
 ### 2. Trier la matière
 

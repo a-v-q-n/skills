@@ -1,8 +1,9 @@
 ---
 name: preparer-un-rendez-vous
 description: >-
-  À utiliser avant un call, un rendez-vous ou une séance : rassembler tout ce que l'OS
-  sait du dossier et rendre un brief court à Manu — qui, où on en est, ce qui s'est dit
+  À utiliser avant tout rendez-vous, quel que soit le canal (call, visio, présentiel) et
+  le registre (appel découverte, cadrage, négociation, séance de coaching ou de
+  formation) : rassembler tout ce que l'OS sait du dossier et rendre un brief court à Manu — qui, où on en est, ce qui s'est dit
   la dernière fois, les points ouverts et les drapeaux, l'objectif du rendez-vous et les
   questions à poser. Lecture seule : ce skill n'écrit rien dans l'OS. NE COUVRE PAS le
   débrief d'après le rendez-vous (debriefer-un-rendez-vous) ni la création de
@@ -29,7 +30,24 @@ découvrent par `cal_calendars`, jamais présumés). En tirer : avec qui, quand,
 rôles, deals, projets, tâches, notes, factures, mails et événements récents. C'est la
 colonne vertébrale du brief.
 
-### 3. Creuser ce qui compte pour CE rendez-vous
+### 3. Identifier le registre
+
+Le rendez-vous est de la **conquête** ou de la **livraison**, et tout le brief s'en
+infléchit :
+
+- **Conquête** (appel découverte, cadrage, négociation) — le dossier est le **deal**. Ce
+  qui compte : ce que la personne a demandé, l'état du devis et ses dates, l'étape et la
+  probabilité, ce qui bloque la décision. L'objectif du rendez-vous est commercial :
+  qualifier, obtenir l'accord, débloquer.
+- **Livraison** (séance de coaching, formation, atelier, point d'avancement) — le dossier
+  est le **projet**. Ce qui compte : la note de la dernière séance, où on s'était arrêté,
+  ce que la personne devait pratiquer entre-temps, où on en est dans le programme
+  (séances faites sur séances vendues, via le temps saisi). L'objectif est pédagogique :
+  ce que cette séance doit faire avancer.
+
+Le canal (call, visio, présentiel) ne change rien au brief — seul le registre compte.
+
+### 4. Creuser ce qui compte pour CE rendez-vous
 
 - **Le fil du carnet** : les dernières notes rattachées — ce qui s'est dit la dernière
   fois, ce qui avait été convenu.
@@ -40,7 +58,7 @@ colonne vertébrale du brief.
 - **Les engagements** : tâches ouvertes du dossier, en particulier ce qui est `waitingOn`
   — lui ou Manu.
 
-### 4. Rendre le brief
+### 5. Rendre le brief
 
 Court, en conversation, toujours la même ossature :
 
@@ -50,7 +68,8 @@ Court, en conversation, toujours la même ossature :
 4. **Points ouverts et drapeaux** — ce qui attend une réponse, ce qui frotte : offre qui
    expire, facture échue, promesse non tenue (des deux côtés). Les nommer sans les
    enrober.
-5. **L'objectif du rendez-vous** — la seule chose à obtenir pour que le dossier avance.
+5. **L'objectif du rendez-vous** — la seule chose à obtenir pour que le dossier avance,
+   dans le registre du rendez-vous (l'accord en conquête, l'avancée en livraison).
 6. **Questions à poser** — y compris ce qui manque au dossier (une adresse de
    facturation, une date, un décideur) : le rendez-vous est le moment de l'obtenir.
 
