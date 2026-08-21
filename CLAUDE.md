@@ -110,6 +110,17 @@ Un skill n'embarque que les dossiers utiles ; seul `SKILL.md` est obligatoire.
 - **Langue et ton** : français, état-cible (décrire ce qui est, sans « désormais » ni « au
   lieu de »).
 
+## Contrat
+
+- **Démarrer en local** : rien à lancer — ce dépôt ne porte pas d'application. On travaille les
+  fichiers depuis une session ouverte DANS le repo ; les commandes d'auteur (`/new-skill`,
+  `/check-skills`) et le plugin `avqn-dev` (déclaré dans `.claude/settings.json`) s'amorcent
+  seuls. Le plugin chargé vient de la marketplace **publiée** : une modification locale d'un
+  skill ne prend effet dans la session qu'une fois poussée.
+- **Gate** : `/check-skills` — vert avant tout push.
+- **Livrer** : le push sur `main` EST la publication (cf. *Workflow de publication*). Ni CI,
+  ni image, ni déploiement.
+
 ## Workflow de publication
 
 1. `/new-skill <nom>` — scaffolde le dossier et un `SKILL.md` pré-rempli.

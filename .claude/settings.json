@@ -1,0 +1,26 @@
+{
+  "extraKnownMarketplaces": {
+    "avqn": {
+      "source": {
+        "source": "github",
+        "repo": "a-v-q-n/skills"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "avqn-dev@avqn": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/session-start.sh",
+            "timeout": 180
+          }
+        ]
+      }
+    ]
+  }
+}
