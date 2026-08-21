@@ -46,7 +46,7 @@ Récapitule les choix et **fais valider** avant d'agir (c'est le seul aval ; ens
 
 ## 3. Les ressources Coolify (récupère les UUID)
 
-Le serveur cible par défaut est **`Prod`** (`coolify_servers` → uuid `hswow4kwookocgg8c88sos8k`, ip `46.62.162.135`) ;
+Le serveur cible par défaut est **`Prod`** (`ops:coolify_servers` en donne l'UUID et l'IP) ;
 il porte l'auth GHCR (`/root/.docker/config.json`) donc il **pull les images privées de l'org sans credential par repo**.
 Choisis un **projet** existant via `coolify_projects` (ex. `04-Applications`, `05-Websites`, `01-Core`) et son
 environnement via `coolify_environments` (nom `production`).
@@ -104,14 +104,14 @@ le premier push la repointera). Récupère l'**UUID** du service.
 ## 4. Le DNS
 
 D'abord **détecter** : `ops:dns_records` (zone `avqn.ch`). Un enregistrement **wildcard
-`*.avqn.ch → 46.62.162.135`** (serveur Prod) existe : il couvre déjà tout **sous-domaine à un seul label**
+`*.avqn.ch → <IP du serveur Prod>`** existe : il couvre déjà tout **sous-domaine à un seul label**
 sur Prod (`<repo>.avqn.ch`). Dans ce cas — le plus courant — **aucun enregistrement à créer**, Traefik route
-par le domaine posé sur la ressource Coolify. Vérifie la résolution (`dig +short <domaine>` → `46.62.162.135`).
+par le domaine posé sur la ressource Coolify. Vérifie la résolution (`dig +short <domaine>` → l'IP du serveur Prod).
 
 Crée un enregistrement dédié seulement si le domaine **n'est pas couvert** par le wildcard : cible sur un
 autre serveur, ou sous-domaine **multi-labels** (ex. `<repo>.preview.avqn.ch`, non capté par `*`). Alors
 `ops:dns_record_create` : `zone="avqn.ch"`, `type="A"`, `source="<sous-domaine>"` (ex.
-`<repo>.preview`), `target="46.62.162.135"`. Puis vérifie la résolution.
+`<repo>.preview`), `target="<IP du serveur Prod>"`. Puis vérifie la résolution.
 
 ## 5. Générer le squelette (scaffold)
 

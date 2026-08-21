@@ -20,15 +20,15 @@ Lis la section **`## Démarrer en local`** du `CLAUDE.md` du repo (ou son équiv
 En local, Commandes) : commande, port, services, env, login dev. Un repo à procédure longue la porte dans un skill propre (`.claude/skills/`).
 Ne redécouvre pas ce qui est écrit.
 
-À défaut : `references/recettes.md` — les recettes connues de la flotte AVQN, que chaque repo
-reprend chez lui au fil des passages — sinon dérive-la de `package.json` + `README`.
+À défaut, dérive-la de `package.json` + `README` (et de la mémoire de session s'il y en a),
+teste-la, et rends-la au repo (règle d'or en bas).
 
 ## 2. Socle transverse AVQN (vaut pour toute la flotte)
 
-- **Postgres central** `46.62.162.135:5432` : la plupart des apps utilisent une **base logique
-  dédiée** dessus, sauf mention contraire dans la recette. Depuis le Mac le 5432 est filtré →
-  tunnel ssh ; le tunnel multiplie les N+1 (46 ms l'aller-retour contre 0,3 en prod) : un écran
-  lent en local ne l'est pas forcément en prod.
+- **Postgres central** (coordonnées dans le `CLAUDE.md` du repo) : la plupart des apps utilisent
+  une **base logique dédiée** dessus, sauf mention contraire dans la recette. Depuis le Mac son
+  port est filtré → tunnel ssh ; le tunnel multiplie les N+1 (46 ms l'aller-retour contre 0,3 en
+  prod) : un écran lent en local ne l'est pas forcément en prod.
 - **Auth partagée** : base `avqn_mcp` (propriété avqn-os), `BETTER_AUTH_SECRET` identique à
   avqn-os, schéma auth **vendoré, jamais migré** depuis un autre repo. SSO de flotte : cookie
   `.avqn.ch`, sessions 90 j — une session née sur `os.avqn.ch` vaut sur les autres apps.
@@ -47,5 +47,4 @@ aperçu sur vraies données, téléporter en local. Le hook SessionStart du repo
 
 Recette absente, incomplète ou qui échoue → (1) dérive-la, (2) **teste-la réellement** (boot +
 preuve), (3) **écris-la dans le `CLAUDE.md` du repo** (section `## Démarrer en local`, commit S
-ou petite PR), (4) retire-la de `references/recettes.md` si elle y était. La recette non testée
-ne s'écrit pas.
+ou petite PR). La recette non testée ne s'écrit pas.
