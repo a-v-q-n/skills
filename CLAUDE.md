@@ -1,12 +1,19 @@
 # Repo `skills` — méthodologie
 
-Ce repo est **le dépôt unique de tous les skills AVQN**. Il publie une marketplace Claude
-avec un seul plugin, `avqn-skills`, poussé sur `a-v-q-n/skills` et branché à claude.ai via
-Extensions → Marketplaces.
+Ce repo est **le dépôt unique de tous les skills AVQN**. Il publie une marketplace Claude,
+`avqn`, poussée sur `a-v-q-n/skills` et branchée à claude.ai via Extensions → Marketplaces,
+qui porte deux plugins :
 
-**Périmètre** : la gestion du business AVQN via AVQN OS (`os.avqn.ch`) et l'écriture dans
-la voix de Manu. La production visuelle vit dans son propre plugin ; l'infra et le dev
-(Coolify, Hetzner, DNS, backups) restent dans Claude Code. Ni l'un ni l'autre n'entrent ici.
+- **`avqn-skills`** — le business AVQN via AVQN OS (`os.avqn.ch`) et l'écriture dans la voix
+  de Manu. La production visuelle vit dans son propre plugin.
+- **`avqn-dev`** — la méthode de dev : triage par calibre, cycle `dev` jusqu'au FF merge,
+  `chantier`, `review-pr`, `apercu`, `local`, `new-project`, `gerer-les-secrets`, et les
+  sous-agents `revieweur` / `verificateur`. Elle ne sait rien d'un repo à l'avance : elle
+  **découvre** son contrat (`CLAUDE.md` — Démarrer en local / Gate / Livrer) et marche en local
+  comme en session cloud. L'infra elle-même est un connecteur (`AVQN OPS`) qui fournit des
+  outils ; ses recettes vivent ici.
+
+Un repo de la flotte ne porte que **son contrat**, jamais la méthode.
 
 **La frontière avec le serveur** : AVQN OS embarque sa propre grammaire (tool `grammaire` —
 socle transverse + détail par domaine). Le fonctionnement des objets (partie, deal, projet,
@@ -21,11 +28,12 @@ que la production de skills dans ce repo.
 
 Deux couches, et une seule règle pour ranger n'importe quel skill.
 
-- **Socle** — le *craft* transverse, réutilisable : la voix (`ecrire-comme-manu`). Un skill
-  de socle ne se déclenche presque jamais seul ; les recettes le composent.
+- **Socle** — le *craft* transverse, réutilisable : la voix (`ecrire-comme-manu`), la méthode
+  (`travailler-sur-un-repo`). Un skill de socle ne se déclenche presque jamais seul ; les
+  recettes le composent.
 - **Recettes** — des skills-actions qui vont de bout en bout : `accueillir-une-prise-de-contact`,
-  `emettre-une-offre`. Une recette **orchestre** : elle route, appelle les outils MCP, et
-  tire le socle.
+  `emettre-une-offre`, `dev`, `local`. Une recette **orchestre** : elle route, appelle les
+  outils MCP, et tire le socle.
 
 Le grain d'une recette est **le moment de vie du client** (une prise de contact, un jalon à
 facturer), jamais le geste unitaire d'un domaine (« créer un deal », « ajouter une note ») :
@@ -55,15 +63,19 @@ pas avant.
 ```
 .claude-plugin/marketplace.json      Catalogue de la marketplace « avqn »
 plugins/
-└── avqn-skills/
-    ├── .claude-plugin/plugin.json    Manifeste du plugin
-    └── skills/
-        └── <nom-du-skill>/           Un skill = un dossier (socle ou recette)
-            ├── SKILL.md              Requis — la recette
-            ├── references/           Détails chargés à la demande
-            ├── templates/            Gabarits à remplir
-            ├── examples/             Sorties de référence
-            └── assets/               Fichiers statiques
+├── avqn-skills/                      Le business (cycle de vie du client, voix)
+│   ├── .claude-plugin/plugin.json    Manifeste du plugin
+│   └── skills/
+│       └── <nom-du-skill>/           Un skill = un dossier (socle ou recette)
+│           ├── SKILL.md              Requis — la recette
+│           ├── references/           Détails chargés à la demande
+│           ├── templates/            Gabarits à remplir
+│           ├── examples/             Sorties de référence
+│           └── assets/               Fichiers statiques
+└── avqn-dev/                         La méthode de dev
+    ├── .claude-plugin/plugin.json
+    ├── agents/<nom>.md               Sous-agents (revieweur, verificateur)
+    └── skills/<nom-du-skill>/        Même anatomie ; socle = travailler-sur-un-repo
 .claude/                             Outillage d'auteur (repo-local, non publié)
 ├── skills/avqn-skill-authoring/     Skill qui guide l'écriture de skills
 └── commands/                        /new-skill, /check-skills
@@ -103,7 +115,8 @@ Un skill n'embarque que les dossiers utiles ; seul `SKILL.md` est obligatoire.
 1. `/new-skill <nom>` — scaffolde le dossier et un `SKILL.md` pré-rempli.
 2. Rédiger le skill (corps + `references/`/`templates/` au besoin).
 3. Ajouter le skill à la table de `README.md`.
-4. `/check-skills` — valider (JSON, frontmatter, absence de champ `version`).
+4. `/check-skills` — valider (JSON, frontmatter des skills et des agents, absence de champ
+   `version`) — sur tous les plugins du catalogue.
 5. Commit (message descriptif, emoji 🤖) + push.
 6. La mise à jour se propage seule : **sans champ `version`**, chaque commit poussé est une
    version (le SHA git fait foi). Un champ `version` posé dans `plugin.json` ou dans l'entrée
@@ -117,5 +130,4 @@ sans redemander.
 ## Métier générique
 
 Pour l'artisanat d'un bon skill (rédiger la `description`, structurer, vérifier), s'appuyer
-sur `superpowers:writing-skills` et sur le skill repo-local `avqn-skill-authoring`. Ce repo
-ne redocumente pas ce que ces skills couvrent déjà.
+sur le skill repo-local `avqn-skill-authoring`. Ce repo ne redocumente pas ce qu'il couvre déjà.

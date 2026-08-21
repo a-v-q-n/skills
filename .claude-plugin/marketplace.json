@@ -4,12 +4,21 @@
     "name": "AVQN",
     "email": "hello@avqn.ch"
   },
-  "description": "Marketplace de skills AVQN pour Claude.",
+  "description": "Marketplace de plugins AVQN pour Claude : avqn-skills (le business) et avqn-dev (la méthode de dev).",
   "plugins": [
     {
       "name": "avqn-skills",
       "source": "./plugins/avqn-skills",
       "description": "Les skills AVQN pour Claude.",
+      "author": {
+        "name": "Emmanuel Bernard",
+        "email": "hello@avqn.ch"
+      }
+    },
+    {
+      "name": "avqn-dev",
+      "source": "./plugins/avqn-dev",
+      "description": "La méthode de dev AVQN (triage, cycle /dev, chantier, review, aperçu, local, new-project, secrets) et ses sous-agents.",
       "author": {
         "name": "Emmanuel Bernard",
         "email": "hello@avqn.ch"

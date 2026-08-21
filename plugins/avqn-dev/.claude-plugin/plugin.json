@@ -1,0 +1,9 @@
+{
+  "name": "avqn-dev",
+  "description": "La méthode de dev AVQN — triage par calibre, cycle jusqu'au FF merge, chantier, review, aperçu, démarrage local, onboarding de repo, secrets — et ses sous-agents revieweur et verificateur. Découvre le contrat de chaque repo (CLAUDE.md), en local comme en session cloud.",
+  "author": {
+    "name": "Emmanuel Bernard",
+    "email": "hello@avqn.ch"
+  },
+  "homepage": "https://github.com/a-v-q-n/skills"
+}
