@@ -50,7 +50,9 @@ route (la retouche qui révèle un chantier → stop, requalifie, ne t'entête p
   `reset --hard` dans un clone partagé. Le coffre est disponible (`/avqn-dev:gerer-les-secrets`).
 - **Cloud** : la VM est l'isolation — pas de worktree ni de port dédié. Aucun secret dans la VM,
   pas de coffre, pas de tunnel vers une base distante : Postgres éphémère (docker) + migrations +
-  fixtures. Livrer = pousser la branche, PR, merger ; la CI du repo déploie.
+  fixtures. Livrer = pousser la branche, PR, merger ; la CI du repo déploie. Ce qui voyage avec le
+  repo, ce qui se configure dans l'UI (connecteurs par session, environnement, setup script) :
+  `references/environnement-cloud.md`.
 
 ## 4. Ce qui vaut partout
 
