@@ -19,6 +19,21 @@ branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo '')"
 # mono-opérateur ; la recette pousse sur main).
 git config --local commit.gpgsign false 2>/dev/null || true
 
+# Méthode en session cloud : le plugin avqn-dev (marketplace publique a-v-q-n/skills) s'amorce ici —
+# l'auto-install déclaré dans .claude/settings.json ne se déclenche pas dans la VM. Idempotent.
+# Docker : le binaire est là, pas le démon — on le lance si le repo a des services à conteneuriser.
+if [ "${CLAUDE_CODE_REMOTE:-}" = "true" ]; then
+  if claude plugin list 2>/dev/null | grep -q 'avqn-dev@avqn'; then
+    claude plugin marketplace update avqn >&2 2>&1 || true
+  else
+    claude plugin marketplace add a-v-q-n/skills >&2 2>&1 || true
+    claude plugin install avqn-dev@avqn >&2 2>&1 || true
+  fi
+  if ls compose*.y*ml docker-compose*.y*ml >/dev/null 2>&1 && ! docker info >/dev/null 2>&1; then
+    (dockerd >/tmp/dockerd.log 2>&1 &) ; sleep 3
+  fi
+fi
+
 # Deps npm en session distante : `npm install` (idempotent, profite du cache conteneur) pour que la
 # gate tourne d'emblée. Sortie vers stderr pour ne pas polluer le JSON additionalContext sur stdout.
 if [ "${CLAUDE_CODE_REMOTE:-}" = "true" ]; then

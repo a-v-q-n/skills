@@ -39,7 +39,8 @@ teste-la, et rends-la au repo (règle d'or en bas).
 ## 3. En session cloud
 
 Pas de coffre, pas de ssh, pas de tunnel : **Postgres éphémère** (`docker run postgres:16` ou le
-`compose.yaml` du repo), migrations au boot, fixtures du repo. Pas de données de prod — pour un
+`compose.yaml` du repo — le démon Docker ne tourne pas par défaut : `(dockerd >/tmp/dockerd.log 2>&1 &)`
+si le hook ne l'a pas fait), migrations au boot, fixtures du repo. Pas de données de prod — pour un
 aperçu sur vraies données, téléporter en local. Le hook SessionStart du repo a déjà fait
 `npm install`.
 
