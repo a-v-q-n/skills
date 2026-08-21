@@ -16,8 +16,8 @@ Charge d'abord `travailler-sur-un-repo` (racine, contrat, surface).
 
 ## 1. La recette vit dans le repo
 
-Lis la section **`## Démarrer en local`** du `CLAUDE.md` du repo : commande, port, services,
-env, login dev. Un repo à procédure longue la porte dans un skill propre (`.claude/skills/`).
+Lis la section **`## Démarrer en local`** du `CLAUDE.md` du repo (ou son équivalent : Dev local,
+En local, Commandes) : commande, port, services, env, login dev. Un repo à procédure longue la porte dans un skill propre (`.claude/skills/`).
 Ne redécouvre pas ce qui est écrit.
 
 À défaut : `references/recettes.md` — les recettes connues de la flotte AVQN, que chaque repo

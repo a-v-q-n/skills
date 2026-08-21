@@ -22,7 +22,7 @@ Dans l'ordre, sans rien présumer :
 |---|---|---|
 | Dans un repo git ? | `git rev-parse --show-toplevel` | Pas de cycle : dis-le, demande le repo cible |
 | Le repo a un contrat ? | `CLAUDE.md` à la racine — lu **avant** tout | **Mode prudent** (ci-dessous) |
-| Comment il démarre, se teste, se livre ? | sections `## Démarrer en local`, `## Gate`, `## Livrer` du `CLAUDE.md` (un skill propre au repo dans `.claude/skills/` quand la procédure déborde) | Dérive de `package.json` / `README`, teste, et **propose la section au repo** |
+| Comment il démarre, se teste, se livre ? | sections `## Démarrer en local`, `## Gate`, `## Livrer` du `CLAUDE.md` — ou leurs équivalents lisibles (Dev local / En local / Commandes ; Contrat ; Déploiement / CI-CD) ; un skill propre au repo dans `.claude/skills/` quand la procédure déborde | Dérive de `package.json` / `README`, teste, et **propose la section au repo** |
 | Session cloud ? | `CLAUDE_CODE_REMOTE=true` (ou `CLAUDE_CODE_REMOTE_SESSION_ID` posé) | Session locale |
 
 **Mode prudent** (contrat absent ou illisible) : tu fais, tu montres, tu demandes. Pas de push,
