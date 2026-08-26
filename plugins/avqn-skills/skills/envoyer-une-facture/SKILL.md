@@ -16,7 +16,8 @@ Une facture part propre ou ne part pas : le bon montant sur la bonne ligne d'éc
 PDF relu à l'œil, un email court qui l'apporte sans commenter. La rigueur ici, c'est ce qui
 rend l'encaissement silencieux — et la relance inutile.
 
-**Charger d'abord le skill `ecrire-comme-manu`** pour l'email, et appeler
+**Charger d'abord les socles** : `ecrire-comme-manu` pour l'email et
+`deposer-un-brouillon-email` pour la plomberie du brouillon. Appeler
 `grammaire {domaine: "facturation"}` avant la première écriture du domaine : la chaîne
 complète (plan, pièce, émission, encaissement) vit là-bas, ce skill n'ajoute que le
 jugement et l'email.
@@ -57,8 +58,9 @@ vérifier le rendu à l'œil** — c'est ce document qui part chez le client.
 
 ### 5. L'email d'envoi
 
-`mail_draft`, dans le fil existant si la conversation en a un — **toujours un brouillon**,
-Manu relit et envoie. L'email :
+Dans le fil existant si la conversation en a un (`mail_draft_reply` sur un message du
+client), sinon `mail_draft` avec son adresse en clair — voir `deposer-un-brouillon-email`.
+**Toujours un brouillon**, Manu relit et envoie. L'email :
 
 - est court : la facture se comprend toute seule, l'email l'apporte ;
 - nomme ce qui est facturé en une phrase humaine (« la facture du solde de ton
@@ -81,4 +83,5 @@ Au retour de Manu : rien à faire côté OS, l'émission a tout posé. À l'arri
 - [ ] Le proforma a été relu et validé explicitement par Manu avant l'émission
 - [ ] L'émission date du jour réel ; le PDF final avec QR a été ouvert et vérifié à l'œil
 - [ ] L'email est un brouillon court, PDF joint et bien nommé, sans demande annexe
+- [ ] Brouillon relu après dépôt : le champ `to` porte le client, le PDF est bien joint
 - [ ] Checklist anti-tics du socle `ecrire-comme-manu` passée

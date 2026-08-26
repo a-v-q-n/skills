@@ -28,8 +28,8 @@ que la production de skills dans ce repo.
 
 Deux couches, et une seule règle pour ranger n'importe quel skill.
 
-- **Socle** — le *craft* transverse, réutilisable : la voix (`ecrire-comme-manu`), la méthode
-  (`travailler-sur-un-repo`). Un skill de socle ne se déclenche presque jamais seul ; les
+- **Socle** — le *craft* transverse, réutilisable : la voix (`ecrire-comme-manu`), la plomberie
+  du brouillon d'email (`deposer-un-brouillon-email`), la méthode (`travailler-sur-un-repo`). Un skill de socle ne se déclenche presque jamais seul ; les
   recettes le composent.
 - **Recettes** — des skills-actions qui vont de bout en bout : `accueillir-une-prise-de-contact`,
   `emettre-une-offre`, `dev`, `local`. Une recette **orchestre** : elle route, appelle les

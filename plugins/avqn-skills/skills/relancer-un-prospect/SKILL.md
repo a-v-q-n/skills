@@ -17,7 +17,9 @@ prospect n'est presque jamais un refus : c'est une priorité qui a glissé. La r
 l'affaire en haut de sa pile sans mettre de pression, et chaque relance laisse une trace
 pour que la suivante — ou la sortie — se décide sur des faits.
 
-**Charger d'abord le skill `ecrire-comme-manu`** pour la voix.
+**Charger d'abord les socles** : `ecrire-comme-manu` pour la voix, et
+`deposer-un-brouillon-email` pour la plomberie du brouillon (où vit le fil, à quel message
+répondre, comment contrôler le destinataire).
 
 Adresse : celle de la relation existante (vous pour un prospect, tu si le lien est déjà
 proche) — relire le fil pour la retrouver, jamais la deviner.
@@ -50,7 +52,9 @@ réellement passé. Si aucune trace n'explique le silence, c'est la relance qui 
 
 ## La séquence
 
-1. **Écrire le brouillon** : `mail_draft_reply` dans le fil existant — toujours un
+1. **Écrire le brouillon** dans le fil existant, en suivant `deposer-un-brouillon-email` :
+   le message source vient du prospect, jamais de `Sent`. Un prospect qui n'a jamais
+   répondu n'a pas de fil : c'est alors `mail_draft` avec son adresse en clair. Toujours un
    brouillon, Manu relit et envoie.
 2. **Consigner** : `carnet_create` rattachée au deal (« relance envoyée, motif, ce qu'on
    attend »).
@@ -76,5 +80,6 @@ Après deux ou trois relances sans réponse, on arrête de relancer et on ferme 
 - [ ] Le timing respecte la règle (une relance par silence, vrai délai entre deux)
 - [ ] La relance apporte quelque chose, une seule question, trois à cinq phrases
 - [ ] C'est un brouillon dans le fil, adresse cohérente avec la relation
+- [ ] Brouillon relu après dépôt : le champ `to` porte le prospect, pas Manu
 - [ ] Checklist anti-tics du socle `ecrire-comme-manu` passée
 - [ ] Note au carnet sur le deal, probabilité cohérente, tâche datée pour la suite
