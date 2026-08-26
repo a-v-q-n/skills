@@ -15,7 +15,7 @@ description: >-
 
 Une proposition AVQN n'est pas un catalogue de prestations, c'est la preuve écrite qu'on a écouté. Le client doit se reconnaître dans le premier paragraphe avant même de lire le prix. Tout le reste en découle : la matière vient de ce qu'il a dit, pas de ce qu'on vend.
 
-**Charger d'abord le skill `ecrire-comme-manu`** : il porte la voix, les règles non négociables et la checklist anti-tics. Ce skill-ci n'ajoute que la méthode de l'offre.
+**Charger d'abord les socles** : `ecrire-comme-manu` porte la voix, les règles non négociables et la checklist anti-tics ; `deposer-un-brouillon-email` porte la plomberie du brouillon (où vit le fil, à quel message répondre, comment contrôler le destinataire). Ce skill-ci n'ajoute que la méthode de l'offre.
 
 Adresse : **vous**, du devis comme de l'email. Un prospect qui n'a pas encore signé n'est pas un client établi.
 
@@ -57,7 +57,7 @@ Une fois le texte validé : `devis_create` (ou `devis_update` si un brouillon ex
 
 ### 4. Préparer l'email
 
-`mail_draft_reply` dans le fil existant, PDF en pièce jointe. Toujours un brouillon, **jamais un envoi**. Manu relit et envoie lui-même.
+Dans le fil existant, PDF en pièce jointe, en suivant `deposer-un-brouillon-email`. Toujours un brouillon, **jamais un envoi**. Manu relit et envoie lui-même.
 
 ### 5. Après l'envoi
 
@@ -106,7 +106,7 @@ La dernière puce dit ce qui survit à la prestation : l'autonomie, l'évolutivi
 
 Règles :
 
-- **En réponse dans le fil existant** (`mail_draft_reply`), jamais un message neuf. Le fil porte l'historique.
+- **En réponse dans le fil existant** (`mail_draft_reply` sur un message du client), jamais un message neuf. Le fil porte l'historique.
 - **PDF en pièce jointe**, jamais un lien. Nommer le fichier `AAAA-MM-JJ-prenom-nom-slug-offre.pdf`.
 - **Zéro doublon avec l'offre.** Ne pas répéter le prix, ni les séances, ni l'échéancier.
 - **Une seule action attendue.** Ne pas glisser de demande annexe (un document à fournir, une information à vérifier) dans le mail qui porte l'offre. Ça dilue la décision. Ces demandes attendent le mail suivant.
@@ -129,6 +129,7 @@ Structure :
 - [ ] Le montant correspond à l'accord verbal, l'échéancier somme juste
 - [ ] Checklist anti-tics du socle `ecrire-comme-manu` passée (zéro tiret cadratin, zéro « , et »)
 - [ ] Le PDF rendu a été relu, il tient en deux pages
+- [ ] Brouillon relu après dépôt : le champ `to` porte le client, le PDF est bien joint
 
 ## Références
 

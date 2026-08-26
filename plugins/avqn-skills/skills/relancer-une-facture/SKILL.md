@@ -17,7 +17,8 @@ paliers, et chaque palier laisse au client une sortie honorable. Un impayé est 
 toujours un oubli ; le traiter comme tel jusqu'à preuve du contraire préserve la relation,
 qui vaut plus que le délai.
 
-**Charger d'abord le skill `ecrire-comme-manu`** pour la voix.
+**Charger d'abord les socles** : `ecrire-comme-manu` pour la voix, et
+`deposer-un-brouillon-email` pour la plomberie du brouillon.
 
 Adresse : celle de la relation (le tu d'un client établi, en général). Le palier change le
 fond, jamais la politesse.
@@ -54,7 +55,8 @@ sérieux.
 
 1. **Choisir le palier** d'après l'historique : `contexte` sur le projet, les relances déjà
    consignées au carnet, les mails du fil.
-2. **Écrire le brouillon** : `mail_draft_reply` dans le fil d'envoi de la facture —
+2. **Écrire le brouillon** dans le fil d'envoi de la facture, en suivant
+   `deposer-un-brouillon-email` : le message source vient du client, jamais de `Sent` —
    toujours un brouillon, Manu relit et envoie. Le PDF de la facture est joint à nouveau :
    le client ne doit pas la chercher.
 3. **Consigner** : `carnet_create` rattachée au projet (palier, date, délai posé).
@@ -75,5 +77,6 @@ sérieux.
 - [ ] Le palier découle de l'historique consigné, avec un vrai délai depuis le précédent
 - [ ] Mise en demeure : accord explicite de Manu obtenu avant le brouillon
 - [ ] C'est un brouillon dans le fil, PDF de la facture joint, une seule demande
+- [ ] Brouillon relu après dépôt : le champ `to` porte le client, le PDF est bien joint
 - [ ] Checklist anti-tics du socle `ecrire-comme-manu` passée
 - [ ] Relance au carnet (projet), tâche datée pour le prochain contrôle

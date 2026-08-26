@@ -17,7 +17,8 @@ sobre : montrer qu'on a lu, proposer la suite la plus simple, ne rien vendre enc
 qui s'apprend au passage se range au bon endroit dans l'OS, pour que la suite (relance,
 offre, facture) parte d'un dossier juste.
 
-**Charger d'abord le skill `ecrire-comme-manu`** pour la voix, et appeler
+**Charger d'abord les socles** : `ecrire-comme-manu` pour la voix, et
+`deposer-un-brouillon-email` pour la plomberie du brouillon. Appeler
 `grammaire {domaine: "crm"}` avant la première écriture CRM de la session.
 
 Adresse : **vous** — un premier contact n'est pas un client établi, même chaleureux.
@@ -28,7 +29,8 @@ Adresse : **vous** — un premier contact n'est pas un client établi, même cha
 
 `contexte { q: "<nom>" }` d'abord : la personne existe peut-être déjà (participant d'une
 formation, réseau, ancien prospect). Puis `recall` sur son nom ou son organisation, et
-`mail_search` pour retrouver le fil complet. **Ne jamais créer un doublon** : une ambiguïté
+`mail_search` pour retrouver le fil complet — dans les dossiers métier, `1-Business/Prospects`
+en tête, jamais seulement INBOX (voir `deposer-un-brouillon-email`). **Ne jamais créer un doublon** : une ambiguïté
 de `contexte` renvoie des candidats, les départager avant tout.
 
 ### 2. Enquêter
@@ -67,8 +69,10 @@ le symptôme de cette faute.
 
 ### 6. Le brouillon de réponse
 
-`mail_draft_reply` dans le fil — **toujours un brouillon, jamais un envoi** ; Manu relit et
-envoie. La réponse :
+Le brouillon se dépose selon `deposer-un-brouillon-email` : la notification du formulaire
+(`hello@avqn.ch`) annonce le lead sans venir de lui, la réponse se construit sur le message
+de la personne, ou par `mail_draft` s'il n'y en a pas. **Toujours un brouillon, jamais un
+envoi** ; Manu relit et envoie. La réponse :
 
 - ouvre sur **ce que la personne a dit**, pas sur AVQN ;
 - propose **une seule prochaine étape**, la plus simple : un appel court, avec des créneaux
@@ -92,5 +96,6 @@ obtenu se pose à l'agenda, se prépare avec `preparer-un-rendez-vous` et se con
 - [ ] Le deal n'existe que s'il y a un objet à vendre, nommé par contrepartie et objet
 - [ ] L'échange du jour est au carnet, rattaché au plus fin, avec ses présents
 - [ ] La réponse est un brouillon, en vous, une seule étape proposée, créneaux réels
+- [ ] Brouillon relu après dépôt : le champ `to` porte la personne, pas une adresse de notification
 - [ ] Checklist anti-tics du socle `ecrire-comme-manu` passée
 - [ ] Une tâche porte la suite (attente ou relance datée)

@@ -51,7 +51,10 @@ Le canal (call, visio, présentiel) ne change rien au brief — seul le registre
 
 - **Le fil du carnet** : les dernières notes rattachées — ce qui s'est dit la dernière
   fois, ce qui avait été convenu.
-- **Les mails récents** du fil (`mail_search`) : ce qui s'est échangé depuis.
+- **Les mails récents** du fil (`mail_search`) : ce qui s'est échangé depuis. Le courrier
+  entrant est classé hors INBOX (`1-Business/Prospects`, `1-Business/Clients`) et la section
+  `mails` de `contexte` n'en remonte qu'une partie : chercher dossier par dossier plutôt que
+  de conclure qu'il ne s'est rien dit.
 - **Le commercial** : un devis en cours et ses dates (`sentOn`, `validUntil` — expire-t-il
   bientôt ?), l'étape et la probabilité du deal.
 - **L'argent** : une facture émise et impayée, un jalon d'échéancier qui approche.
