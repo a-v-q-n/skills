@@ -91,6 +91,7 @@ Invocation préfixée : `/avqn-dev:dev`, `/avqn-dev:local`…
 | `chantier` | recette | La discipline L : brainstorm → spec → plan → étapes → review renforcée. |
 | `brainstorm-issue` | recette | De l'idée floue à la spec d'intention dans l'issue GitHub. |
 | `review-pr` | recette | Review adversariale avant merge (mode léger / mode chantier). |
+| `recettage` | recette | Vider la file des PR ouvertes en UNE livraison : lot rebasé étage par étage, gate à chaque étage, un seul push `main`. |
 | `apercu` | recette | Boucle qualité visuelle locale avant la PR (captures aux breakpoints). |
 | `local` | recette | Démarrer un repo (recette dans son CLAUDE.md), socle transverse AVQN, preuve de boot. |
 | `new-project` | recette | Onboarder un repo neuf sur la plateforme AVQN (GitHub, Coolify, DNS, squelette, premier deploy). |
