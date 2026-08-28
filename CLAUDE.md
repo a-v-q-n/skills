@@ -7,7 +7,7 @@ qui porte deux plugins :
 - **`avqn-skills`** — le business AVQN via AVQN OS (`os.avqn.ch`) et l'écriture dans la voix
   de Manu. La production visuelle vit dans son propre plugin.
 - **`avqn-dev`** — la méthode de dev : triage par calibre, cycle `dev` jusqu'au FF merge,
-  `chantier`, `review-pr`, `recettage`, `apercu`, `local`, `new-project`, `gerer-les-secrets`, et les
+  `chantier`, `review-pr`, `apercu`, `local`, `new-project`, `gerer-les-secrets`, et les
   sous-agents `revieweur` / `verificateur`. Elle ne sait rien d'un repo à l'avance : elle
   **découvre** son contrat (`CLAUDE.md` — Démarrer en local / Gate / Livrer) et marche en local
   comme en session cloud. L'infra elle-même est un connecteur (`AVQN OPS`) qui fournit des
