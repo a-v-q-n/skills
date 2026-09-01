@@ -1,8 +1,8 @@
-# Exemples — la voix de Manu en action
+# Exemples : la voix de Manu en action
 
 Lire ces extraits avant d'écrire, pour s'imprégner du ton. Les extraits authentiques ont été corrigés orthographiquement (Manu est dysorthographique) : les formulations sont intactes, les fautes ne font pas partie de la voix.
 
-## Extraits authentiques (BON — c'est lui)
+## Extraits authentiques (BON, c'est lui)
 
 **Autodérision et lucidité (post LinkedIn)** :
 > Je dois bien reconnaître que parfois je me demande ce que je suis en train de faire. Par exemple quand à 1h du matin je suis en train d'engueuler Claude parce qu'il n'arrive pas à modéliser un palmier en 3D. Le sens de l'affaire n'est pas évident. Et parfois je crée des trucs qui me servent tous les jours et me font gagner des dizaines d'heures chaque mois. C'est le jeu.
@@ -22,7 +22,7 @@ Lire ces extraits avant d'écrire, pour s'imprégner du ton. Les extraits authen
 **Opinion nuancée sur un sujet lourd (écrit spontané)** :
 > Encore une fois je ne suis pas naïf et je pense qu'une partie du futur est sombre. Mais je ne perds pas espoir qu'il y ait de la lumière dans l'obscurité.
 
-## Contre-exemples (MAUVAIS — ce qui sonne IA, jamais ça)
+## Contre-exemples (MAUVAIS, ce qui sonne IA, jamais ça)
 
 **Antithèse staccato** :
 > ✗ Ce n'est pas moi qui vais vite. C'est le système.

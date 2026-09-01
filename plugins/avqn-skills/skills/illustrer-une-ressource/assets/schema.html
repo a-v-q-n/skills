@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Gabarit schéma — illustrer un concept</title>
+<!-- Mode 2 : schéma de concept. 1600×900. Papier crème quadrillé, boîtes blanches au trait navy, glyphes au trait (banque du skill covers), connecteurs pointillés navy ou flèches ocre, un accent ocre par glyphe, texte réel seulement pour les noms et les chemins (mono). Exemple : CLAUDE.md global lu par chaque projet. -->
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;width:1600px;height:900px;overflow:hidden;font-family:"Schibsted Grotesk",system-ui,sans-serif;color:#16233F}
+  .papier{position:relative;width:1600px;height:900px;background:#FBF8F1;
+    background-image:linear-gradient(rgba(22,35,63,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(22,35,63,.055) 1px,transparent 1px);
+    background-size:40px 40px}
+  /* boîte : un objet du schéma */
+  .boite{position:absolute;background:#fff;border:2px solid #16233F;border-radius:12px;padding:26px 30px;display:flex;gap:22px;align-items:center;box-shadow:0 10px 40px rgba(22,35,63,.08)}
+  .boite.heros{border-width:3px}
+  .boite .nom{font-weight:700;font-size:28px;line-height:1.1}
+  .boite .nom em{font-style:normal;color:#E8763A}
+  .boite .chemin{font-family:ui-monospace,Menlo,monospace;font-size:17px;color:rgba(22,35,63,.65);margin-top:6px}
+  .boite .quoi{font-size:19px;color:rgba(22,35,63,.75);margin-top:8px;line-height:1.3}
+  /* étiquette sur un connecteur */
+  .pastille{position:absolute;font-family:ui-monospace,Menlo,monospace;font-size:17px;letter-spacing:.06em;padding:8px 16px;background:#fff;border:2px solid #16233F;border-radius:999px;white-space:nowrap}
+  /* connecteurs : en SVG plein cadre, tracés en px */
+  svg.liens{position:absolute;inset:0;width:1600px;height:900px;pointer-events:none}
+  svg.liens > path{fill:none;stroke:#16233F;stroke-width:4;stroke-dasharray:10 14;stroke-linecap:round}
+  svg.liens > path.fleche{stroke:#E8763A;stroke-dasharray:none;stroke-width:5;marker-end:url(#tete)}
+  svg.liens marker path{fill:#E8763A;stroke:none}
+</style>
+</head>
+<body>
+<div class="papier">
+
+  <svg class="liens" aria-hidden="true">
+    <defs><marker id="tete" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" fill="#E8763A"/></marker></defs>
+    <path class="fleche" d="M700 330 C 620 430, 520 470, 445 545"/>
+    <path class="fleche" d="M900 330 C 980 430, 1080 470, 1155 545"/>
+  </svg>
+
+  <!-- héros -->
+  <div class="boite heros" style="left:470px;top:150px;width:660px">
+    <svg viewBox="0 0 24 24" width="110" height="110" fill="none" stroke="#16233F" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M8 7.5h8M8 11h8"></path><path d="M8 15.5l2 2 4-4" stroke="#E8763A"></path></svg>
+    <div>
+      <div class="nom">CLAUDE.md <em>global</em></div>
+      <div class="chemin">~/.claude/CLAUDE.md</div>
+      <div class="quoi">Tes consignes permanentes, pour tous les projets</div>
+    </div>
+  </div>
+
+  <div class="pastille" style="left:690px;top:430px">lu à chaque session</div>
+
+  <!-- satellites -->
+  <div class="boite" style="left:150px;top:560px;width:520px">
+    <svg viewBox="0 0 24 24" width="80" height="80" fill="none" stroke="#16233F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5a2 2 0 012-2h4.5l2 2H19a2 2 0 012 2V17a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path></svg>
+    <div>
+      <div class="nom">mon-site/</div>
+      <div class="chemin">CLAUDE.md</div>
+      <div class="quoi">Le contexte de ce projet seulement</div>
+    </div>
+  </div>
+
+  <div class="boite" style="left:930px;top:560px;width:520px">
+    <svg viewBox="0 0 24 24" width="80" height="80" fill="none" stroke="#16233F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5a2 2 0 012-2h4.5l2 2H19a2 2 0 012 2V17a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path></svg>
+    <div>
+      <div class="nom">ma-compta/</div>
+      <div class="chemin">CLAUDE.md</div>
+      <div class="quoi">Le contexte de ce projet seulement</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

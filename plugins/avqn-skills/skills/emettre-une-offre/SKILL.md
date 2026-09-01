@@ -51,7 +51,7 @@ Ne pas appeler `devis_create` à ce stade. Ne pas rendre de PDF. Ne pas prépare
 
 ### 3. Générer le devis et son PDF
 
-Une fois le texte validé : `devis_create` (ou `devis_update` si un brouillon existe déjà sur ce deal), puis `devis_render_pdf`.
+Une fois le texte validé : `devis_create` (ou `devis_update` si un brouillon existe déjà sur ce deal), puis `devis_render_pdf`. Une offre déjà partie chez le client ne se réécrit pas : la version remaniée est un **nouveau devis** sur le même deal.
 
 **Relire systématiquement le PDF produit** avant d'aller plus loin : le télécharger et en extraire le texte. C'est le document qui part chez le client, c'est lui qu'on vérifie, pas le JSON du tool.
 
@@ -120,7 +120,7 @@ Structure :
 3. Les créneaux, en deux groupes : la première séance, puis les suivantes.
 4. Une clôture chaleureuse, ancrée dans ce que la personne vit (vacances, échéance, saison).
 
-## Checklist avant de rendre le PDF
+## Checklist avant de rendre la main
 
 - [ ] Le texte a été validé explicitement par Manu en conversation
 - [ ] La situation ne contient que des faits venant du client
@@ -134,3 +134,9 @@ Structure :
 ## Références
 
 `references/exemples.md` contient un exemple complet et générique (offre plus email) à imiter pour le ton et le découpage.
+
+## Boucle d'amélioration
+
+Quand Manu corrige une offre (un bloc, une formulation, l'échéancier), chercher la règle
+qui aurait évité la correction et l'ajouter ici avec un exemple contrastif ; une question
+de voix va dans `ecrire-comme-manu`.

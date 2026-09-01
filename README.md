@@ -2,8 +2,9 @@
 
 Marketplace de plugins Claude qui regroupe les skills AVQN. Deux plugins :
 
-- **`avqn-skills`** — le craft du business : la voix de Manu, les canaux d'écriture, et les
-  recettes qui orchestrent AVQN OS (`os.avqn.ch`) au fil du cycle de vie du client.
+- **`avqn-skills`** — tout le craft métier, en trois familles : le **cycle de vie du client**
+  sur AVQN OS (`os.avqn.ch`), le **contenu Autonomes** (ressources et blog, images comprises)
+  et la **vidéo Contentos**. Chaque famille a son socle d'écriture et ses recettes.
 - **`avqn-dev`** — la méthode de dev : triage par calibre, cycle jusqu'au FF merge, chantier,
   review, aperçu, démarrage local, onboarding de repo, secrets — et ses sous-agents. Elle
   découvre le contrat de chaque repo (`CLAUDE.md`) et marche en local comme en session cloud.
@@ -65,20 +66,48 @@ avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.m
 
 ## Skills disponibles — `avqn-skills`
 
-Les recettes suivent le cycle de vie du client — un skill par moment, chacun orchestre
-AVQN OS et charge la voix.
+Trois familles. Dans chacune, un **socle** porte le craft transverse et les **recettes** vont
+de bout en bout en le chargeant.
+
+### Cycle de vie du client — AVQN OS
 
 | Skill | Couche | Moment |
 | :---- | :----- | :--- |
-| `ecrire-comme-manu` | socle | La voix de Manu : essence, règles non négociables, lexique, adresse. Chargé par toutes les recettes. |
-| `deposer-un-brouillon-email` | socle | La plomberie du brouillon : trouver le fil hors INBOX, répondre au bon message, contrôler le destinataire. Chargé par les recettes qui écrivent un email. |
-| `accueillir-une-prise-de-contact` | recette | Quelqu'un contacte AVQN : enquêter, consigner au CRM, ouvrir le deal, répondre. |
+| `ecrire-comme-manu` | socle | La voix de Manu : essence, règles non négociables, lexique, adresse. Chargé par toutes les recettes du cycle. |
+| `deposer-un-brouillon-email` | socle | La plomberie du brouillon : trouver le fil hors INBOX, répondre au bon message, contrôler le destinataire. |
+| `consigner-un-contact` | socle | L'entrée au CRM : chercher avant de créer, coordonnées structurées, organisation, affiliation, fiche courte. |
+| `accueillir-une-prise-de-contact` | recette | Quelqu'un contacte AVQN : enquêter, consigner, ouvrir le deal, répondre. |
 | `preparer-un-rendez-vous` | recette | Un call approche : le dossier relu et condensé en brief. Lecture seule. |
 | `debriefer-un-rendez-vous` | recette | Le call est passé : le débrief trié dans tout l'OS — note, fiches, deal, tâches, agenda, temps. |
 | `relancer-un-prospect` | recette | Le prospect reste silencieux : timing, ton, relance dans le fil, sortie propre. |
+| `ecrire-un-email-de-prospection` | recette | La prospection à froid : brief minimal, personnalisation réelle, objet, cadence des relances. |
 | `emettre-une-offre` | recette | Accord de vive voix : devis, validation, PDF, email d'accompagnement. |
 | `envoyer-une-facture` | recette | Un jalon se facture : pièce, proforma relu, émission, PDF QR, email d'envoi. |
 | `relancer-une-facture` | recette | Une facture reste impayée : vérifier le paiement, palier de relance, brouillon. |
+
+### Contenu Autonomes — ressources et blog
+
+| Skill | Couche | Moment |
+| :---- | :----- | :--- |
+| `ecrire-mes-ressources` | socle | Les règles de contenu d'Autonomes : adresse, lecteur cible, chasse au fluff, structure par format, longueurs. |
+| `titrer-une-ressource` | socle | Le titre : simple, descriptif, compris par un néophyte, sans accroche ni sous-titre. |
+| `creer-une-ressource` | recette | De la matière à la ressource publiée : format, plan, écriture, titre, images, pages et modules. |
+| `relire-une-ressource` | recette | Relecture contre les règles de la maison, en ligne ou sur fichier de travail. Lecture seule. |
+| `illustrer-une-ressource` | recette | Les images du corps : maquette, schéma, capture annotée — palette papier, gabarits HTML, rendu Médiathèque. |
+| `composer-une-cover-de-ressource` | recette | La vignette 1280×720 : rampes de ciel, recettes de composition, glyphes, trois variantes puis pose. |
+| `ecrire-un-article-de-blog` | recette | De la matière à l'article publié : type, angle, plan, écriture, construction en brouillon. |
+| `composer-une-cover-d-article` | recette | La cover 1600×900 : thème commun, composition improvisée, trois variantes puis pose. |
+
+### Vidéo Contentos
+
+| Skill | Couche | Moment |
+| :---- | :----- | :--- |
+| `ecrire-mes-videos` | socle | La voix parlée : hook et bridge, vraies phrases, liste noire des tics IA. |
+| `preparer-une-video` | recette | De la matière au plan séquencé : idées fortes, hooks, chaque passage avec son asset. |
+| `fabriquer-les-assets` | recette | Le visuel : gabarits HTML animés et images générées, charte, aperçu de contrôle. |
+| `produire-la-vo` | recette | La voix off et l'avatar : découpage en prises, écriture pour l'oreille, voix clonée. |
+| `scripter-le-montage` | recette | Le script de montage final : séquences, plans, liens `#prise` et `@asset`. |
+| `raconter-une-histoire` | recette | La vidéo verticale « histoire racontée » : voix off et images peintes montées en BD animée. |
 
 ## Skills disponibles — `avqn-dev`
 

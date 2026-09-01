@@ -19,9 +19,6 @@ répond à une question différente, donc chaque morceau a sa place à lui dans 
 transcrire tel quel dans une note, c'est enterrer les trois quarts de l'information là où
 personne ne la retrouvera.
 
-Appeler `grammaire {domaine: "carnet"}` avant la première écriture de la session — la
-matrice de rangement vit là-bas, ce skill l'applique au geste du débrief.
-
 ## La séquence
 
 ### 1. Situer
@@ -76,7 +73,7 @@ corrige un tri avant qu'il ne fige.
   reverrait » sans engagement : demander à Manu plutôt que de deviner un rattachement, une
   échéance ou un montant.
 - **Le débrief peut déborder du dossier.** Une personne nouvelle mentionnée avec un vrai
-  rôle entre au CRM (jamais sur supposition) ; une idée transversale devient une note
+  rôle entre au CRM par `consigner-un-contact` (jamais sur supposition) ; une idée transversale devient une note
   libre. Le crible s'applique à tout ce que la voice note contient, pas au seul
   rendez-vous.
 
@@ -88,3 +85,8 @@ corrige un tri avant qu'il ne fige.
 - [ ] Le rendez-vous convenu est à l'agenda, la séance tenue est saisie en temps
 - [ ] Le deal reflète la réalité du jour (étape, probabilité, fiche datée)
 - [ ] Le plan de rangement a été restitué à Manu, l'ambigu lui a été demandé
+
+## Boucle d'amélioration
+
+Quand Manu corrige un tri au moment de la restitution, chercher la règle de rangement qui
+aurait évité la correction et l'ajouter ici avec l'exemple.

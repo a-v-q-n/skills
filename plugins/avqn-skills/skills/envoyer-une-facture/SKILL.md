@@ -5,9 +5,8 @@ description: >-
   client : retrouver la ligne d'échéancier, préparer ou reprendre la pièce, faire relire
   le proforma, émettre le jour même, générer le PDF avec QR suisse et préparer l'email
   d'envoi dans la voix de Manu. Charge d'abord le socle ecrire-comme-manu pour l'email.
-  NE COUVRE PAS la proposition commerciale en amont (emettre-une-offre), la relance d'un
-  impayé (relancer-une-facture) ni la mécanique du domaine, qui vit dans
-  grammaire facturation côté serveur.
+  NE COUVRE PAS la proposition commerciale en amont (emettre-une-offre) ni la relance
+  d'un impayé (relancer-une-facture).
 ---
 
 # Envoyer une facture
@@ -17,10 +16,8 @@ PDF relu à l'œil, un email court qui l'apporte sans commenter. La rigueur ici,
 rend l'encaissement silencieux — et la relance inutile.
 
 **Charger d'abord les socles** : `ecrire-comme-manu` pour l'email et
-`deposer-un-brouillon-email` pour la plomberie du brouillon. Appeler
-`grammaire {domaine: "facturation"}` avant la première écriture du domaine : la chaîne
-complète (plan, pièce, émission, encaissement) vit là-bas, ce skill n'ajoute que le
-jugement et l'email.
+`deposer-un-brouillon-email` pour la plomberie du brouillon. La chaîne complète (plan,
+pièce, émission, encaissement) est portée ici, avec le jugement et l'email.
 
 Adresse : **tu** — un client qui reçoit une facture est un client établi. Le vous ne se
 garde que si toute la relation est restée au vous.
@@ -85,3 +82,8 @@ Au retour de Manu : rien à faire côté OS, l'émission a tout posé. À l'arri
 - [ ] L'email est un brouillon court, PDF joint et bien nommé, sans demande annexe
 - [ ] Brouillon relu après dépôt : le champ `to` porte le client, le PDF est bien joint
 - [ ] Checklist anti-tics du socle `ecrire-comme-manu` passée
+
+## Boucle d'amélioration
+
+Quand Manu corrige la pièce ou l'email, chercher la règle qui aurait évité la correction
+et l'ajouter ici ; une question de voix va dans `ecrire-comme-manu`.

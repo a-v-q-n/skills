@@ -6,8 +6,9 @@ description: >-
   fil, consigner la relance et programmer la suivante. Porte le jugement du timing et du
   ton, et la sortie propre quand l'affaire s'éteint. Charge d'abord le socle
   ecrire-comme-manu pour la voix. NE COUVRE PAS la première réponse à une prise de contact
-  (accueillir-une-prise-de-contact), la proposition elle-même (emettre-une-offre) ni la
-  relance d'une facture impayée (relancer-une-facture).
+  (accueillir-une-prise-de-contact), la proposition elle-même (emettre-une-offre), la
+  relance d'une facture impayée (relancer-une-facture) ni la prospection à froid, qui a
+  ses propres relances (ecrire-un-email-de-prospection).
 ---
 
 # Relancer un prospect
@@ -20,6 +21,9 @@ pour que la suivante — ou la sortie — se décide sur des faits.
 **Charger d'abord les socles** : `ecrire-comme-manu` pour la voix, et
 `deposer-un-brouillon-email` pour la plomberie du brouillon (où vit le fil, à quel message
 répondre, comment contrôler le destinataire).
+
+Ce skill relance un deal qui vit dans l'OS. Un prospect froid contacté en prospection,
+sans deal ouvert, se relance avec `ecrire-un-email-de-prospection`.
 
 Adresse : celle de la relation existante (vous pour un prospect, tu si le lien est déjà
 proche) — relire le fil pour la retrouver, jamais la deviner.
@@ -83,3 +87,8 @@ Après deux ou trois relances sans réponse, on arrête de relancer et on ferme 
 - [ ] Brouillon relu après dépôt : le champ `to` porte le prospect, pas Manu
 - [ ] Checklist anti-tics du socle `ecrire-comme-manu` passée
 - [ ] Note au carnet sur le deal, probabilité cohérente, tâche datée pour la suite
+
+## Boucle d'amélioration
+
+Quand Manu corrige une relance (ton, timing, sortie), chercher la règle qui aurait évité
+la correction et l'ajouter ici ; une question de voix va dans `ecrire-comme-manu`.

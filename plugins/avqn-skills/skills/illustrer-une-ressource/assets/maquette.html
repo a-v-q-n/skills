@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Gabarit maquette — illustrer un élément d'interface</title>
+<!-- Mode 1 : maquette d'interface. 1600×900. Papier crème quadrillé, fenêtre blanche, contenu en barres de remplissage, l'élément expliqué encadré en ocre et étiqueté en mono. Remplacer : le contenu de .fenetre, la position de .cadre, le texte de .etiquette. -->
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;width:1600px;height:900px;overflow:hidden;font-family:"Schibsted Grotesk",system-ui,sans-serif;color:#16233F}
+  /* le papier : crème + quadrillage discret */
+  .papier{position:relative;width:1600px;height:900px;background:#FBF8F1;
+    background-image:linear-gradient(rgba(22,35,63,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(22,35,63,.055) 1px,transparent 1px);
+    background-size:40px 40px}
+  /* la fenêtre : la maquette elle-même */
+  .fenetre{position:absolute;left:220px;top:140px;width:1160px;height:620px;background:#fff;border:2px solid #16233F;border-radius:10px;overflow:hidden;
+    box-shadow:0 10px 40px rgba(22,35,63,.10)}
+  /* barres de remplissage : du contenu sans texte */
+  .barre{height:14px;border-radius:7px;background:#E9E2D3}
+  .barre.fonce{background:#D6CDBA}
+  /* l'élément expliqué */
+  .cadre{position:absolute;border:4px solid #E8763A;border-radius:6px;pointer-events:none}
+  .etiquette{position:absolute;font-family:ui-monospace,Menlo,monospace;font-weight:700;font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:#E8763A;white-space:nowrap}
+  .etiquette::before{content:"";display:inline-block;width:12px;height:12px;background:#E8763A;margin-right:14px;vertical-align:middle}
+  .fil{position:absolute;width:3px;background:#E8763A}
+  /* composants de maquette réutilisables */
+  .nav{width:262px;height:100%;padding:28px 18px;border-right:1px solid rgba(22,35,63,.12);display:flex;flex-direction:column;gap:6px}
+  .nav .titre{display:flex;align-items:center;gap:12px;font-weight:700;font-size:22px;margin-bottom:26px}
+  .nav .logo{width:32px;height:32px;border-radius:8px;background:#16233F;color:#FBF8F1;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center}
+  .nav .rubrique{font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.16em;color:rgba(22,35,63,.55);margin:14px 0 6px}
+  .nav .lien{padding:12px 14px;border-radius:8px;font-size:19px;color:rgba(22,35,63,.8);display:flex;justify-content:space-between;align-items:center}
+  .nav .lien.actif{background:#16233F;color:#FBF8F1}
+  .nav .badge{font-size:12px;padding:2px 9px;border:1px solid rgba(22,35,63,.25);border-radius:999px;font-family:ui-monospace,Menlo,monospace}
+  .contenu{position:absolute;left:262px;top:0;right:0;bottom:0;padding:40px}
+  h1{margin:0 0 8px;font-size:30px;font-weight:700}
+  .sous{color:rgba(22,35,63,.6);font-size:19px;margin:0 0 30px}
+  .cartes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .carte{border:1px solid rgba(22,35,63,.14);border-radius:8px;padding:22px;display:flex;flex-direction:column;gap:12px}
+</style>
+</head>
+<body>
+<div class="papier">
+
+  <div class="fenetre">
+    <div class="nav">
+      <div class="titre"><span class="logo">A</span>Acme</div>
+      <div class="rubrique">PRINCIPAL</div>
+      <div class="lien actif">Tableau de bord</div>
+      <div class="lien">Clients <span class="badge">147</span></div>
+      <div class="lien">Factures <span class="badge">12</span></div>
+      <div class="lien">Messages</div>
+      <div class="rubrique">COMPTE</div>
+      <div class="lien">Paramètres</div>
+      <div class="lien">Déconnexion</div>
+    </div>
+    <div class="contenu">
+      <h1>Tableau de bord</h1>
+      <p class="sous">Vue d'ensemble de ton activité</p>
+      <div class="cartes">
+        <div class="carte"><div class="barre" style="width:55%"></div><div class="barre fonce" style="width:80%"></div></div>
+        <div class="carte"><div class="barre" style="width:55%"></div><div class="barre fonce" style="width:70%"></div></div>
+        <div class="carte"><div class="barre" style="width:55%"></div><div class="barre fonce" style="width:75%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- l'élément expliqué : cadre + fil + étiquette -->
+  <div class="cadre" style="left:216px;top:136px;width:270px;height:628px"></div>
+  <div class="fil" style="left:350px;top:104px;height:34px"></div>
+  <div class="etiquette" style="left:220px;top:64px">La barre latérale</div>
+
+</div>
+</body>
+</html>

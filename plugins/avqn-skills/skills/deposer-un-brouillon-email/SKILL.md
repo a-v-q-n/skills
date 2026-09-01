@@ -6,7 +6,8 @@ description: >-
   classé hors INBOX), répondre au message de l'interlocuteur pour que le destinataire soit
   le bon, et relire le brouillon déposé avant de rendre la main. Socle chargé par les
   recettes qui écrivent un email — accueillir-une-prise-de-contact, emettre-une-offre,
-  envoyer-une-facture, relancer-un-prospect, relancer-une-facture. NE COUVRE PAS la voix
+  envoyer-une-facture, relancer-un-prospect, relancer-une-facture,
+  ecrire-un-email-de-prospection. NE COUVRE PAS la voix
   (ecrire-comme-manu) ni ce que l'email doit dire, qui vit dans la recette du moment.
 ---
 

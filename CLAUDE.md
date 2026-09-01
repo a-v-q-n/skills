@@ -4,8 +4,9 @@ Ce repo est **le dépôt unique de tous les skills AVQN**. Il publie une marketp
 `avqn`, poussée sur `a-v-q-n/skills` et branchée à claude.ai via Extensions → Marketplaces,
 qui porte deux plugins :
 
-- **`avqn-skills`** — le business AVQN via AVQN OS (`os.avqn.ch`) et l'écriture dans la voix
-  de Manu. La production visuelle vit dans son propre plugin.
+- **`avqn-skills`** — tout le métier AVQN, en trois familles : le cycle de vie du client sur
+  AVQN OS (`os.avqn.ch`), le contenu Autonomes (ressources et blog, images comprises) et la
+  vidéo Contentos. Chaque famille a son socle d'écriture ; les recettes le chargent.
 - **`avqn-dev`** — la méthode de dev : triage par calibre, cycle `dev` jusqu'au FF merge,
   `chantier`, `review-pr`, `apercu`, `local`, `new-project`, `gerer-les-secrets`, et les
   sous-agents `revieweur` / `verificateur`. Elle ne sait rien d'un repo à l'avance : elle
@@ -41,6 +42,17 @@ ces gestes sont des étapes des recettes, et leur mécanique vit dans la grammai
 
 Physiquement, socle et recettes sont tous des dossiers de `skills/`. C'est le rôle et le
 nommage qui les distinguent, pas l'arborescence.
+
+### Les familles
+
+`avqn-skills` couvre trois familles — **cycle client**, **contenu Autonomes**, **vidéo
+Contentos** — chacune avec son socle d'écriture : `ecrire-comme-manu`, `ecrire-mes-ressources`
+(+ `titrer-une-ressource`), `ecrire-mes-videos`. Une recette charge le socle de **sa** famille
+et jamais celui d'une autre : la voix écrite, la voix des ressources et la voix parlée sont
+trois crafts distincts.
+
+Les familles ne sont pas des dossiers. `skills/` reste plat — c'est le nommage et la
+`description` qui situent un skill, et la table du `README.md` qui les regroupe.
 
 ### Le critère : skill à part ou fichier `references/` ?
 

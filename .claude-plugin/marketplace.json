@@ -4,12 +4,12 @@
     "name": "AVQN",
     "email": "hello@avqn.ch"
   },
-  "description": "Marketplace de plugins AVQN pour Claude : avqn-skills (le business) et avqn-dev (la méthode de dev).",
+  "description": "Marketplace de plugins AVQN pour Claude : avqn-skills (le métier — cycle client, contenu Autonomes, vidéo Contentos) et avqn-dev (la méthode de dev).",
   "plugins": [
     {
       "name": "avqn-skills",
       "source": "./plugins/avqn-skills",
-      "description": "Les skills AVQN pour Claude.",
+      "description": "Le métier AVQN : la voix de Manu, le cycle de vie du client sur AVQN OS, le contenu Autonomes et la vidéo Contentos.",
       "author": {
         "name": "Emmanuel Bernard",
         "email": "hello@avqn.ch"

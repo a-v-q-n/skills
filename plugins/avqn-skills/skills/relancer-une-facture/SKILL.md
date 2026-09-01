@@ -6,7 +6,7 @@ description: >-
   mise en demeure), écrire le brouillon adapté dans la voix de Manu, consigner la relance
   et programmer la suivante. Charge d'abord le socle ecrire-comme-manu. NE COUVRE PAS
   l'envoi initial de la facture (envoyer-une-facture), l'enregistrement d'un paiement
-  arrivé (paiement_record, grammaire facturation) ni la relance commerciale d'un prospect
+  arrivé (paiement_record) ni la relance commerciale d'un prospect
   (relancer-un-prospect).
 ---
 
@@ -80,3 +80,8 @@ sérieux.
 - [ ] Brouillon relu après dépôt : le champ `to` porte le client, le PDF est bien joint
 - [ ] Checklist anti-tics du socle `ecrire-comme-manu` passée
 - [ ] Relance au carnet (projet), tâche datée pour le prochain contrôle
+
+## Boucle d'amélioration
+
+Quand Manu corrige une relance (palier, ton, délai), chercher la règle qui aurait évité la
+correction et l'ajouter ici ; une question de voix va dans `ecrire-comme-manu`.
