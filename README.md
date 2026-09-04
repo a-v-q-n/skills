@@ -101,7 +101,7 @@ avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.m
 | `scripter-le-montage` | recette | Le script de montage final : séquences, plans, liens `#prise` et `@asset`. |
 | `titrer-une-ressource` | socle | Le titre : simple, descriptif, compris par un néophyte, sans accroche ni sous-titre. |
 
-**`avqn-dev`** — 11 skills
+**`avqn-dev`** — 10 skills
 
 | Skill | Couche | Moment |
 | :---- | :----- | :----- |
@@ -113,7 +113,6 @@ avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.m
 | `gerer-les-secrets` | recette | Lire, créer, câbler un secret (coffre BWS en local, broker `ops` partout) sans jamais montrer une valeur. |
 | `local` | recette | Démarrer un repo (recette dans son CLAUDE.md), socle transverse AVQN, preuve de boot. |
 | `new-project` | recette | Onboarder un repo neuf sur la plateforme AVQN (GitHub, Coolify, DNS, squelette, premier deploy). |
-| `relire-un-skill` | recette | Le crible d'un skill : conformité, puis déclenchement, classement, composition, poids. Lecture seule. |
 | `review-pr` | recette | Review adversariale avant merge (mode léger / mode chantier). |
 | `travailler-sur-un-repo` | socle | Triage S/M/L, découverte du contrat du repo (Démarrer / Gate / Livrer), signal cloud, mode prudent. Chargé par toutes les recettes de dev. |
 <!-- skills:fin -->
