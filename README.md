@@ -101,12 +101,11 @@ avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.m
 | `scripter-le-montage` | recette | Le script de montage final : séquences, plans, liens `#prise` et `@asset`. |
 | `titrer-une-ressource` | socle | Le titre : simple, descriptif, compris par un néophyte, sans accroche ni sous-titre. |
 
-**`avqn-dev`** — 10 skills
+**`avqn-dev`** — 9 skills
 
 | Skill | Couche | Moment |
 | :---- | :----- | :----- |
 | `apercu` | recette | Boucle qualité visuelle locale avant la PR (captures aux breakpoints). |
-| `avqn-skill-authoring` | socle | Les conventions d'écriture d'un skill AVQN : socle ou recette, anatomie, frontmatter, publication. |
 | `brainstorm-issue` | recette | De l'idée floue à la spec d'intention dans l'issue GitHub. |
 | `chantier` | recette | La discipline L : brainstorm → spec → plan → étapes → review renforcée. |
 | `dev` | recette | Le cycle M jusqu'au FF merge `main` : TDD, aperçu, gate, review, PR, CI verte. |
