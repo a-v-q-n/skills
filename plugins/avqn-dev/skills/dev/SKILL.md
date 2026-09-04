@@ -37,7 +37,31 @@ double-palier, prod en mono-palier, Vercel, Cloudflare…) est écrit dans le `#
 6. **Commit + rebase + PR** : commit descriptif 🤖 (bump de version si le repo en a un) ;
    `git rebase origin/main` (conflit non trivial → abort, mise de côté, signale) ; push ;
    PR via `gh pr create` (`Closes #n` si issue ; corps = quoi / pourquoi / comment vérifier).
-7. **CI verte sur la branche** : suis le run (`gh run watch` ou `gh pr checks --watch`).
+   En session cloud (surface connue depuis `travailler-sur-un-repo`), GitHub ne sert du GraphQL
+   que les opérations de review de PR épinglées — `gh pr create` y rend un 403 — et la PR
+   s'ouvre par la REST, corps lu depuis un fichier pour que les backticks et les `$` du
+   « comment vérifier » arrivent intacts :
+
+   ```bash
+   gh api repos/<org>/<dépôt>/pulls --method POST \
+     -f title="…" -f head="<branche>" -f base=main -F body=@pr-body.md --jq .html_url
+   ```
+
+7. **CI verte sur la branche** : suis le run (`gh run watch`, `gh run list` — API Actions, que
+   le 403 GraphQL n'atteint pas ; un 403 sur les Actions → connecteur `ops:github_*`). En cloud,
+   l'état des checks se lit par la REST sur le sha effectivement poussé, et sur les **deux**
+   surfaces que `gh pr checks` agrège — check runs (Actions) et statuts de commit (déploiements,
+   CI externes) :
+
+   ```bash
+   sha=$(git rev-parse HEAD)   # après le rebase de l'étape 6
+   gh api repos/<org>/<dépôt>/commits/$sha/check-runs \
+     --jq '.check_runs[] | "\(.name) \(.status) \(.conclusion // "")"'
+   gh api repos/<org>/<dépôt>/commits/$sha/status --jq .state
+   ```
+
+   L'appel est un instantané : redemande jusqu'à ce que chaque check ait conclu. Une liste vide
+   juste après le push dit « pas encore matérialisé », jamais « pas de CI ».
    Rouge → ne merge pas : corrige ou mets de côté avec un commentaire.
 8. **FF merge** : `git checkout main && git pull --ff-only origin main && git merge --ff-only
    <branche> && git push origin main`. Push rejeté → rebase + re-gate + retry. Puis surveille la
@@ -61,6 +85,8 @@ double-palier, prod en mono-palier, Vercel, Cloudflare…) est écrit dans le `#
   Cloudflare, pas de dispatch de workflow de déploiement.
 - **Jamais merge sur CI rouge** ; **rebase avant le FF** ; gate + aperçu **avant** la PR.
 - **Sans contrat lisible** : mode prudent — arrêt avant le push, et tu montres.
-- GitHub via `gh` (en cloud, le proxy l'authentifie) ; un 403 sur les Actions → connecteur
-  `ops:github_*`.
+- GitHub via `gh` (en cloud, le proxy l'authentifie). Deux 403 distincts, deux sorties : un 403
+  GraphQL (`gh pr create`, `gh pr checks`, `gh repo view`, `gh issue list`) n'est pas un défaut
+  de droits — la même opération passe par `gh api repos/…` (REST) ; un 403 sur les Actions →
+  connecteur `ops:github_*`.
 - Jamais de secret dans un commit, un log ou le contexte.
