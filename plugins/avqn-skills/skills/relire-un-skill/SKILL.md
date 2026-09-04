@@ -15,6 +15,7 @@ couche: recette
 moment: >-
   Le crible d'un skill : conformité, puis déclenchement, classement, composition, poids. Lecture
   seule.
+famille: outillage
 ---
 
 # Relire un skill
@@ -75,13 +76,14 @@ Dans cet ordre. Chacune cite le passage fautif (dix mots suffisent) et dit ce qu
 3. **Est-ce un skill, ou un `references/` déguisé ?** Le critère est l'usage indépendant : on
    l'invoque seul, ou plusieurs recettes le réutilisent. Un bloc qui ne sert qu'à un seul parent
    est un fichier de ce parent — le dire, et nommer le parent.
-4. **Le skill est-il dans le bon plugin, et charge-t-il le socle qui va avec ?** Métier →
-   `avqn-skills` avec sa `famille`, et le socle de cette famille : `ecrire-comme-manu` pour le
-   cycle client, `ecrire-mes-ressources` (+ `titrer-une-ressource`) pour le contenu Autonomes,
-   `ecrire-mes-videos` pour la vidéo. Outillage des skills → `avqn-skills` sans `famille`, socle
-   `avqn-skill-authoring`. Méthode de dev → `avqn-dev`, socle `travailler-sur-un-repo`. La voix
-   écrite, la voix des ressources et la voix parlée sont trois crafts distincts : charger le socle
-   d'une autre famille est un défaut bloquant, pas une approximation.
+4. **Le skill est-il dans le bon plugin, et charge-t-il le socle qui va avec ?** Métier et
+   outillage des skills → `avqn-skills`, **toujours** avec une `famille`, et le socle de cette
+   famille : `cycle-client` → `ecrire-comme-manu`, `contenu-autonomes` → `ecrire-mes-ressources`
+   (+ `titrer-une-ressource`), `video-contentos` → `ecrire-mes-videos`, `outillage` →
+   `avqn-skill-authoring`. Méthode de dev → `avqn-dev`, sans `famille`, socle
+   `travailler-sur-un-repo`. La voix écrite, la voix des ressources et la voix parlée sont trois
+   crafts distincts : charger le socle d'une autre famille est un défaut bloquant, pas une
+   approximation.
 5. **Le corps tient-il ?** Sous 500 lignes, les détails longs poussés en `references/` — et les
    références **à un niveau**, jamais une référence qui en appelle une autre. Un corps qui déborde
    se relit en cherchant ce qui part en `references/`, pas en coupant.

@@ -4,21 +4,22 @@ Ce repo est **le dépôt unique de tous les skills AVQN**. Il publie une marketp
 `avqn`, poussée sur `a-v-q-n/skills` et branchée à claude.ai via Extensions → Marketplaces,
 qui porte deux plugins :
 
-- **`avqn-skills`** — tout le métier AVQN, en trois familles : le cycle de vie du client sur
-  AVQN OS (`os.avqn.ch`), le contenu Autonomes (ressources et blog, images comprises) et la
-  vidéo Contentos. Chaque famille a son socle d'écriture ; les recettes le chargent.
-- **`avqn-dev`** — la méthode de dev : triage par calibre, cycle `dev` jusqu'au FF merge,
-  `chantier`, `review-pr`, `apercu`, `local`, `new-project`, `gerer-les-secrets`, l'écriture et
-  la relecture de skills (`avqn-skill-authoring`, `relire-un-skill`), et les sous-agents
-  `revieweur` / `verificateur`. Elle ne sait rien d'un repo à l'avance : elle
+- **`avqn-skills`** — le métier AVQN **et** l'outillage des skills eux-mêmes, en quatre
+  familles : le cycle de vie du client sur AVQN OS (`os.avqn.ch`), le contenu Autonomes
+  (ressources et blog, images comprises), la vidéo Contentos, et l'outillage
+  (`avqn-skill-authoring`, `creer-un-skill`, `relire-un-skill`). Chaque famille a son socle ;
+  les recettes le chargent.
+- **`avqn-dev`** — la méthode de dev sur un dépôt : triage par calibre, cycle `dev` jusqu'au FF
+  merge, `chantier`, `review-pr`, `apercu`, `local`, `new-project`, `gerer-les-secrets`, et les
+  sous-agents `revieweur` / `verificateur`. Elle ne sait rien d'un repo à l'avance : elle
   **découvre** son contrat (`CLAUDE.md` — Démarrer en local / Gate / Livrer) et marche en local
   comme en session cloud. L'infra elle-même est un connecteur (`AVQN OPS`) qui fournit des
   outils ; ses recettes vivent ici.
 
-  **Une tension assumée.** `avqn-dev` se veut agnostique du dépôt, et ces deux skills-là sont
-  spécifiques à celui-ci. Un troisième plugin pour deux skills serait du YAGNI : ils vivent dans
-  `avqn-dev` parce que c'est le seul plugin publié qu'une session hors de ce dépôt charge déjà —
-  et parce qu'écrire un skill *est* un geste de dev. Le jour où un troisième arrive, ils sortent.
+  **Pourquoi l'outillage vit dans `avqn-skills`.** La raison est de distribution, pas de
+  doctrine : c'est le plugin que Manu active, et un outil de création de skills rangé dans un
+  plugin qu'on n'installe pas ne sert à personne. Il y porte sa `famille` comme n'importe quel
+  autre skill du plugin.
 
 Un repo de la flotte ne porte que **son contrat**, jamais la méthode.
 
@@ -51,11 +52,18 @@ nommage qui les distinguent, pas l'arborescence.
 
 ### Les familles
 
-`avqn-skills` couvre trois familles — **cycle client**, **contenu Autonomes**, **vidéo
-Contentos** — chacune avec son socle d'écriture : `ecrire-comme-manu`, `ecrire-mes-ressources`
-(+ `titrer-une-ressource`), `ecrire-mes-videos`. Une recette charge le socle de **sa** famille
-et jamais celui d'une autre : la voix écrite, la voix des ressources et la voix parlée sont
-trois crafts distincts.
+`avqn-skills` couvre quatre familles, chacune avec son socle. Une recette charge le socle de
+**sa** famille et jamais celui d'une autre : la voix écrite, la voix des ressources et la voix
+parlée sont trois crafts distincts.
+
+| `famille` | Ce qu'elle couvre | Socle que composent ses recettes |
+| :-------- | :---------------- | :------------------------------- |
+| `cycle-client` | Le cycle de vie du client sur AVQN OS | `ecrire-comme-manu` |
+| `contenu-autonomes` | Ressources et blog Autonomes | `ecrire-mes-ressources` (+ `titrer-une-ressource`) |
+| `video-contentos` | La vidéo Contentos | `ecrire-mes-videos` |
+| `outillage` | Les skills eux-mêmes | `avqn-skill-authoring` |
+
+Les skills d'`avqn-dev` n'en portent pas : leur socle est `travailler-sur-un-repo`.
 
 Les familles ne sont pas des dossiers. `skills/` reste plat — c'est la clé `famille` du
 frontmatter qui situe un skill, et la table générée du `README.md` qui les regroupe.
@@ -81,7 +89,7 @@ pas avant.
 ```
 .claude-plugin/marketplace.json      Catalogue de la marketplace « avqn »
 plugins/
-├── avqn-skills/                      Le business (cycle de vie du client, voix)
+├── avqn-skills/                      Le métier (client, contenu, vidéo) et l'outillage des skills
 │   ├── .claude-plugin/plugin.json    Manifeste du plugin
 │   └── skills/
 │       └── <nom-du-skill>/           Un skill = un dossier (socle ou recette)
@@ -107,9 +115,9 @@ sensible (il porte hooks, commandes et réglages, donc le comportement de l'agen
 demande confirmation à chaque écriture, même en mode `acceptEdits`. Une session autonome s'y
 arrêterait net.
 
-L'écriture d'un skill, elle, n'est plus repo-locale : `avqn-skill-authoring` et
-`relire-un-skill` vivent dans `plugins/avqn-dev/skills/`, donc disponibles depuis n'importe
-quelle session.
+L'écriture d'un skill, elle, n'est pas repo-locale : `avqn-skill-authoring`, `creer-un-skill` et
+`relire-un-skill` vivent dans `plugins/avqn-skills/skills/`, donc disponibles depuis n'importe
+quelle session qui a le plugin.
 
 ## Anatomie d'un skill
 
@@ -137,9 +145,11 @@ Un skill n'embarque que les dossiers utiles ; seul `SKILL.md` est obligatoire.
 - **`moment`** (frontmatter, requise) : une phrase, le moment où le skill sert. C'est la colonne
   « Moment » de la table. Le frontmatter n'est donc plus seulement `name` + `description` : il
   **est** la source de la table, et la table ne s'édite jamais à la main.
-- **`famille`** (frontmatter, requise dans `avqn-skills`) : `cycle-client`, `contenu-autonomes`
-  ou `video-contentos` — la section de la table. Les skills d'`avqn-dev` n'en portent pas ; une
-  famille inconnue range le skill sous « Non classé » plutôt que de le perdre.
+- **`famille`** (frontmatter, requise sur **tout** skill d'`avqn-skills`) : `cycle-client`,
+  `contenu-autonomes`, `video-contentos` ou `outillage` — elle décide du socle que compose la
+  recette, et de la section de la table. Les skills d'`avqn-dev` n'en portent pas, et la gate
+  refuse celle qui s'y glisserait. Une famille inconnue range le skill sous « Non classé »
+  plutôt que de le perdre — la gate, elle, la refuse en listant les quatre valeurs.
 - **Blocs repliés** : `description` et `moment` s'écrivent en `>-`. Une phrase contenant « : »
   casse un scalaire YAML simple.
 - **Divulgation progressive** : `SKILL.md` porte l'essentiel et pointe vers `references/` pour
@@ -155,12 +165,14 @@ Un skill n'embarque que les dossiers utiles ; seul `SKILL.md` est obligatoire.
 
 - **Démarrer en local** : rien à lancer — ce dépôt ne porte pas d'application. On travaille les
   fichiers depuis une session ouverte DANS le repo ; les commandes d'auteur (`/new-skill`,
-  `/check-skills`) et le plugin `avqn-dev` (déclaré dans `.claude/settings.json`) s'amorcent
-  seuls. Le plugin chargé vient de la marketplace **publiée** : une modification locale d'un
-  skill ne prend effet dans la session qu'une fois poussée.
+  `/check-skills`) et les deux plugins — `avqn-dev` pour la méthode, `avqn-skills` pour
+  l'outillage d'auteur, tous deux déclarés dans `.claude/settings.json` et amorcés par le hook
+  en session cloud — s'amorcent seuls. Les plugins chargés viennent de la marketplace
+  **publiée** : une modification locale d'un skill ne prend effet dans la session qu'une fois
+  poussée.
 - **Gate** : `/check-skills` — vert avant tout push. Elle couvre le JSON de la marketplace, le
-  frontmatter des skills et des agents (`couche` et `moment` compris), l'absence de champ
-  `version`, la **fraîcheur de la zone générée du `README.md`**, et les tests de l'outil
+  frontmatter des skills et des agents (`couche`, `moment` et `famille` compris), l'absence de
+  champ `version`, la **fraîcheur de la zone générée du `README.md`**, et les tests de l'outil
   d'auteur.
 - **Livrer** : le push sur `main` EST la publication (cf. *Workflow de publication*). Ni CI,
   ni image, ni déploiement.
@@ -186,5 +198,6 @@ sans redemander.
 ## Métier générique
 
 Pour l'artisanat d'un bon skill (rédiger la `description`, structurer, vérifier), s'appuyer sur
-`avqn-dev:avqn-skill-authoring` ; pour le crible avant publication, sur `avqn-dev:relire-un-skill`,
-qui est en lecture seule. Ce fichier ne redocumente pas ce qu'ils couvrent déjà.
+`avqn-skills:avqn-skill-authoring` ; pour la séquence complète, sur `avqn-skills:creer-un-skill` ;
+pour le crible avant publication, sur `avqn-skills:relire-un-skill`, qui est en lecture seule.
+Ce fichier ne redocumente pas ce qu'ils couvrent déjà.

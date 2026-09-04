@@ -8,7 +8,8 @@
     }
   },
   "enabledPlugins": {
-    "avqn-dev@avqn": true
+    "avqn-dev@avqn": true,
+    "avqn-skills@avqn": true
   },
   "hooks": {
     "SessionStart": [

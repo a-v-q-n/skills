@@ -4,7 +4,7 @@ argument-hint: <nom-du-skill-en-kebab-case>
 ---
 
 Crée un nouveau skill nommé `$ARGUMENTS` dans ce repo. Charge d'abord le skill
-`avqn-dev:avqn-skill-authoring` pour les conventions et l'architecture.
+`avqn-skills:avqn-skill-authoring` pour les conventions et l'architecture.
 
 Étapes :
 
@@ -39,15 +39,17 @@ Crée un nouveau skill nommé `$ARGUMENTS` dans ce repo. Charge d'abord le skill
    <La recette. Rester concis ; renvoyer vers references/ pour les détails longs.>
    ```
 
-   `couche` vaut `socle` ou `recette` ; `famille` vaut `cycle-client`, `contenu-autonomes`
-   ou `video-contentos` (un skill d'`avqn-dev` n'en porte pas). Si c'est une **recette** qui
-   compose un socle, ajouter en tête du corps la ligne de composition : « Commencer par
-   charger `<socle>` » (ex. `écrire-comme-manu`).
+   `couche` vaut `socle` ou `recette` ; `famille` vaut `cycle-client`, `contenu-autonomes`,
+   `video-contentos` ou `outillage`, et elle est requise sur tout skill d'`avqn-skills` (un
+   skill d'`avqn-dev` n'en porte pas). Si c'est une **recette** qui compose un socle, ajouter
+   en tête du corps la ligne de composition : « Commencer par charger `<socle>` » — le socle de
+   sa famille (`ecrire-comme-manu`, `ecrire-mes-ressources`, `ecrire-mes-videos`,
+   `avqn-skill-authoring`).
 
 5. **Rappeler** (sans les faire tout de suite) : compléter la `description`
    (déclencheurs + limite), ajouter `references/`/`templates/`/`examples/`/`assets/`
    au besoin, régénérer la table (`python3 scripts/skills.py readme`), passer le
-   skill à `avqn-dev:relire-un-skill`, puis lancer `/check-skills` avant de commiter.
+   skill à `avqn-skills:relire-un-skill`, puis lancer `/check-skills` avant de commiter.
    Pas de version à bumper : chaque commit poussé se propage seul.
 
 Ne pas créer de dossiers vides — `references/`, `templates/`, etc. s'ajoutent quand

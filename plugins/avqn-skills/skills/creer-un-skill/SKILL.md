@@ -15,6 +15,7 @@ couche: recette
 moment: >-
   De l'intention au skill publié : capter, choisir le plugin, écrire, éprouver le déclenchement,
   poser, faire relire.
+famille: outillage
 ---
 
 # Créer un skill
@@ -44,10 +45,13 @@ Puis combler les trous, et seulement eux :
 Ce choix vient **avant** l'écriture : il fixe le frontmatter et le socle que le skill composera.
 Se tromper ne range pas mal — ça produit un skill qui charge le mauvais socle.
 
-- Le skill sert le **métier** (un client, du contenu, une vidéo) → `avqn-skills`, avec sa
-  `famille`, et il composera le socle de cette famille.
-- Il sert **l'outillage des skills** eux-mêmes → `avqn-skills`, sans `famille`.
-- Il sert la **méthode de dev** sur un dépôt → `avqn-dev`, socle `travailler-sur-un-repo`.
+- Le skill sert le **métier** (un client, du contenu, une vidéo) ou **l'outillage des skills**
+  eux-mêmes → `avqn-skills`. Il porte alors une `famille`, et composera son socle :
+  `cycle-client` → `ecrire-comme-manu`, `contenu-autonomes` → `ecrire-mes-ressources`
+  (+ `titrer-une-ressource`), `video-contentos` → `ecrire-mes-videos`, `outillage` →
+  `avqn-skill-authoring`.
+- Il sert la **méthode de dev** sur un dépôt → `avqn-dev`, sans `famille`, socle
+  `travailler-sur-un-repo`.
 
 ## 3. Trancher : skill, `references/`, ou rien
 

@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Hook SessionStart — accueil de session sur le dépôt des skills. Trois rôles :
 #   (1) neutraliser la signature de commit cassée du harness cloud (sinon `git commit` échoue) ;
-#   (2) amorcer le plugin avqn-dev en session cloud (l'auto-install de settings.json ne s'y déclenche pas) ;
+#   (2) amorcer les plugins avqn-dev et avqn-skills en session cloud (l'auto-install de settings.json
+#       ne s'y déclenche pas) — avqn-skills porte l'outillage d'auteur que /new-skill charge ;
 #   (3) annoncer la branche + rappeler la gate et le mode de publication.
 set -uo pipefail
 
@@ -18,19 +19,23 @@ branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo '')"
 # dépôt (le local prime sur le global).
 git config --local commit.gpgsign false 2>/dev/null || true
 
-# Méthode en session cloud : le plugin avqn-dev vit DANS ce dépôt, mais une session le charge comme
-# n'importe quel repo — depuis la marketplace publiée. Une modif locale du plugin ne prend donc effet
-# qu'une fois poussée. Idempotent.
+# Méthode et outillage en session cloud : les deux plugins vivent DANS ce dépôt, mais une session les
+# charge comme n'importe quel repo — depuis la marketplace publiée. Une modif locale d'un plugin ne
+# prend donc effet qu'une fois poussée. Idempotent.
 if [ "${CLAUDE_CODE_REMOTE:-}" = "true" ]; then
-  if claude plugin list 2>/dev/null | grep -q 'avqn-dev@avqn'; then
+  installe="$(claude plugin list 2>/dev/null || true)"
+  if printf '%s' "$installe" | grep -q '@avqn'; then
     claude plugin marketplace update avqn >&2 2>&1 || true
   else
     claude plugin marketplace add a-v-q-n/skills >&2 2>&1 || true
-    claude plugin install avqn-dev@avqn >&2 2>&1 || true
   fi
+  for plugin in avqn-dev avqn-skills; do
+    printf '%s' "$installe" | grep -q "$plugin@avqn" \
+      || claude plugin install "$plugin@avqn" >&2 2>&1 || true
+  done
 fi
 
-base="Dis ce que tu veux faire. Gate : \`/check-skills\` (JSON de la marketplace, frontmatter des skills et des agents — \`couche\` et \`moment\` compris —, absence de champ \`version\`, fraîcheur de la table du README). Rien à déployer : le push sur \`main\` EST la publication — sans champ \`version\`, chaque commit se propage seul aux clients (claude.ai, CLI). Écrire un skill : \`/new-skill <nom>\` ; la table du README se régénère (\`python3 scripts/skills.py readme\`), elle ne s'édite jamais à la main."
+base="Dis ce que tu veux faire. Gate : \`/check-skills\` (JSON de la marketplace, frontmatter des skills et des agents — \`couche\`, \`moment\` et \`famille\` compris —, absence de champ \`version\`, fraîcheur de la table du README). Rien à déployer : le push sur \`main\` EST la publication — sans champ \`version\`, chaque commit se propage seul aux clients (claude.ai, CLI). Écrire un skill : \`/new-skill <nom>\` ; la table du README se régénère (\`python3 scripts/skills.py readme\`), elle ne s'édite jamais à la main."
 
 if [ "$branch" = "main" ] || [ "$branch" = "master" ]; then
   emit "🧰 skills — le dépôt des skills AVQN (marketplace \`avqn\` : plugins avqn-skills et avqn-dev). Tu es sur \`$branch\`. $base"

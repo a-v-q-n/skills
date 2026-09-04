@@ -40,13 +40,14 @@ SECTIONS = [
         "plugin": "avqn-skills",
         "titre": "Skills disponibles — `avqn-skills`",
         "intro": (
-            "Trois familles. Dans chacune, un **socle** porte le craft transverse et les "
+            "Quatre familles. Dans chacune, un **socle** porte le craft transverse et les "
             "**recettes** vont\nde bout en bout en le chargeant."
         ),
         "familles": [
             ("cycle-client", "Cycle de vie du client — AVQN OS"),
             ("contenu-autonomes", "Contenu Autonomes — ressources et blog"),
             ("video-contentos", "Vidéo Contentos"),
+            ("outillage", "Outillage des skills"),
         ],
     },
     {

@@ -14,6 +14,7 @@ couche: socle
 moment: >-
   Les conventions d'écriture d'un skill AVQN : socle ou recette, anatomie, frontmatter,
   publication.
+famille: outillage
 ---
 
 # Écrire un skill AVQN
@@ -52,11 +53,17 @@ Deux plugins, et le choix se fait **avant** d'écrire : il fixe le frontmatter e
 skill composera.
 
 - **`avqn-skills`** — le métier d'AVQN (un client, du contenu, une vidéo), **et l'outillage des
-  skills eux-mêmes** (`avqn-skill-authoring`, `creer-un-skill`, `relire-un-skill`). Un skill du
-  métier porte une `famille` et compose le socle de cette famille ; un skill d'outillage n'en
-  porte pas.
+  skills eux-mêmes** (`avqn-skill-authoring`, `creer-un-skill`, `relire-un-skill`). **Tout skill
+  de ce plugin porte une `famille`**, et compose le socle de cette famille — l'outillage compris.
 - **`avqn-dev`** — la méthode de dev sur un dépôt (calibre, cycle, review, secrets). Pas de
   `famille` ; le socle est `travailler-sur-un-repo`.
+
+| `famille` | Socle que composent ses recettes |
+| :-------- | :------------------------------- |
+| `cycle-client` | `ecrire-comme-manu` |
+| `contenu-autonomes` | `ecrire-mes-ressources` (+ `titrer-une-ressource`) |
+| `video-contentos` | `ecrire-mes-videos` |
+| `outillage` | `avqn-skill-authoring` |
 
 ## 4. Emplacement et anatomie
 
@@ -82,7 +89,7 @@ qui déclenche le skill **et** qui alimente la table du `README.md`.
 | `description` | oui | Français, 3e personne. Déclencheurs (« À utiliser dès que… ») **et** limite (« NE COUVRE PAS… »). Le seul texte qui décide du déclenchement. |
 | `couche` | oui | `socle` ou `recette`. Le classement de l'étape 1, rendu lisible par la machine. |
 | `moment` | oui | Une phrase : le moment où ce skill sert. C'est la colonne « Moment » de la table du README. |
-| `famille` | métier | `cycle-client`, `contenu-autonomes` ou `video-contentos`. Les skills d'`avqn-dev` et l'outillage des skills n'en portent pas. |
+| `famille` | dans `avqn-skills` | `cycle-client`, `contenu-autonomes`, `video-contentos` ou `outillage` — elle décide du socle (§3). Obligatoire sur tout skill d'`avqn-skills` ; les skills d'`avqn-dev` n'en portent pas, et la gate refuse les deux fautes. |
 
 `moment` et `description` s'écrivent en bloc replié (`>-`) : une phrase avec un « : » casse un
 scalaire YAML simple.
@@ -95,10 +102,11 @@ version épinglerait le plugin, alors que chaque commit poussé fait version par
 Concis, état-cible : décrire ce qui est, sans « désormais » ni « au lieu de ». `SKILL.md` porte
 l'essentiel et renvoie vers `references/` pour le reste.
 
-Une **recette du métier compose le socle de sa famille** — et jamais celui d'une autre : écrire en
-tête du corps, noir sur blanc, « commencer par charger `ecrire-comme-manu` » (cycle client),
+Une **recette compose le socle de sa famille** — et jamais celui d'une autre : écrire en tête du
+corps, noir sur blanc, « commencer par charger `ecrire-comme-manu` » (cycle client),
 `ecrire-mes-ressources` (+ `titrer-une-ressource`) pour le contenu Autonomes, `ecrire-mes-videos`
-pour la vidéo, `travailler-sur-un-repo` pour la méthode de dev.
+pour la vidéo, `avqn-skill-authoring` pour l'outillage des skills, `travailler-sur-un-repo` pour
+la méthode de dev.
 
 Les outils MCP se citent par leur nom d'usage (`invoice_render_pdf`) avec une formulation
 française de l'usage ; la mécanique d'un domaine AVQN OS vit dans `grammaire {domaine}` côté
@@ -106,10 +114,10 @@ serveur et ne se redocumente pas.
 
 ## 7. Publier
 
-1. La table du `README.md` **se régénère** — une table plate par plugin, entre les marqueurs
-   `<!-- skills:début -->` et `<!-- skills:fin -->`. On ne l'édite jamais à la main : pour changer
-   une ligne, changer le `moment` ou la `couche` du skill. Écrire par le secteur `skill_` la
-   régénère seul.
+1. La table du `README.md` **se régénère** — `avqn-skills` regroupée par famille, `avqn-dev` en
+   table plate, entre les marqueurs `<!-- skills:début -->` et `<!-- skills:fin -->`. On ne
+   l'édite jamais à la main : pour changer une ligne, changer le `moment`, la `couche` ou la
+   `famille` du skill. Écrire par le secteur `skill_` la régénère seul.
 2. La gate : `skill_check` depuis n'importe quelle conversation, `/check-skills` depuis une
    session attachée au dépôt.
 3. Commit 🤖 + push sur `main`. Le push **est** la publication : ni CI, ni image, ni déploiement.

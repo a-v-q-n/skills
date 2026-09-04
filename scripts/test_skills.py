@@ -7,9 +7,14 @@ import tempfile
 import unittest
 
 _ICI = os.path.dirname(os.path.abspath(__file__))
+_REPO = os.path.dirname(_ICI)
 _SPEC = importlib.util.spec_from_file_location("skills", os.path.join(_ICI, "skills.py"))
 skills = importlib.util.module_from_spec(_SPEC)
 _SPEC.loader.exec_module(skills)
+
+# Les familles admises telles que la gate les connaît — les tests s'y adossent plutôt que de les
+# recopier, pour qu'une cinquième famille les traverse sans édition.
+FAMILLES = skills.FAMILLES_ATTENDUES["avqn-skills"]
 
 
 MARKETPLACE = """{
@@ -69,6 +74,8 @@ class BaseRepo(unittest.TestCase):
                    famille="contenu-autonomes", moment="De la matière à la ressource.")
         self.skill("avqn-skills", "produire-la-vo", couche="recette",
                    famille="video-contentos", moment="La voix off et l'avatar.")
+        self.skill("avqn-skills", "avqn-skill-authoring", couche="socle", famille="outillage",
+                   moment="Les conventions d'écriture d'un skill.")
         self.skill("avqn-dev", "dev", couche="recette", moment="Le cycle M jusqu'au FF merge.")
         self.ecrire("README.md", README)
 
@@ -195,11 +202,36 @@ class TestControle(BaseRepo):
         skills.generer_readme(self.repo)
         self.assertTrue(any("famille" in p and "sans-famille" in p for p in self.problemes()))
 
+    def test_famille_absente_liste_les_quatre_valeurs_admises(self):
+        """Le message nomme les valeurs possibles : sans elles, on ne sait pas quoi écrire."""
+        self.skill("avqn-skills", "sans-famille", couche="recette", moment="m")
+        skills.generer_readme(self.repo)
+        faute = next(p for p in self.problemes() if "sans-famille" in p)
+        self.assertIn("'famille'", faute)
+        for valeur in FAMILLES:
+            self.assertIn(valeur, faute)
+
     def test_famille_inconnue_dans_avqn_skills(self):
         self.skill("avqn-skills", "famille-tordue", couche="recette", famille="cycle-clients",
                    moment="m")
         skills.generer_readme(self.repo)
         self.assertTrue(any("cycle-clients" in p for p in self.problemes()))
+
+    def test_famille_inconnue_liste_les_quatre_valeurs_admises(self):
+        """Refuser sans dire ce qui est admis oblige à ouvrir le code de la gate."""
+        self.skill("avqn-skills", "famille-tordue", couche="recette", famille="cycle-clients",
+                   moment="m")
+        skills.generer_readme(self.repo)
+        faute = next(p for p in self.problemes() if "famille-tordue" in p)
+        for valeur in FAMILLES:
+            self.assertIn(valeur, faute)
+
+    def test_famille_outillage_est_admise(self):
+        """L'outillage des skills vit dans avqn-skills et porte sa famille comme le métier."""
+        self.skill("avqn-skills", "relire-un-skill", couche="recette", famille="outillage",
+                   moment="Le crible d'un skill.")
+        skills.generer_readme(self.repo)
+        self.assertEqual(self.problemes(), [])
 
     def test_famille_posee_sur_un_skill_avqn_dev(self):
         self.skill("avqn-dev", "dev", couche="recette", moment="m", famille="cycle-client")
@@ -251,9 +283,19 @@ class TestGeneration(BaseRepo):
         zone = skills.zone_generee(self.repo)
         self.assertIn("### Cycle de vie du client — AVQN OS", zone)
         self.assertIn("### Contenu Autonomes — ressources et blog", zone)
+        self.assertIn("### Outillage des skills", zone)
         self.assertLess(zone.index("Cycle de vie du client"), zone.index("Contenu Autonomes"))
         self.assertLess(zone.index("Contenu Autonomes"), zone.index("Vidéo Contentos"))
+        self.assertLess(zone.index("Vidéo Contentos"), zone.index("Outillage des skills"))
         self.assertLess(zone.index("`avqn-skills`"), zone.index("`avqn-dev`"))
+
+    def test_quatre_sections_pour_avqn_skills_et_une_table_plate_pour_avqn_dev(self):
+        """avqn-skills se regroupe par famille ; avqn-dev garde une table sans sous-titre."""
+        zone = skills.zone_generee(self.repo)
+        avant_dev, apres_dev = zone.split("## Skills disponibles — `avqn-dev`", 1)
+        self.assertEqual(avant_dev.count("\n### "), 4, avant_dev)
+        self.assertNotIn("\n### ", apres_dev)
+        self.assertIn("`dev`", apres_dev)
 
     def test_socle_avant_recette_puis_alphabetique(self):
         self.skill("avqn-skills", "accueillir-un-contact", couche="recette",
@@ -297,6 +339,32 @@ class TestGeneration(BaseRepo):
         with self.assertRaises(skills.ErreurDeGeneration):
             skills.generer_readme(self.repo)
         self.assertEqual(self.lire("README.md"), "# Sans marqueurs\n")
+
+
+class TestDoctrine(unittest.TestCase):
+    """Le vrai dépôt : les documents qui énoncent la règle citent les familles de la gate.
+
+    La clé `famille` est décrite à plusieurs endroits — le contrat, le socle d'écriture, la
+    recette de création, le crible, la commande de scaffolding. C'est ce qui l'a laissée dériver
+    une première fois ; ce test rend la dérive visible avant le push.
+    """
+
+    PORTEURS = (
+        "CLAUDE.md",
+        "README.md",
+        "plugins/avqn-skills/skills/avqn-skill-authoring/SKILL.md",
+        "plugins/avqn-skills/skills/creer-un-skill/SKILL.md",
+        "plugins/avqn-skills/skills/relire-un-skill/SKILL.md",
+        ".claude/commands/new-skill.md",
+    )
+
+    def test_les_documents_citent_toutes_les_familles(self):
+        for chemin in self.PORTEURS:
+            with open(os.path.join(_REPO, chemin), encoding="utf-8") as f:
+                texte = f.read()
+            for famille in FAMILLES:
+                self.assertIn(famille, texte,
+                              f"{chemin} ne cite pas la famille '{famille}'")
 
 
 if __name__ == "__main__":
