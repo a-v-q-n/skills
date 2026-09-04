@@ -2,14 +2,14 @@
 name: creer-un-skill
 description: >-
   À utiliser dès qu'un skill AVQN doit être posé, modifié ou retiré de la marketplace « avqn »
-  (dépôt a-v-q-n/skills, plugins avqn-skills et avqn-dev) — même si Manu dit seulement « fais-en
-  un skill », « on en fait une recette », « ajoute ça à emettre-une-offre », « ce skill ne sert
-  plus », ou raconte un geste qu'il refait souvent. Porte la séquence et les jalons : capter
-  l'intention (souvent déjà dans la conversation), trancher skill ou pas, écrire le brouillon,
-  éprouver le déclenchement sur de vraies phrases, poser par le secteur `skill_` d'AVQN OPS,
-  faire relire, publier. Charge d'abord avqn-skill-authoring. NE COUVRE PAS les conventions
-  elles-mêmes (avqn-skill-authoring), le crible d'un skill existant (relire-un-skill), ni le
-  contenu métier du skill à écrire, qui vient de Manu.
+  (dépôt a-v-q-n/skills, plugins avqn-skills et avqn-dev) — même si Manu dit seulement « crée-moi
+  un skill pour… », « fais-en un skill », « on en fait une recette », « ajoute ça à
+  emettre-une-offre », « ce skill ne sert plus », ou raconte un geste qu'il refait souvent. Porte
+  la séquence et les jalons : capter l'intention (souvent déjà dans la conversation), trancher
+  skill ou pas, écrire le brouillon, éprouver le déclenchement sur de vraies phrases, poser par le
+  secteur `skill_` d'AVQN OPS, faire relire, publier. Charge d'abord avqn-skill-authoring.
+  NE COUVRE PAS les conventions elles-mêmes (avqn-skill-authoring), le crible d'un skill existant
+  (relire-un-skill), ni le contenu métier du skill à écrire, qui vient de Manu.
 couche: recette
 moment: >-
   De l'intention au skill publié : capter, trancher, écrire, éprouver le déclenchement, poser,
@@ -83,7 +83,7 @@ Par le secteur `skill_` d'AVQN OPS, qui marche depuis n'importe quelle conversat
 depuis une session attachée au dépôt.
 
 1. `skill_upsert` avec `dry_run: true` — le rapport complet, sans une ligne écrite.
-2. Le même appel sans `dry_run`. Un skill neuf ne demande pas de `confirm`.
+2. Le même appel sans `dry_run`.
 3. Le serveur régénère la table du README et **refuse le commit** si la conformité tombe : ce
    qu'il rend en `problemes` se corrige, ce qu'il rend en `avertissements` traînait déjà ailleurs.
 4. Garder l'URL du commit qu'il rend — c'est la trace de l'écriture.
@@ -99,15 +99,14 @@ session.
 
 ## 7. Modifier, retirer
 
-**Modifier** — `skill_get` d'abord, **toujours** : `skill_upsert` remplace le dossier en entier,
-et une annexe qu'on ne renvoie pas dans `fichiers` disparaît. Repasser le `base_sha` rendu, pour
-refuser d'écraser une écriture concurrente. `confirm` (`<plugin>/<nom>`) est exigé dès que le
-skill existe. Si la `description` bouge, rejouer §4 : c'est le déclenchement qui change.
+**Modifier** — `skill_get` d'abord, **toujours**. Le serveur refuse de lui-même ce qui doit
+l'être ; ce piège-là, non : `skill_upsert` remplace le dossier en entier, et une annexe qu'on ne
+renvoie pas dans `fichiers` disparaît sans un mot. Si la `description` bouge, rejouer §4 — c'est
+le déclenchement qui change.
 
 **Retirer** — avant `skill_delete`, chercher qui cite ce skill : les voisins le nomment dans leur
 `NE COUVRE PAS`, les recettes le nomment dans leur composition. Corriger ces renvois d'abord,
-sinon on laisse des pointeurs morts qui survivront des mois. Puis `skill_delete` avec son
-`confirm`.
+sinon on laisse des pointeurs morts qui survivront des mois.
 
 ## Ce qui reste toujours vrai
 
