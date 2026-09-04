@@ -68,11 +68,12 @@ se propage seule côté claude.ai (au besoin, « Mettre à jour » / `/plugin ma
 avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.md`.
 
 <!-- skills:début -->
-**`avqn-skills`** — 25 skills
+**`avqn-skills`** — 26 skills
 
 | Skill | Couche | Moment |
 | :---- | :----- | :----- |
 | `accueillir-une-prise-de-contact` | recette | Quelqu'un contacte AVQN : enquêter, consigner, ouvrir le deal, répondre. |
+| `avqn-skill-authoring` | socle | Les conventions d'écriture d'un skill AVQN : socle ou recette, anatomie, frontmatter, publication. |
 | `composer-une-cover-d-article` | recette | La cover 1600×900 : thème commun, composition improvisée, trois variantes puis pose. |
 | `composer-une-cover-de-ressource` | recette | La vignette 1280×720 : rampes de ciel, recettes de composition, glyphes, trois variantes puis pose. |
 | `consigner-un-contact` | socle | L'entrée au CRM : chercher avant de créer, coordonnées structurées, organisation, affiliation, fiche courte. |
