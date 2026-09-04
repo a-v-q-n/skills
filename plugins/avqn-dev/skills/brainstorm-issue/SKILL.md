@@ -22,7 +22,9 @@ Interactif par nature : on ne pré-brainstorme jamais une issue en autonome.
    - **Hors-périmètre** : ce qu'on ne fait pas.
    - **Pas de plan d'implémentation** (fichiers, étapes) — c'est le travail de `/avqn-dev:dev`.
 4. **Arrête-toi.** Dis à Manu : « pose le label `ready` quand tu valides ». Tu ne poses jamais
-   `ready` toi-même — c'est le geste humain qui alimente la routine.
+   `ready` toi-même — c'est le geste humain qui déclare l'issue bonne à lancer. Le lancement est
+   un second geste, explicite : `ops:dev_lancer` sur cette issue, depuis n'importe quelle
+   conversation claude.ai.
 
 ## Garde-fous
 

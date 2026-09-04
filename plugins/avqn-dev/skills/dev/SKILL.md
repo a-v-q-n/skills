@@ -79,10 +79,12 @@ double-palier, prod en mono-palier, Vercel, Cloudflare…) est écrit dans le `#
 
 - **Interactif** (défaut) : la spec naît de la conversation avec Manu — ou d'une issue existante.
   Ambiguïté → question, pas de devinette.
-- **Routine** (session autonome ou planifiée) : la spec **est** une issue ouverte `label=ready`
-  (jamais de brainstorm en autonome). Une issue par repo par run ; pose `in-progress` en claim ;
-  issue ambiguë ou trop grosse → commente, retire le claim, passe. En mono-palier le FF merge
-  déploie la prod sans supervision : c'est assumé pour tout repo dont le `CLAUDE.md` le déclare.
+- **Routine** (session autonome) : Manu a tiré `ops:dev_lancer` sur une issue nommée depuis une
+  conversation claude.ai. La spec **est** cette issue, une seule par run (jamais de brainstorm en
+  autonome). Le claim `in-progress` est déjà posé par le lanceur : tu le trouves en place, et tu
+  le retires en fin de run — livré ou abandonné. Issue ambiguë ou trop grosse → commente, retire
+  le claim, arrête-toi. En mono-palier le FF merge déploie la prod sans supervision : c'est
+  assumé pour tout repo dont le `CLAUDE.md` le déclare.
 
 ## Garde-fous
 

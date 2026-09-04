@@ -171,7 +171,8 @@ pour confirmer. Sha servi ≠ sha poussé → conteneur périmé, ne déclare pa
 2. **Récapitule les gestes humains restants** :
    - En double-palier : le **promote** prod (`promote.yml`, dispatch manuel) reste le geste 2.
    - Si services : créer la **base logique** dans l'instance Postgres centrale (hors périmètre auto) et poser les env vars applicatives dans Coolify.
-   - Poser `ready` sur les futures issues pour alimenter la routine.
+   - Poser `ready` sur une issue quand elle est bonne à lancer, puis la lancer avec
+     `ops:dev_lancer` (le label marque le feu vert, il ne déclenche rien tout seul).
 
 ## Les 4 combinaisons
 
