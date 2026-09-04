@@ -68,7 +68,7 @@ se propage seule côté claude.ai (au besoin, « Mettre à jour » / `/plugin ma
 avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.md`.
 
 <!-- skills:début -->
-**`avqn-skills`** — 26 skills
+**`avqn-skills`** — 27 skills
 
 | Skill | Couche | Moment |
 | :---- | :----- | :----- |
@@ -77,6 +77,7 @@ avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.m
 | `composer-une-cover-d-article` | recette | La cover 1600×900 : thème commun, composition improvisée, trois variantes puis pose. |
 | `composer-une-cover-de-ressource` | recette | La vignette 1280×720 : rampes de ciel, recettes de composition, glyphes, trois variantes puis pose. |
 | `consigner-un-contact` | socle | L'entrée au CRM : chercher avant de créer, coordonnées structurées, organisation, affiliation, fiche courte. |
+| `creer-un-skill` | recette | De l'intention au skill publié : capter, choisir le plugin, écrire, éprouver le déclenchement, poser, faire relire. |
 | `creer-une-ressource` | recette | De la matière à la ressource publiée : format, plan, écriture, titre, images, pages et modules. |
 | `debriefer-un-rendez-vous` | recette | Le call est passé : le débrief trié dans tout l'OS — note, fiches, deal, tâches, agenda, temps. |
 | `deposer-un-brouillon-email` | socle | La plomberie du brouillon : trouver le fil hors INBOX, répondre au bon message, contrôler le destinataire. |
