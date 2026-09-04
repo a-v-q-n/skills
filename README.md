@@ -68,7 +68,7 @@ se propage seule côté claude.ai (au besoin, « Mettre à jour » / `/plugin ma
 avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.md`.
 
 <!-- skills:début -->
-**`avqn-skills`** — 27 skills
+**`avqn-skills`** — 28 skills
 
 | Skill | Couche | Moment |
 | :---- | :----- | :----- |
@@ -96,6 +96,7 @@ avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.m
 | `raconter-une-histoire` | recette | La vidéo verticale « histoire racontée » : voix off et images peintes montées en BD animée. |
 | `relancer-un-prospect` | recette | Le prospect reste silencieux : timing, ton, relance dans le fil, sortie propre. |
 | `relancer-une-facture` | recette | Une facture reste impayée : vérifier le paiement, palier de relance, brouillon. |
+| `relire-un-skill` | recette | Le crible d'un skill : conformité, puis déclenchement, classement, composition, poids. Lecture seule. |
 | `relire-une-ressource` | recette | Relecture contre les règles de la maison, en ligne ou sur fichier de travail. Lecture seule. |
 | `scripter-le-montage` | recette | Le script de montage final : séquences, plans, liens `#prise` et `@asset`. |
 | `titrer-une-ressource` | socle | Le titre : simple, descriptif, compris par un néophyte, sans accroche ni sous-titre. |
