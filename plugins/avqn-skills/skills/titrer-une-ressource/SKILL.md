@@ -9,6 +9,10 @@ description: >-
   aussi par toute recette qui crée ou révise une ressource Autonomes avant de poser le
   titre. NE COUVRE PAS le contenu de la ressource, sa description, ses tags ni les titres
   d'articles du blog ou de vidéos Contentos.
+couche: socle
+moment: >-
+  Le titre : simple, descriptif, compris par un néophyte, sans accroche ni sous-titre.
+famille: contenu-autonomes
 ---
 
 # Titrer une ressource

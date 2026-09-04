@@ -9,6 +9,10 @@ description: >-
   CRM). NE COUVRE PAS la relance d'un prospect resté silencieux (relancer-un-prospect),
   la proposition écrite (emettre-une-offre) ni la consignation CRM elle-même
   (consigner-un-contact).
+couche: recette
+moment: >-
+  Quelqu'un contacte AVQN : enquêter, consigner, ouvrir le deal, répondre.
+famille: cycle-client
 ---
 
 # Accueillir une prise de contact

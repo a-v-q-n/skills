@@ -9,6 +9,11 @@ description: >-
   envoyer-une-facture, relancer-un-prospect, relancer-une-facture,
   ecrire-un-email-de-prospection. NE COUVRE PAS la voix
   (ecrire-comme-manu) ni ce que l'email doit dire, qui vit dans la recette du moment.
+couche: socle
+moment: >-
+  La plomberie du brouillon : trouver le fil hors INBOX, répondre au bon message, contrôler le
+  destinataire.
+famille: cycle-client
 ---
 
 # Déposer un brouillon d'email

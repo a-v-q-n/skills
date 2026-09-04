@@ -6,6 +6,9 @@ description: >-
   en cloud), juge la qualité contre la spec + la charte du repo (AVQN : styleguide.avqn.ch), et
   améliore le code jusqu'à un résultat de qualité (plafond d'itérations). À appliquer dans dev
   pour toute tâche qui touche le front d'un repo à UI. Teste en LOCAL, jamais en preview/prod.
+couche: recette
+moment: >-
+  Boucle qualité visuelle locale avant la PR (captures aux breakpoints).
 ---
 
 # Aperçu — l'œil sur le front

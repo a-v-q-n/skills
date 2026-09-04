@@ -11,6 +11,11 @@ description: >-
   contrôle visuel obligatoire. Chargé par creer-une-ressource à l'étape des
   images. NE COUVRE PAS la cover (composer-une-cover-de-ressource), les assets vidéo Contentos
   (fabriquer-les-assets) ni la génération d'images par IA.
+couche: recette
+moment: >-
+  Les images du corps : maquette, schéma, capture annotée — palette papier, gabarits HTML, rendu
+  Médiathèque.
+famille: contenu-autonomes
 ---
 
 # Illustrer une ressource

@@ -7,6 +7,9 @@ description: >-
   vérifiables (docs/plans du repo pivot) → exécution étape par étape avec checkpoints → review
   renforcée avant merge. À déclencher dès que le triage donne L ; ne pas l'imposer aux tâches M
   (elles vont direct à dev).
+couche: recette
+moment: >-
+  La discipline L : brainstorm → spec → plan → étapes → review renforcée.
 ---
 
 # Chantier — la grosse artillerie, seulement quand elle rapporte

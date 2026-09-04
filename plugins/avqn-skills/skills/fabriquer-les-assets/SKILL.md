@@ -8,6 +8,10 @@ description: >-
   images (métaphores, jamais d'UI réelle). NE COUVRE PAS le plan de la vidéo
   (preparer-une-video), le montage (scripter-le-montage) ni les images d'une ressource
   Autonomes, qui ont leur propre charte (illustrer-une-ressource).
+couche: recette
+moment: >-
+  Le visuel : gabarits HTML animés et images générées, charte, aperçu de contrôle.
+famille: video-contentos
 ---
 
 # Fabriquer les assets

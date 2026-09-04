@@ -7,6 +7,10 @@ description: >-
   d'envoi dans la voix de Manu. Charge d'abord le socle ecrire-comme-manu pour l'email.
   NE COUVRE PAS la proposition commerciale en amont (emettre-une-offre) ni la relance
   d'un impayé (relancer-une-facture).
+couche: recette
+moment: >-
+  Un jalon se facture : pièce, proforma relu, émission, PDF QR, email d'envoi.
+famille: cycle-client
 ---
 
 # Envoyer une facture

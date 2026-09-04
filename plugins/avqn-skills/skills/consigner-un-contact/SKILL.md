@@ -8,6 +8,11 @@ description: >-
   quand elle compte, l'affiliation avec son rôle, et une fiche courte. Socle chargé par
   accueillir-une-prise-de-contact et debriefer-un-rendez-vous. NE COUVRE PAS le deal (il
   se juge dans la recette du moment), la note au carnet ni le brouillon de réponse.
+couche: socle
+moment: >-
+  L'entrée au CRM : chercher avant de créer, coordonnées structurées, organisation, affiliation,
+  fiche courte.
+famille: cycle-client
 ---
 
 # Consigner un contact

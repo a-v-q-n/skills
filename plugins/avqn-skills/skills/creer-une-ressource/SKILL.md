@@ -11,6 +11,10 @@ description: >-
   contenu et titrer-une-ressource pour le titre. NE COUVRE PAS les règles
   d'écriture elles-mêmes (ecrire-mes-ressources), la relecture d'une ressource existante
   (relire-une-ressource) ni les articles du blog.
+couche: recette
+moment: >-
+  De la matière à la ressource publiée : format, plan, écriture, titre, images, pages et modules.
+famille: contenu-autonomes
 ---
 
 # Créer une ressource

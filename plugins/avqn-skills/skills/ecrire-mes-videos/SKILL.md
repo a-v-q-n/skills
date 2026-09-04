@@ -7,6 +7,10 @@ description: >-
   noire des tics IA et le rythme de validation. Les recettes vidéo (preparer-une-video,
   produire-la-vo, scripter-le-montage) le chargent d'abord. NE COUVRE PAS l'écrit au nom
   de Manu hors vidéo — c'est l'affaire d'ecrire-comme-manu.
+couche: socle
+moment: >-
+  La voix parlée : hook et bridge, vraies phrases, liste noire des tics IA.
+famille: video-contentos
 ---
 
 # Écrire mes vidéos

@@ -7,6 +7,10 @@ description: >-
   détecte si la session tourne en cloud, et bascule en mode prudent quand le contrat manque.
   Socle chargé par dev, chantier, review-pr, apercu, local, new-project, gerer-les-secrets.
   NE COUVRE PAS le cycle lui-même (dev), le démarrage (local) ni les secrets (gerer-les-secrets).
+couche: socle
+moment: >-
+  Triage S/M/L, découverte du contrat du repo (Démarrer / Gate / Livrer), signal cloud, mode
+  prudent. Chargé par toutes les recettes de dev.
 ---
 
 # Travailler sur un repo — le socle de la méthode

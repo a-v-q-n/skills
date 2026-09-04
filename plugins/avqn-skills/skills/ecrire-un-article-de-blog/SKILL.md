@@ -10,6 +10,10 @@ description: >-
   brouillon, publier sur feu vert. Charge d'abord le socle ecrire-comme-manu pour la voix.
   NE COUVRE PAS la cover (composer-une-cover-d-article), les ressources d'apprentissage
   (creer-une-ressource) ni la vidéo source (Contentos).
+couche: recette
+moment: >-
+  De la matière à l'article publié : type, angle, plan, écriture, construction en brouillon.
+famille: contenu-autonomes
 ---
 
 # Écrire un article de blog

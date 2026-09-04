@@ -7,6 +7,9 @@ description: >-
   par défaut (1 agent) ; mode chantier (3 lentilles parallèles) pour le calibre L. Utilisé par
   dev (étape auto-review) et invocable seul (« review cette PR », « regarde la branche avant
   merge »).
+couche: recette
+moment: >-
+  Review adversariale avant merge (mode léger / mode chantier).
 ---
 
 # Review PR — le filet avant le FF merge

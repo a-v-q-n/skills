@@ -10,6 +10,11 @@ description: >-
   creer-une-ressource et relire-une-ressource le chargent d'abord.
   NE COUVRE PAS le titre (titrer-une-ressource), la cover, la fabrication des
   images, ni la mécanique du MCP.
+couche: socle
+moment: >-
+  Les règles de contenu d'Autonomes : adresse, lecteur cible, chasse au fluff, structure par
+  format, longueurs.
+famille: contenu-autonomes
 ---
 
 # Écrire mes ressources

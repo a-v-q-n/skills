@@ -9,6 +9,10 @@ description: >-
   dans le fil. Charge d'abord le socle ecrire-comme-manu pour la voix. NE COUVRE PAS la
   prise de contact en amont (accueillir-une-prise-de-contact), la relance d'une offre sans
   réponse (relancer-un-prospect) ni la facturation en aval (envoyer-une-facture).
+couche: recette
+moment: >-
+  Accord de vive voix : devis, validation, PDF, email d'accompagnement.
+famille: cycle-client
 ---
 
 # Émettre une offre

@@ -9,6 +9,10 @@ description: >-
   Jamais une simple transcription de la voice note en note. NE COUVRE PAS la préparation
   en amont (preparer-un-rendez-vous) ni la proposition écrite qui suit un accord
   (emettre-une-offre).
+couche: recette
+moment: >-
+  Le call est passé : le débrief trié dans tout l'OS — note, fiches, deal, tâches, agenda, temps.
+famille: cycle-client
 ---
 
 # Débriefer un rendez-vous

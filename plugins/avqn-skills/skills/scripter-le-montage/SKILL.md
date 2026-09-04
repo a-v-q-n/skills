@@ -7,6 +7,10 @@ description: >-
   volet), le découpage du hook en trois plans et les règles de composition de la librairie.
   NE COUVRE PAS l'écriture du texte de la VO (preparer-une-video + socle ecrire-mes-videos)
   ni la génération des prises (produire-la-vo).
+couche: recette
+moment: >-
+  Le script de montage final : séquences, plans, liens `#prise` et `@asset`.
+famille: video-contentos
 ---
 
 # Scripter le montage

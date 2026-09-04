@@ -8,6 +8,10 @@ description: >-
   avec le token du poste ; cloud : broker ops, jamais de valeur) et les invariants (aucune valeur
   dans le contexte, un commit ou un log). NE COUVRE PAS les secrets de CI GitHub (secret d'org
   COOLIFY_TOKEN, hérité) ni l'infra elle-même (connecteur AVQN OPS).
+couche: recette
+moment: >-
+  Lire, créer, câbler un secret (coffre BWS en local, broker `ops` partout) sans jamais montrer
+  une valeur.
 ---
 
 # Gérer les secrets — lire, créer, câbler, sans jamais montrer

@@ -9,6 +9,10 @@ description: >-
   le socle ecrire-mes-videos pour la voix. NE COUVRE PAS la fabrication des gabarits et
   images (fabriquer-les-assets), la voix off (produire-la-vo) ni le script de montage final
   (scripter-le-montage).
+couche: recette
+moment: >-
+  De la matière au plan séquencé : idées fortes, hooks, chaque passage avec son asset.
+famille: video-contentos
 ---
 
 # Préparer une vidéo

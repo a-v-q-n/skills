@@ -7,6 +7,9 @@ description: >-
   Cloudflare…). Jamais de geste de déploiement direct. Marche en local comme en session cloud,
   dans n'importe quel repo qui porte un contrat. À utiliser pour tout nouveau comportement borné
   à un repo ; une retouche (S) s'en passe, un chantier (L) passe d'abord par chantier.
+couche: recette
+moment: >-
+  Le cycle M jusqu'au FF merge `main` : TDD, aperçu, gate, review, PR, CI verte.
 ---
 
 # Dev — le cycle jusqu'au FF merge

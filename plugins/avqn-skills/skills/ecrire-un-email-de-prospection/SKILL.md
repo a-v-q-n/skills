@@ -9,6 +9,10 @@ description: >-
   personnalisation réelle, objet, structure, cadence des relances, sobriété romande.
   NE COUVRE PAS la voix de Manu elle-même (socle ecrire-comme-manu) ni la relance d'un
   deal déjà ouvert dans l'OS (relancer-un-prospect).
+couche: recette
+moment: >-
+  La prospection à froid : brief minimal, personnalisation réelle, objet, cadence des relances.
+famille: cycle-client
 ---
 
 # Écrire un email de prospection

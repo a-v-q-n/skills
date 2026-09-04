@@ -1,6 +1,18 @@
 ---
 name: new-project
-description: Onboarde un NOUVEAU repo dans l'écosystème de dev continu AVQN en un geste — recueille les décisions humaines (nom, description, UI, palier mono/double, mode Coolify service/application, services requis), puis déroule tout le reste automatiquement : repo privé dans l'org, squelette conforme au contrat (CLAUDE.md, ci.yml + promote.yml si double, Dockerfile + HEALTHCHECK, route /healthz {ok,sha}, .claude/ + hook, app « hello » déployable), ressources Coolify (UUID récupérés seuls), DNS, ligne dans le manifeste de flotte local s'il existe, et récap des gestes humains restants. Rejouable sans danger (détecte l'existant, n'écrase rien). Zéro secret posé à la main (secret d'org COOLIFY_TOKEN hérité).
+description: >-
+  Onboarde un NOUVEAU repo dans l'écosystème de dev continu AVQN en un geste — recueille les
+  décisions humaines (nom, description, UI, palier mono/double, mode Coolify service/application,
+  services requis), puis déroule tout le reste automatiquement : repo privé dans l'org, squelette
+  conforme au contrat (CLAUDE.md, ci.yml + promote.yml si double, Dockerfile + HEALTHCHECK, route
+  /healthz {ok,sha}, .claude/ + hook, app « hello » déployable), ressources Coolify (UUID
+  récupérés seuls), DNS, ligne dans le manifeste de flotte local s'il existe, et récap des gestes
+  humains restants. Rejouable sans danger (détecte l'existant, n'écrase rien). Zéro secret posé à
+  la main (secret d'org COOLIFY_TOKEN hérité).
+couche: recette
+moment: >-
+  Onboarder un repo neuf sur la plateforme AVQN (GitHub, Coolify, DNS, squelette, premier
+  deploy).
 ---
 
 # New Project — onboarder un repo en un geste

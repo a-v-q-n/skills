@@ -9,6 +9,10 @@ description: >-
   ce skill n'écrit jamais dans Autonomes. Charge d'abord ecrire-mes-ressources et
   titrer-une-ressource. NE COUVRE PAS la réécriture elle-même
   (creer-une-ressource) ni la relecture d'un article de blog.
+couche: recette
+moment: >-
+  Relecture contre les règles de la maison, en ligne ou sur fichier de travail. Lecture seule.
+famille: contenu-autonomes
 ---
 
 # Relire une ressource

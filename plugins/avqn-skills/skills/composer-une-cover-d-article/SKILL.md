@@ -9,6 +9,10 @@ description: >-
   cover est unique. Trois variantes, validation de Manu, PNG posé sur l'article.
   NE COUVRE PAS les covers des ressources (composer-une-cover-de-ressource) ni les images
   dans le corps de l'article.
+couche: recette
+moment: >-
+  La cover 1600×900 : thème commun, composition improvisée, trois variantes puis pose.
+famille: contenu-autonomes
 ---
 
 # Covers des articles du blog

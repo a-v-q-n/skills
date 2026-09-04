@@ -1,6 +1,9 @@
 ---
 name: brainstorm-issue
 description: Brainstorme INTERACTIVEMENT une idée ou une issue brute avec Manu, puis dépose la SPEC D'INTENTION résultante dans le corps de l'issue GitHub du repo concerné. S'arrête là — Manu pose le label `ready` (l'aval humain, async). Ne code rien, ne planifie pas l'implémentation. Phase spec de chantier quand le chantier vit dans un repo ; utilisable seul pour préparer une tâche M à l'avance.
+couche: recette
+moment: >-
+  De l'idée floue à la spec d'intention dans l'issue GitHub.
 ---
 
 # Brainstorm Issue — de l'idée floue à la spec dans l'issue

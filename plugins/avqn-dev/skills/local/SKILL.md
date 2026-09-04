@@ -8,6 +8,9 @@ description: >-
   lancer, tester ou capturer un projet (avant apercu, pour reproduire un bug, pour vérifier un
   changement). NE COUVRE PAS les secrets eux-mêmes (gerer-les-secrets) ni la boucle visuelle
   (apercu).
+couche: recette
+moment: >-
+  Démarrer un repo (recette dans son CLAUDE.md), socle transverse AVQN, preuve de boot.
 ---
 
 # Local — démarrer un repo, et prouver qu'il tourne

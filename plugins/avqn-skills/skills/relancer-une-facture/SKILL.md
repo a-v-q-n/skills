@@ -8,6 +8,10 @@ description: >-
   l'envoi initial de la facture (envoyer-une-facture), l'enregistrement d'un paiement
   arrivé (paiement_record) ni la relance commerciale d'un prospect
   (relancer-un-prospect).
+couche: recette
+moment: >-
+  Une facture reste impayée : vérifier le paiement, palier de relance, brouillon.
+famille: cycle-client
 ---
 
 # Relancer une facture

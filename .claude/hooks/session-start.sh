@@ -30,7 +30,7 @@ if [ "${CLAUDE_CODE_REMOTE:-}" = "true" ]; then
   fi
 fi
 
-base="Dis ce que tu veux faire. Gate : \`/check-skills\` (JSON de la marketplace, frontmatter des skills et des agents, absence de champ \`version\`). Rien à déployer : le push sur \`main\` EST la publication — sans champ \`version\`, chaque commit se propage seul aux clients (claude.ai, CLI). Écrire un skill : \`/new-skill <nom>\`, puis la table du README."
+base="Dis ce que tu veux faire. Gate : \`/check-skills\` (JSON de la marketplace, frontmatter des skills et des agents — \`couche\` et \`moment\` compris —, absence de champ \`version\`, fraîcheur de la table du README). Rien à déployer : le push sur \`main\` EST la publication — sans champ \`version\`, chaque commit se propage seul aux clients (claude.ai, CLI). Écrire un skill : \`/new-skill <nom>\` ; la table du README se régénère (\`python3 scripts/skills.py readme\`), elle ne s'édite jamais à la main."
 
 if [ "$branch" = "main" ] || [ "$branch" = "master" ]; then
   emit "🧰 skills — le dépôt des skills AVQN (marketplace \`avqn\` : plugins avqn-skills et avqn-dev). Tu es sur \`$branch\`. $base"

@@ -9,6 +9,10 @@ description: >-
   (accueillir-une-prise-de-contact), la proposition elle-même (emettre-une-offre), la
   relance d'une facture impayée (relancer-une-facture) ni la prospection à froid, qui a
   ses propres relances (ecrire-un-email-de-prospection).
+couche: recette
+moment: >-
+  Le prospect reste silencieux : timing, ton, relance dans le fil, sortie propre.
+famille: cycle-client
 ---
 
 # Relancer un prospect

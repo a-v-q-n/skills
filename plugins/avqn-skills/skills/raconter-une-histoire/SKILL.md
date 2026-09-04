@@ -1,6 +1,10 @@
 ---
 name: raconter-une-histoire
 description: Fabriquer une vidéo verticale « histoire racontée » avec Contentos — une fable, une nouvelle, un conte écrit par Manu — en voix off et en images peintes montées comme une BD animée (caméra qui bouge, planches, phrase suspendue). À utiliser dès que Manu colle une histoire et veut la vidéo. Tout passe par le connecteur Contentos et la Médiathèque ; rien ne se monte à la main.
+couche: recette
+moment: >-
+  La vidéo verticale « histoire racontée » : voix off et images peintes montées en BD animée.
+famille: video-contentos
 ---
 
 # Raconter une histoire

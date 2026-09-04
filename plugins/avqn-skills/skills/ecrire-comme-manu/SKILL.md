@@ -7,6 +7,11 @@ description: >-
   envoyer-une-facture…). Porte la voix
   authentique de Manu : essence, règles non négociables, lexique, adresse, checklist anti-tics.
   NE COUVRE PAS les spécificités d'un moment du cycle client — elles vivent dans la recette correspondante.
+couche: socle
+moment: >-
+  La voix de Manu : essence, règles non négociables, lexique, adresse. Chargé par toutes les
+  recettes du cycle.
+famille: cycle-client
 ---
 
 # Écrire dans la voix de Manu

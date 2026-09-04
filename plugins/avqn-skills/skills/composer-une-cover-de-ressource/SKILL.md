@@ -9,6 +9,11 @@ description: >-
   Manu, PNG versé à la médiathèque et ajouté à la ressource dans Autonomes. NE COUVRE PAS
   les covers des articles du blog (composer-une-cover-d-article) ni les images du corps
   d'une ressource (illustrer-une-ressource).
+couche: recette
+moment: >-
+  La vignette 1280×720 : rampes de ciel, recettes de composition, glyphes, trois variantes puis
+  pose.
+famille: contenu-autonomes
 ---
 
 # Covers de ressources Autonomes

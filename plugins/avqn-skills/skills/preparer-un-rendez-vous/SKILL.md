@@ -8,6 +8,10 @@ description: >-
   questions à poser. Lecture seule : ce skill n'écrit rien dans l'OS. NE COUVRE PAS le
   débrief d'après le rendez-vous (debriefer-un-rendez-vous) ni la création de
   l'événement à l'agenda.
+couche: recette
+moment: >-
+  Un call approche : le dossier relu et condensé en brief. Lecture seule.
+famille: cycle-client
 ---
 
 # Préparer un rendez-vous

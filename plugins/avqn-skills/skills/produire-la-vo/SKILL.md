@@ -7,6 +7,10 @@ description: >-
   Manu et le choix d'avatar selon le registre. Charge d'abord le socle ecrire-mes-videos si
   le texte doit encore être ajusté. NE COUVRE PAS l'écriture du script (preparer-une-video)
   ni son verrouillage dans la fiche (scripter-le-montage).
+couche: recette
+moment: >-
+  La voix off et l'avatar : découpage en prises, écriture pour l'oreille, voix clonée.
+famille: video-contentos
 ---
 
 # Produire la VO
