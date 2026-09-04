@@ -101,7 +101,7 @@ avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.m
 | `scripter-le-montage` | recette | Le script de montage final : séquences, plans, liens `#prise` et `@asset`. |
 | `titrer-une-ressource` | socle | Le titre : simple, descriptif, compris par un néophyte, sans accroche ni sous-titre. |
 
-**`avqn-dev`** — 12 skills
+**`avqn-dev`** — 11 skills
 
 | Skill | Couche | Moment |
 | :---- | :----- | :----- |
@@ -109,7 +109,6 @@ avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.m
 | `avqn-skill-authoring` | socle | Les conventions d'écriture d'un skill AVQN : socle ou recette, anatomie, frontmatter, publication. |
 | `brainstorm-issue` | recette | De l'idée floue à la spec d'intention dans l'issue GitHub. |
 | `chantier` | recette | La discipline L : brainstorm → spec → plan → étapes → review renforcée. |
-| `creer-un-skill` | recette | De l'intention au skill publié : capter, trancher, écrire, éprouver le déclenchement, poser, faire relire. |
 | `dev` | recette | Le cycle M jusqu'au FF merge `main` : TDD, aperçu, gate, review, PR, CI verte. |
 | `gerer-les-secrets` | recette | Lire, créer, câbler un secret (coffre BWS en local, broker `ops` partout) sans jamais montrer une valeur. |
 | `local` | recette | Démarrer un repo (recette dans son CLAUDE.md), socle transverse AVQN, preuve de boot. |
