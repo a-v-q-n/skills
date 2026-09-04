@@ -56,13 +56,18 @@ double-palier, prod en mono-palier, Vercel, Cloudflare…) est écrit dans le `#
    ```bash
    sha=$(git rev-parse HEAD)   # après le rebase de l'étape 6
    gh api repos/<org>/<dépôt>/commits/$sha/check-runs \
-     --jq '.check_runs[] | "\(.name) \(.status) \(.conclusion // "")"'
-   gh api repos/<org>/<dépôt>/commits/$sha/status --jq .state
+     --jq '.total_count, (.check_runs[] | "\(.name) \(.status) \(.conclusion // "")")'
+   gh api repos/<org>/<dépôt>/commits/$sha/status --jq '.state, (.statuses|length)'
    ```
 
-   L'appel est un instantané : redemande jusqu'à ce que chaque check ait conclu. Une liste vide
-   juste après le push dit « pas encore matérialisé », jamais « pas de CI ».
-   Rouge → ne merge pas : corrige ou mets de côté avec un commentaire.
+   Les comptes se lisent, pas seulement `.state` : sur un commit sans aucun statut il vaut
+   `pending`, comme sur un statut en cours. L'appel est un instantané — redemande jusqu'à ce que
+   chaque check ait conclu, et ne conclus jamais sur un seul relevé. Seul `success` vaut vert :
+   toute autre conclusion (`failure`, `cancelled`, `timed_out`, `action_required`, `stale`) ne se
+   merge pas — corrige, ou mets de côté avec un commentaire. Deux relevés vides espacés d'une
+   minute ne valent « pas de CI à attendre » que si le `## Livrer` du repo **affirme** n'en avoir
+   aucune ; son silence vaut attente. Et l'attente est bornée : au bout d'une dizaine de relevés
+   sans rien voir venir, mets de côté et signale — une session ne boucle pas sur un mur.
 8. **FF merge** : `git checkout main && git pull --ff-only origin main && git merge --ff-only
    <branche> && git push origin main`. Push rejeté → rebase + re-gate + retry. Puis surveille la
    livraison post-merge jusqu'au vert et vérifie la cible comme le `## Livrer` l'indique
