@@ -109,6 +109,7 @@ de bout en bout en le chargeant.
 
 | Skill | Couche | Moment |
 | :---- | :----- | :--- |
+| `creer-un-hook-video` | socle | Les cinq premières secondes d'une vidéo courte : hook dit, texte écran, visuel, bridge. |
 | `ecrire-mes-videos` | socle | La voix parlée : hook et bridge, vraies phrases, liste noire des tics IA. |
 | `fabriquer-les-assets` | recette | Le visuel : gabarits HTML animés et images générées, charte, aperçu de contrôle. |
 | `preparer-une-video` | recette | De la matière au plan séquencé : idées fortes, hooks, chaque passage avec son asset. |
