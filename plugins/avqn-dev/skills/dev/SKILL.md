@@ -57,8 +57,9 @@ double-palier, prod en mono-palier, Vercel, Cloudflare…) est écrit dans le `#
    du workflow avant d'attendre : un repo hors flotte peut n'écouter que `push main`, et sa
    gate se tire alors à la main (`gh workflow run ci.yml --ref <branche>`). Suis le run
    (`gh run watch`, `gh run list` — API Actions, que le 403 GraphQL n'atteint pas ; un 403 sur
-   les Actions → le connecteur GitHub natif de claude.ai, `mcp__github__*` — `ops` n'expose
-   aucun tool Actions). En cloud, l'état des checks se lit par la REST sur le sha effectivement
+   les Actions → `ops:github_runs`, la liste filtrable par `branch` / `head_sha`, et
+   `ops:github_run_get` avec `include: ["jobs"]`, le job et le step qui ont lâché). En cloud,
+   l'état des checks se lit par la REST sur le sha effectivement
    poussé, et sur les **deux** surfaces que `gh pr checks` agrège — check runs (Actions) et
    statuts de commit (déploiements, CI externes) :
 
@@ -104,6 +105,6 @@ double-palier, prod en mono-palier, Vercel, Cloudflare…) est écrit dans le `#
 - GitHub via `gh` (en cloud, le proxy l'authentifie). Deux 403 distincts, deux sorties : un 403
   GraphQL (`gh pr create`, `gh pr checks`, `gh repo view`, `gh issue list`) n'est pas un défaut
   de droits — la même opération passe par `gh api repos/…` (REST) ; un 403 sur les Actions →
-  le connecteur GitHub natif (`mcp__github__*`) ; pour les issues, les fichiers, les branches
-  et les PR, `ops:github_*` passe aussi.
+  `ops:github_runs` et `ops:github_run_get` ; pour les issues, les fichiers, les branches et
+  les PR, `ops:github_*` passe aussi. Déclencher un workflow n'est pas un geste du cycle.
 - Jamais de secret dans un commit, un log ou le contexte.
