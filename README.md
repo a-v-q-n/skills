@@ -113,6 +113,7 @@ de bout en bout en le chargeant.
 | `ecrire-mes-videos` | socle | La voix parlée : hook et bridge, vraies phrases, liste noire des tics IA. |
 | `degrossir` | recette | Une captation téléphone tournée d'un jet : faux départs et redites jetés, une vidéo en préproduction. |
 | `fabriquer-les-assets` | recette | Le visuel : gabarits HTML animés et images générées, charte, aperçu de contrôle. |
+| `monter-une-video` | recette | Le script est écrit et la matière est là : la vidéo se monte et part au rendu. |
 | `preparer-une-video` | recette | De la matière au plan séquencé : idées fortes, hooks, chaque passage avec son asset. |
 | `produire-la-vo` | recette | La voix off et l'avatar : découpage en prises, écriture pour l'oreille, voix clonée. |
 | `raconter-une-histoire` | recette | La vidéo verticale « histoire racontée » : voix off et images peintes montées en BD animée. |
