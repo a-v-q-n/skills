@@ -36,7 +36,9 @@ double-palier, prod en mono-palier, Vercel, Cloudflare…) est écrit dans le `#
 4. **Gate complète** : la commande `## Gate` du repo. Corrige jusqu'au vert — n'ouvre pas une PR
    que la CI rejettera.
 5. **Auto-review** : `/avqn-dev:review-pr` en mode léger (agent `revieweur` sur le diff). Applique
-   les corrections réelles, re-gate.
+   les corrections réelles, re-gate. Une correction qui touche un chemin voisin de la tâche
+   repasse devant le revieweur : un correctif introduit des régressions aussi sûrement qu'un
+   changement, et personne d'autre ne relira avant la prod.
 6. **Commit + rebase + PR** : commit descriptif 🤖 (bump de version si le repo en a un) ;
    `git rebase origin/main` (conflit non trivial → abort, mise de côté, signale) ; push ;
    PR via `gh pr create` (`Closes #n` si issue ; corps = quoi / pourquoi / comment vérifier).
@@ -50,11 +52,15 @@ double-palier, prod en mono-palier, Vercel, Cloudflare…) est écrit dans le `#
      -f title="…" -f head="<branche>" -f base=main -F body=@pr-body.md --jq .html_url
    ```
 
-7. **CI verte sur la branche** : suis le run (`gh run watch`, `gh run list` — API Actions, que
-   le 403 GraphQL n'atteint pas ; un 403 sur les Actions → connecteur `ops:github_*`). En cloud,
-   l'état des checks se lit par la REST sur le sha effectivement poussé, et sur les **deux**
-   surfaces que `gh pr checks` agrège — check runs (Actions) et statuts de commit (déploiements,
-   CI externes) :
+7. **CI verte sur la branche** : l'ouverture de la PR déclenche la gate (`pull_request` dans le
+   `ci.yml` de tout repo de la flotte) — rien à dispatcher. Si rien ne vient, lis le bloc `on:`
+   du workflow avant d'attendre : un repo hors flotte peut n'écouter que `push main`, et sa
+   gate se tire alors à la main (`gh workflow run ci.yml --ref <branche>`). Suis le run
+   (`gh run watch`, `gh run list` — API Actions, que le 403 GraphQL n'atteint pas ; un 403 sur
+   les Actions → le connecteur GitHub natif de claude.ai, `mcp__github__*` — `ops` n'expose
+   aucun tool Actions). En cloud, l'état des checks se lit par la REST sur le sha effectivement
+   poussé, et sur les **deux** surfaces que `gh pr checks` agrège — check runs (Actions) et
+   statuts de commit (déploiements, CI externes) :
 
    ```bash
    sha=$(git rev-parse HEAD)   # après le rebase de l'étape 6
@@ -98,5 +104,6 @@ double-palier, prod en mono-palier, Vercel, Cloudflare…) est écrit dans le `#
 - GitHub via `gh` (en cloud, le proxy l'authentifie). Deux 403 distincts, deux sorties : un 403
   GraphQL (`gh pr create`, `gh pr checks`, `gh repo view`, `gh issue list`) n'est pas un défaut
   de droits — la même opération passe par `gh api repos/…` (REST) ; un 403 sur les Actions →
-  connecteur `ops:github_*`.
+  le connecteur GitHub natif (`mcp__github__*`) ; pour les issues, les fichiers, les branches
+  et les PR, `ops:github_*` passe aussi.
 - Jamais de secret dans un commit, un log ou le contexte.

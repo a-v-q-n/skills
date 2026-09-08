@@ -1,6 +1,6 @@
 ---
 name: brainstorm-issue
-description: Brainstorme INTERACTIVEMENT une idée ou une issue brute avec Manu, puis dépose la SPEC D'INTENTION résultante dans le corps de l'issue GitHub du repo concerné. S'arrête là — Manu pose le label `ready` (l'aval humain, async). Ne code rien, ne planifie pas l'implémentation. Phase spec de chantier quand le chantier vit dans un repo ; utilisable seul pour préparer une tâche M à l'avance.
+description: Brainstorme INTERACTIVEMENT une idée ou une issue brute avec Manu, puis dépose la SPEC D'INTENTION résultante dans le corps de l'issue GitHub du repo concerné. S'arrête là — l'aval humain est le lancement (`ops:dev_lancer`), un second geste. Ne code rien, ne planifie pas l'implémentation. Phase spec de chantier quand le chantier vit dans un repo ; utilisable seul pour préparer une tâche M à l'avance.
 couche: recette
 moment: >-
   De l'idée floue à la spec d'intention dans l'issue GitHub.
@@ -24,10 +24,9 @@ Interactif par nature : on ne pré-brainstorme jamais une issue en autonome.
    - **Critères d'acceptation** : cases à cocher — comment on saura que c'est fait.
    - **Hors-périmètre** : ce qu'on ne fait pas.
    - **Pas de plan d'implémentation** (fichiers, étapes) — c'est le travail de `/avqn-dev:dev`.
-4. **Arrête-toi.** Dis à Manu : « pose le label `ready` quand tu valides ». Tu ne poses jamais
-   `ready` toi-même — c'est le geste humain qui déclare l'issue bonne à lancer. Le lancement est
-   un second geste, explicite : `ops:dev_lancer` sur cette issue, depuis n'importe quelle
-   conversation claude.ai.
+4. **Arrête-toi.** Rends le lien de l'issue. L'aval humain est le lancement lui-même, un second
+   geste, explicite : Manu tire `ops:dev_lancer` sur cette issue depuis n'importe quelle
+   conversation claude.ai, quand il la juge bonne à lancer. Aucun label ne marque ce feu vert.
 
 ## Garde-fous
 

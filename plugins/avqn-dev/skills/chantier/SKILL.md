@@ -29,7 +29,7 @@ Avec Manu, en dialogue :
 ## 2. Spec — persister le design
 
 - Le chantier vit dans un repo → `/avqn-dev:brainstorm-issue` : la spec d'intention va dans l'issue
-  GitHub, et Manu pose le label `ready` pour valider.
+  GitHub ; l'aval de Manu est le lancement (`ops:dev_lancer`), pas un label.
 - Chantier transverse (plusieurs repos, ou la méthode elle-même) → issue dans le **repo pivot**
   (le premier à livrer ; `a-v-q-n/skills` quand c'est la méthode).
 - Format : **Quoi** (comportement/résultat attendu) · **Pourquoi** · **Critères d'acceptation**

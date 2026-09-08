@@ -3,14 +3,17 @@ name: ci
 # immuable (sha-<commit>) + deploy de la CIBLE DU PUSH via le reusable workflow partagé de `ci`.
 # Coolify ne build jamais : on repointe la cible sur le sha déjà construit+testé.
 #
-# Deux déclencheurs :
-#   - workflow_dispatch (sur une branche) : GATE avant merge. Ne déploie rien.
+# Trois déclencheurs :
+#   - pull_request : GATE de la branche, à l'ouverture de la PR et à chaque push dessus. Ne déploie rien.
+#   - workflow_dispatch (sur une branche) : la même GATE, à la main.
 #   - push `main` : DEPLOY de la cible (prod en mono-palier, preview en double-palier) de l'image
 #     déjà construite (idempotent : rebuild seulement si l'image manque sur GHCR).
 #
 # Le secret COOLIFY_TOKEN est hérité du secret d'ORGANISATION (visibilité ALL) — rien à poser par repo.
 on:
   workflow_dispatch: {}
+  pull_request:
+    branches: [main]
   push:
     branches: [main]
     paths-ignore: ['**/*.md', 'docs/**', '.claude/**']
@@ -31,7 +34,9 @@ jobs:
       exists: ${{ steps.exists.outputs.exists }}
     steps:
       - id: tag
-        run: echo "tag=sha-${GITHUB_SHA:0:12}" >> "$GITHUB_OUTPUT"
+        env:
+          SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: echo "tag=sha-${SHA:0:12}" >> "$GITHUB_OUTPUT"
       - id: exists
         env:
           GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -53,6 +58,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -67,6 +74,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: docker/setup-buildx-action@v3
       - uses: docker/login-action@v3
         with:
@@ -79,7 +88,7 @@ jobs:
           platforms: linux/amd64
           push: true
           build-args: |
-            GIT_SHA=${{ github.sha }}
+            GIT_SHA=${{ github.event.pull_request.head.sha || github.sha }}
           tags: ghcr.io/${{ github.repository_owner }}/{{REPO}}:${{ needs.prep.outputs.tag }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
