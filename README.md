@@ -111,10 +111,14 @@ de bout en bout en le chargeant.
 | :---- | :----- | :--- |
 | `creer-un-hook-video` | socle | Les cinq premières secondes d'une vidéo courte : hook dit, texte écran, visuel, bridge. |
 | `ecrire-mes-videos` | socle | La voix parlée : hook et bridge, vraies phrases, liste noire des tics IA. |
+| `degrossir` | recette | Une captation téléphone tournée d'un jet : faux départs et redites jetés, une vidéo en préproduction. |
 | `fabriquer-les-assets` | recette | Le visuel : gabarits HTML animés et images générées, charte, aperçu de contrôle. |
 | `preparer-une-video` | recette | De la matière au plan séquencé : idées fortes, hooks, chaque passage avec son asset. |
 | `produire-la-vo` | recette | La voix off et l'avatar : découpage en prises, écriture pour l'oreille, voix clonée. |
 | `raconter-une-histoire` | recette | La vidéo verticale « histoire racontée » : voix off et images peintes montées en BD animée. |
+| `reprendre-une-video` | recette | Une vidéo Contentos déjà finie : sa matière rouverte pour en tirer une nouvelle. |
+| `repurposer` | recette | Un long form à découper — webinaire, conférence, enregistrement d'écran : N vidéos en préproduction, une par propos autonome. |
+| `rescenariser` | recette | Une vidéo dont la matière est déjà là : son propos réordonné, avec l'auteur. |
 | `scripter-le-montage` | recette | Le script de montage final : séquences, plans, liens `#prise` et `@asset`. |
 
 ### Outillage des skills
