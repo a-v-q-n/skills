@@ -68,7 +68,7 @@ se propage seule côté claude.ai (au besoin, « Mettre à jour » / `/plugin ma
 avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.md`.
 
 <!-- skills:début -->
-**`avqn-skills`** — 25 skills
+**`avqn-skills`** — 29 skills
 
 | Skill | Couche | Moment |
 | :---- | :----- | :----- |
@@ -78,6 +78,7 @@ avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.m
 | `consigner-un-contact` | socle | L'entrée au CRM : chercher avant de créer, coordonnées structurées, organisation, affiliation, fiche courte. |
 | `creer-une-ressource` | recette | De la matière à la ressource publiée : format, plan, écriture, titre, images, pages et modules. |
 | `debriefer-un-rendez-vous` | recette | Le call est passé : le débrief trié dans tout l'OS — note, fiches, deal, tâches, agenda, temps. |
+| `degrossir` | recette | Une captation tournée d'un jet : faux départs et redites jetés, une vidéo en préproduction. |
 | `deposer-un-brouillon-email` | socle | La plomberie du brouillon : trouver le fil hors INBOX, répondre au bon message, contrôler le destinataire. |
 | `ecrire-comme-manu` | socle | La voix de Manu : essence, règles non négociables, lexique, adresse. Chargé par toutes les recettes du cycle. |
 | `ecrire-mes-ressources` | socle | Les règles de contenu d'Autonomes : adresse, lecteur cible, chasse au fluff, structure par format, longueurs. |
@@ -95,6 +96,9 @@ avqn` force le rafraîchissement). La méthodologie complète est dans `CLAUDE.m
 | `relancer-un-prospect` | recette | Le prospect reste silencieux : timing, ton, relance dans le fil, sortie propre. |
 | `relancer-une-facture` | recette | Une facture reste impayée : vérifier le paiement, palier de relance, brouillon. |
 | `relire-une-ressource` | recette | Relecture contre les règles de la maison, en ligne ou sur fichier de travail. Lecture seule. |
+| `reprendre-une-video` | recette | Une vidéo Contentos déjà finie, reprise en une nouvelle depuis sa matière. |
+| `repurposer` | recette | Un long form découpé : N vidéos en préproduction, une par propos autonome. |
+| `rescenariser` | recette | Une vidéo dont la matière est là : son propos réordonné avec l'auteur. |
 | `scripter-le-montage` | recette | Le script de montage final : séquences, plans, liens `#prise` et `@asset`. |
 | `titrer-une-ressource` | socle | Le titre : simple, descriptif, compris par un néophyte, sans accroche ni sous-titre. |
 
