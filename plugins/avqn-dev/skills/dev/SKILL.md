@@ -36,9 +36,10 @@ double-palier, prod en mono-palier, Vercel, Cloudflare…) est écrit dans le `#
 4. **Gate complète** : la commande `## Gate` du repo. Corrige jusqu'au vert — n'ouvre pas une PR
    que la CI rejettera.
 5. **Auto-review** : `/avqn-dev:review-pr` en mode léger (agent `revieweur` sur le diff). Applique
-   les corrections réelles, re-gate. Une correction qui touche un chemin voisin de la tâche
-   repasse devant le revieweur : un correctif introduit des régressions aussi sûrement qu'un
-   changement, et personne d'autre ne relira avant la prod.
+   les corrections réelles, re-gate. Le diff du correctif repasse devant le revieweur dès que
+   la passe précédente a rendu un bloquant, et les passes s'arrêtent quand l'une ne rend plus
+   de bloquant : un correctif est écrit vite et sous l'autorité d'un finding, il introduit des
+   régressions aussi sûrement qu'un changement, et personne d'autre ne relira avant la prod.
 6. **Commit + rebase + PR** : commit descriptif 🤖 (bump de version si le repo en a un) ;
    `git rebase origin/main` (conflit non trivial → abort, mise de côté, signale) ; push ;
    PR via `gh pr create` (`Closes #n` si issue ; corps = quoi / pourquoi / comment vérifier).
