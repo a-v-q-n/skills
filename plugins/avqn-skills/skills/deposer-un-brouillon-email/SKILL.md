@@ -4,15 +4,16 @@ description: >-
   À utiliser dès qu'un brouillon d'email doit être déposé au nom de Manu, à n'importe quel
   moment du cycle client : trouver le fil réel dans la bonne boîte (le courrier entrant est
   classé hors INBOX), répondre au message de l'interlocuteur pour que le destinataire soit
-  le bon, et relire le brouillon déposé avant de rendre la main. Le courrier vit sur le
-  connecteur `comms`, qui porte plusieurs boîtes. Socle chargé par les recettes qui écrivent
-  un email — accueillir-une-prise-de-contact, emettre-une-offre, envoyer-une-facture,
-  relancer-un-prospect, relancer-une-facture, ecrire-un-email-de-prospection. NE COUVRE PAS
-  la voix (ecrire-comme-manu) ni ce que l'email doit dire, qui vit dans la recette du moment.
+  le bon, piloter les copies, et relire le brouillon déposé avant de rendre la main. Le
+  courrier vit sur le connecteur `comms`, qui porte plusieurs boîtes. Socle chargé par les
+  recettes qui écrivent un email — accueillir-une-prise-de-contact, emettre-une-offre,
+  envoyer-une-facture, relancer-un-prospect, relancer-une-facture,
+  ecrire-un-email-de-prospection. NE COUVRE PAS la voix (ecrire-comme-manu) ni ce que l'email
+  doit dire, qui vit dans la recette du moment.
 couche: socle
 moment: >-
-  La plomberie du brouillon : trouver le fil hors INBOX, répondre au bon message, contrôler le
-  destinataire.
+  La plomberie du brouillon : trouver le fil hors INBOX, répondre au bon message, contrôler
+  destinataires et copies.
 famille: cycle-client
 ---
 
@@ -23,8 +24,8 @@ est invisible tant qu'elle marche, et silencieuse quand elle casse : `mail_draft
 répond à l'expéditeur du message source, donc répondre à un message de `Sent` met Manu en
 destinataire de son propre courrier.
 
-Ce socle porte les quatre gestes qui l'évitent : savoir dans quelle boîte on est, trouver le
-fil, répondre au bon message, vérifier le brouillon déposé.
+Ce socle porte les gestes qui l'évitent : savoir dans quelle boîte on est, trouver le fil,
+répondre au bon message, piloter les copies, vérifier le brouillon déposé.
 
 ## 0. Le courrier vit sur `comms`
 
@@ -88,7 +89,32 @@ il répondait.
 Attention aussi aux notifications du formulaire de contact (`hello@avqn.ch`, `sys@avqn.ch`,
 `job@avqn.ch`) : elles annoncent un lead sans être de lui. Y répondre écrit à la machine.
 
-## 4. Quand l'interlocuteur n'a jamais écrit
+## 4. Les copies se reprennent seules
+
+**`mail_draft_reply` reprend les `Cc` du message source**, moins les adresses de la boîte qui
+répond (pas d'auto-copie) et moins les doublons avec le `to`. C'est le défaut, sans paramètre
+à passer : un fil à quatre reste un fil à quatre. Rien à recopier à la main.
+
+Les autres destinataires du `To:` source, en revanche, ne sont pas reconduits — à ajouter par
+`cc_ajout` quand on veut un vrai « répondre à tous ».
+
+Trois leviers quand ce défaut ne convient pas :
+
+| Paramètre | Effet |
+| :--- | :--- |
+| `cc` | Remplace la liste des copies. `cc: ""` dépose le brouillon sans copie. |
+| `cc_ajout` | Ajoute ces adresses à celles reprises du fil |
+| `cc_retrait` | Retire ces adresses de celles reprises du fil |
+
+`cc` et le couple `cc_ajout`/`cc_retrait` s'excluent : les passer ensemble lève une erreur.
+
+`bcc` existe sur les trois tools d'écriture et n'est jamais repris d'un fil. `mail_draft_forward`
+prend `cc` et `bcc` mais ne reprend rien : un transfert choisit ses destinataires.
+
+Les trois tools **rendent `to`, `cc` et `bcc` tels qu'ils sont posés sur le brouillon** : leur
+retour suffit à savoir à qui il s'adresse.
+
+## 5. Quand l'interlocuteur n'a jamais écrit
 
 Un prospect qui n'a jamais répondu ne laisse aucun message source. Le geste est alors
 `mail_draft { compte: "manu", to, sujet, corps }` avec l'adresse en clair, en reprenant le
@@ -97,9 +123,10 @@ sujet du fil précédé de `Re:` pour que la conversation reste lisible chez lui
 C'est le seul cas où un message neuf remplace une réponse. Partout ailleurs, la réponse dans
 le fil l'emporte : elle porte l'historique.
 
-## 5. Relire le brouillon déposé
+## 6. Relire le brouillon déposé
 
-Le tool rend un succès même quand le destinataire est mauvais. Après le dépôt,
+Le retour du tool porte les destinataires réellement posés : les lire suffit à contrôler à qui
+le brouillon part. Ce qu'il ne dit pas, c'est le corps et les pièces — donc après le dépôt,
 `mail_search { compte: "manu", dossier: "Drafts" }` puis `mail_read` sur sa `ref`, et
 contrôler :
 
@@ -107,7 +134,8 @@ contrôler :
 - la pièce jointe attendue est là, sous le bon nom ;
 - le corps est celui qu'on croit avoir écrit.
 
-Ce contrôle fait partie du geste : sans lui, le skill n'a pas fini.
+Ce contrôle fait partie du geste : sans lui, le skill n'a pas fini. Il ne sert plus, en
+revanche, à rattraper une perte de destinataires — le serveur ne la produit plus.
 
 ## Checklist avant de rendre la main
 
@@ -115,5 +143,6 @@ Ce contrôle fait partie du geste : sans lui, le skill n'a pas fini.
 - [ ] Le fil a été cherché dans les dossiers métier, pas seulement dans INBOX
 - [ ] Le message source vient de l'interlocuteur, jamais de `Sent` ni d'une notification
 - [ ] Aucun message entrant dans le fil → `mail_draft` avec `compte` et destinataire explicites
+- [ ] Les copies rendues sont celles voulues — ajustées par `cc_ajout`/`cc_retrait` si besoin
 - [ ] Le brouillon déposé a été relu : `to` juste, pièce jointe présente, corps conforme
 - [ ] C'est un brouillon, jamais un envoi : Manu relit et envoie lui-même

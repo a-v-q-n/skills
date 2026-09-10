@@ -81,7 +81,7 @@ de bout en bout en le chargeant.
 | Skill | Couche | Moment |
 | :---- | :----- | :--- |
 | `consigner-un-contact` | socle | L'entrée au CRM : chercher avant de créer, coordonnées structurées, organisation, affiliation, fiche courte. |
-| `deposer-un-brouillon-email` | socle | La plomberie du brouillon : trouver le fil hors INBOX, répondre au bon message, contrôler le destinataire. |
+| `deposer-un-brouillon-email` | socle | La plomberie du brouillon : trouver le fil hors INBOX, répondre au bon message, contrôler destinataires et copies. |
 | `ecrire-comme-manu` | socle | La voix de Manu : essence, règles non négociables, lexique, adresse. Chargé par toutes les recettes du cycle. |
 | `accueillir-une-prise-de-contact` | recette | Quelqu'un contacte AVQN : enquêter, consigner, ouvrir le deal, répondre. |
 | `debriefer-un-rendez-vous` | recette | Le call est passé : le débrief trié dans tout l'OS — note, fiches, deal, tâches, agenda, temps. |
