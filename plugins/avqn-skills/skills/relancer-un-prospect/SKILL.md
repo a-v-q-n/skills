@@ -48,15 +48,59 @@ réellement passé. Si aucune trace n'explique le silence, c'est la relance qui 
 - **Une seule relance par silence.** Relancer deux fois sans réponse intermédiaire, c'est
   insister ; la deuxième vague attend un vrai délai.
 
+## Deux registres, selon où est la main
+
+**Prendre des nouvelles.** Le registre par défaut : dès que la main est chez le prospect
+(il a dit qu'il reviendrait, il attend un événement de son côté) ou que le silence dure.
+On demande où il en est et si le sujet reste d'actualité, sans pousser de date, de séance
+ni de créneau. Le calendrier lui appartient, et la disponibilité tient en une ligne :
+« Je serais ravi d'échanger avec vous quand ce sera le bon moment. »
+
+**Proposer du concret.** Seulement quand le prospect a déjà dit oui et qu'il ne manque
+qu'une date, et que l'écrit a déjà servi une fois sans résultat. Deux ou trois créneaux
+vérifiés à l'agenda, jamais plus. Au moindre doute, le concret se garde pour l'appel
+téléphonique, où il se négocie en direct.
+
+Entre les deux, le doute profite à la prise de nouvelles : un créneau poussé trop tôt
+transforme un silence gêné en refus.
+
 ## Le ton
 
-- La relance **apporte** : une information utile, un créneau concret, une réponse à une
-  question restée ouverte. Jamais un « je me permets de revenir vers vous » qui ne contient
-  que la demande.
-- Courte : trois à cinq phrases. Le fil porte déjà tout le contexte.
+- La relance **apporte** : une information utile, une réponse à une question restée
+  ouverte, parfois un créneau quand le registre le permet. Jamais un « je me permets de
+  revenir vers vous » qui ne contient que la demande.
+- Courte : trois à cinq phrases, une idée par ligne. Le fil porte déjà tout le contexte.
 - Zéro reproche, zéro pression, zéro fausse urgence. Le prospect a le droit d'avoir autre
   chose à faire.
-- Une seule question, celle qui débloque.
+- Une seule question, celle qui débloque. Deux questions proches se fondent en une ligne.
+- **Ne jamais expliquer la démarche.** « Rien d'urgent de mon côté, c'est surtout pour
+  prendre des nouvelles » dit tout haut ce que le message montre déjà, et sonne comme une
+  excuse. Une disponibilité simple fait le travail, en plus chaleureux.
+- **Ne pas re-détailler ce que le prospect sait déjà** : « votre migration » suffit,
+  inutile de lui rappeler qu'elle porte sur un NAS et Microsoft 365. Le détail recopié
+  donne l'impression de relire une fiche.
+- **Une porte de sortie, une seule.** « Si le moment n'est pas le bon, dites-le-moi sans
+  souci » se suffit ; y ajouter « je m'adapte à votre rythme » et « la proposition reste
+  valable » rassure trois fois et affaiblit le message.
+
+### Exemple contrastif
+
+Trop écrit, et qui se commente lui-même :
+
+> Où en êtes-vous de votre migration sur le NAS et Microsoft 365 ?
+>
+> Vous vouliez poser ce socle avant d'automatiser dessus. C'est la bonne façon de faire, et
+> dès qu'il est en place, je passe volontiers chez vous pour une première séance de cadrage.
+>
+> Rien d'urgent de mon côté, c'est surtout pour prendre des nouvelles.
+
+La version envoyée :
+
+> J'espère que vous allez bien.
+>
+> Où en êtes-vous de votre migration et comment se présente le sujet de l'automatisation ?
+>
+> Je serais ravi d'échanger avec vous quand ce sera le bon moment.
 
 ## La séquence
 
@@ -65,12 +109,15 @@ réellement passé. Si aucune trace n'explique le silence, c'est la relance qui 
    répondu n'a pas de fil : c'est alors `mail_draft` avec son adresse en clair. Toujours un
    brouillon, Manu relit et envoie.
 2. **Consigner** : `carnet_create` rattachée au deal (« relance envoyée, motif, ce qu'on
-   attend »).
+   attend »). Quand Manu a retouché le texte avant l'envoi, consigner **sa** version, celle
+   que le prospect a réellement reçue.
 3. **Ajuster le deal** : la probabilité descend quand les relances s'accumulent sans
    réponse — l'étape et la probabilité ne se contredisent jamais, et le pourquoi se note
-   dans la fiche du deal, daté.
+   dans la fiche du deal, daté. Un silence de calendrier, quand le besoin a été confirmé de
+   vive voix, ne fait pas baisser la probabilité.
 4. **Programmer la suite** : `task_create { scheduledFor }` rattachée au deal, à la date de
-   la prochaine décision (relancer encore, ou clore).
+   la prochaine décision (relancer encore, ou clore). Y noter ce que le mail n'a
+   volontairement pas porté : les créneaux gardés pour l'appel, la question laissée de côté.
 
 ## Sortir proprement
 
@@ -82,11 +129,17 @@ Après deux ou trois relances sans réponse, on arrête de relancer et on ferme 
   (« sans suite après la proposition du JJ.MM ») ;
 - la partie reste dans l'annuaire : un prospect perdu redevient du réseau, pas un fantôme.
 
+Quand deux relances sont déjà parties, il n'y en a pas de troisième : on laisse l'offre
+expirer d'elle-même et on note la date d'expiration, pour savoir quoi prolonger si le
+prospect revient de lui-même.
+
 ## Checklist avant de rendre la main
 
 - [ ] Le dossier a été relu (`contexte`) : la relance colle aux faits du fil
 - [ ] Le timing respecte la règle (une relance par silence, vrai délai entre deux)
+- [ ] Le registre est le bon : prise de nouvelles tant que la main est chez le prospect
 - [ ] La relance apporte quelque chose, une seule question, trois à cinq phrases
+- [ ] Aucune phrase n'explique la démarche, ne répète ce qu'il sait déjà, ni ne rassure deux fois
 - [ ] C'est un brouillon dans le fil, adresse cohérente avec la relation
 - [ ] Brouillon relu après dépôt : le champ `to` porte le prospect, pas Manu
 - [ ] Checklist anti-tics du socle `ecrire-comme-manu` passée
