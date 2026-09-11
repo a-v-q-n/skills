@@ -6,7 +6,9 @@ description: >-
   du blog » ou « l'image pour le blog ». Compose un HTML 1600×900 puis un PNG via la
   Médiathèque. Un thème commun (ciel bleu #BFD7FF, noir, jaune, Anton, ombres
   dures, parfois le visage de Manu) et une composition improvisée à chaque fois : chaque
-  cover est unique. Trois variantes, validation de Manu, PNG posé sur l'article.
+  cover est unique. Trois variantes, validation de Manu, PNG posé sur l'article. À utiliser
+  aussi par la routine de rédaction du dépôt redaction-routine, en mode routine : une seule
+  composition, contrôlée à l'œil, posée sans validation.
   NE COUVRE PAS les covers des ressources (composer-une-cover-de-ressource) ni les images
   dans le corps de l'article.
 couche: recette
@@ -63,6 +65,16 @@ Le visage apparaît quand l'article est Manu (un test, un récit, un raté, un a
 5. **Présenter** les trois à Manu, une ligne par variante. Il choisit ou retouche ; retoucher la variante choisie.
 6. **Livrer** : `article_update` avec `imageUrl` et un `imageAlt` d'une phrase ; garder le HTML de la variante retenue dans le dossier de travail de l'article.
 
+## Mode routine
+
+Quand c'est la routine de rédaction du dépôt `a-v-q-n/redaction-routine` qui compose — elle le dit en tête de sa marche — personne ne choisit entre trois variantes, et le pipeline se resserre :
+
+- **Une seule composition**, choisie avant de rendre : le brief de l'étape 1, le tour des cinq dernières covers pour faire autre chose, puis une idée, pas trois. Le visage de Manu ne s'emploie que si l'article est un récit à la première personne ; dans le doute, un objet ou un mot.
+- **Le contrôle à l'œil remplace le choix de Manu.** `media_view_image` sur le rendu, avec la liste de l'étape 4 comme grille : un texte qui touche un objet, un visage coupé, un sticker qui cache le sens, une capitale qui mord la ligne du dessus, un mot replié, un texte crié qu'un inconnu ne comprend pas. Un défaut se corrige dans le HTML et se re-rend, deux fois au plus ; ce qui reste faux au troisième rendu se simplifie (le texte seul, ou l'objet seul) plutôt que de sortir bancal.
+- **La pose suit** : `article_update` avec `imageUrl` et `imageAlt`, puis la rédaction continue. `name` du rendu = `blog-<slug>`, sans lettre de variante.
+
+Le thème, le texte crié, le mot du sticker et la règle « ce qui est montré est vrai » ne bougent pas : c'est la même cover, avec un seul essai qui doit être bon.
+
 ## Boucle d'amélioration
 
-Quand Manu corrige, la correction va dans ce fichier si elle vaut pour toutes les covers (une règle de goût), dans `ingredients.css` si c'est une pièce (une taille, une ombre), dans `exemples/` si c'est une cover réussie qui mérite d'être un modèle de plus. Un exemple de plus vaut mieux qu'une règle de plus.
+Quand Manu corrige, la correction va dans ce fichier si elle vaut pour toutes les covers (une règle de goût), dans `ingredients.css` si c'est une pièce (une taille, une ombre), dans `exemples/` si c'est une cover réussie qui mérite d'être un modèle de plus. Un exemple de plus vaut mieux qu'une règle de plus. Une cover posée par la routine que Manu remplace vaut une ligne de plus dans la grille du contrôle à l'œil.
