@@ -231,21 +231,32 @@ Pas d'autre transition : ni fondu enchaîné, ni effet. Une coupe, ou le noir.
   `boucle: false` dans la source quand la musique fait la longueur de la vidéo. À défaut, la
   librairie : `profondeur` (gravité calme),
   `respiration` (douceur, finit presque en silence), `confidence` (sincérité), `nappe-suspension`
-  (mystère, sans pulsation). En tête de source : `"musique": { "asset": "<slug>", "boucle": true,
-  "ducking": true }`. Le niveau ne s'écrit pas — la bande son le cale sous la voix, et le relâche
-  dans les pauses.
+  (mystère, sans pulsation). En tête de source : `"musique": { "asset": "<slug>", "boucle": true }`.
+  Le niveau du lit ne s'écrit pas : sans rien, il joue vingt-quatre décibels sous la parole, et
+  c'est la bonne hauteur pour un conte. Un `gain` en tête le remplace — un chiffre absolu, à ne
+  poser que si le lit s'entend trop ou pas assez sur le rendu.
 - **Pas de son de coupe** (`cut`) : une histoire ne « whoosh » pas entre deux images.
 - **La banque du conte, en librairie** — à réutiliser avant d'en générer : `tambour-grave` (le
   battement qui ouvre — le hook et le titre le posent déjà par leur fiche), `feu-foyer` (lit de
   crépitement de 12 s), `marteau-enclume` (la sonnerie claire du fer, pour un CLANG). Ce qui
   manque au récit se fabrique par `generer_son`, en anglais, un par bruit : *old wooden crate
   dropped on packed earth* ; *slow hand drum, three-beat rhythm, distant* ; *wind over a river at
-  dusk*. Le serveur mesure l'attaque et le gain : rien à régler. Un son se pose dans le plan sur
+  dusk*. Le serveur mesure l'attaque et le niveau : rien à régler. Un son se pose dans le plan sur
   son mot : `"sons": [{ "sfx": "<slug>", "sur": "<mot>" }]` — c'est le pic qui tombe sur le mot.
   Un son par battement au plus ; deux pics au même instant s'additionnent.
-- **Une ambiance** (le feu sous toute une scène) se pose comme un son, avec un niveau écrit et la
-  durée de la scène : `{ "sfx": "feu-foyer", "a": 0, "gain": -14, "duree": <durée du plan> }` —
-  bas, c'est un décor, pas un accent. Une par scène au plus, pas sur les planches.
+- **Le niveau d'un son ne s'écrit pas non plus.** La bande son pose toute la ponctuation très bas
+  sous la parole : un son ne s'entend que là où la voix le laisse — dans un silence, sur une
+  coupe, sous un mot. C'est le registre du conte, et il est juste par défaut.
+- **Un son qui doit s'écarter de ce registre** porte un `gain` : des décibels en plus ou en moins
+  sur ce que vaut une ponctuation ordinaire, jamais un niveau. `{ "sfx": "marteau-enclume",
+  "sur": "marteau", "gain": 6 }` pour un CLANG qui doit frapper ; un chiffre négatif pour un son
+  qu'on veut encore plus effacé. Ne l'écrire qu'après avoir entendu le rendu.
+- **Le même son trop fort partout** se reprend d'un coup, en tête de source :
+  `"sfx": { "feu-foyer": -6 }` — l'écart vaut pour cette vidéo seule, partout où ce son tombe,
+  qu'il vienne d'un plan ou de la mécanique d'un gabarit.
+- **Une ambiance** (le feu sous toute une scène) se pose comme un son, avec la durée de la scène :
+  `{ "sfx": "feu-foyer", "a": 0, "duree": <durée du plan> }` — c'est un décor, pas un accent. Une
+  par scène au plus, pas sur les planches.
 - Les autres sons de la librairie sont tech (glitchs, whooshs, braams) : ils ne servent pas ici.
 
 ## Les sous-titres
@@ -305,7 +316,8 @@ Une séquence par paragraphe (`nom` court), un plan par phrase, `prise` = le ran
 - Poser un plan sans image (un `fond` nocturne nu pendant qu'on raconte).
 - Une image avec un cadre, une marge, un liseré, du texte ; un personnage décrit autrement que par
   sa phrase.
-- Estimer une durée à la place du verbatim ; écrire un niveau sonore ; mettre un son de coupe.
+- Estimer une durée à la place du verbatim ; écrire un niveau sonore au lieu d'un écart ; mettre
+  un son de coupe.
 - Monter quoi que ce soit à la main : tout ce qui n'est pas dans la source n'existe pas pour la
   routine, et rien ne se corrige après `lancer_production` — sauf par une revue sur la page de la
   vidéo, qui relance une reprise.
