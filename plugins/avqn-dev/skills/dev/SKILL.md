@@ -40,13 +40,16 @@ double-palier, prod en mono-palier, Vercel, Cloudflare…) est écrit dans le `#
    la passe précédente a rendu un bloquant, et les passes s'arrêtent quand l'une ne rend plus
    de bloquant : un correctif est écrit vite et sous l'autorité d'un finding, il introduit des
    régressions aussi sûrement qu'un changement, et personne d'autre ne relira avant la prod.
+   Pendant qu'un agent, la CI ou un déploiement travaille, pose un `Monitor` et rends la main :
+   la notification te réveille. Ne sonde pas `ReadNotifications` en boucle, chaque sonde est un
+   tour perdu et rien n'arrive plus vite.
 6. **Commit + rebase + PR** : commit descriptif 🤖 (bump de version si le repo en a un) ;
    `git rebase origin/main` (conflit non trivial → abort, mise de côté, signale) ; push ;
    PR via `gh pr create` (`Closes #n` si issue ; corps = quoi / pourquoi / comment vérifier).
    En session cloud (surface connue depuis `travailler-sur-un-repo`), GitHub ne sert du GraphQL
    que les opérations de review de PR épinglées — `gh pr create` y rend un 403 — et la PR
-   s'ouvre par la REST, corps lu depuis un fichier pour que les backticks et les `$` du
-   « comment vérifier » arrivent intacts :
+   s'ouvre par la REST, corps lu depuis un fichier (`-F body=@fichier`) pour que les backticks
+   et les `$` du « comment vérifier » arrivent intacts :
 
    ```bash
    gh api repos/<org>/<dépôt>/pulls --method POST \
