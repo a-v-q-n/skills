@@ -40,7 +40,7 @@ Charge d'abord `travailler-sur-un-repo` (surface locale ou cloud).
 | Câbler vers une app | `ops:secret_wire` (`from`, `app`, `as`) puis redéploie (`ops:coolify_deploy`) | idem |
 | Lire / modifier l'env runtime | `ops:coolify_application_envs` · `ops:coolify_application_env_update` | idem |
 | Rotation, fournisseur à API (interne, R2, Resend, Cloudflare compte) | `ops:secret_rotate` (`nom`, `confirm`) : frappe, coffre, câblage, redéploiement, healthz, révocation, dans cet ordre | idem |
-| Rotation, fournisseur sans API (console) | le pont presse-papiers, ci-dessous — Manu ne colle rien, il se connecte | Manu, dans l'UI |
+| Rotation, fournisseur sans API (console) | le pont par fichier, ci-dessous — Manu ne colle rien, il se connecte | Manu, dans l'UI |
 
 Recette locale, une clé vers `.env.local` sans l'afficher :
 
@@ -49,39 +49,43 @@ set -a; source ~/.config/avqn/vault.env; set +a
 bws secret list | jq -r '.[] | select(.key=="RESEND_API_KEY") | "RESEND_API_KEY=\(.value)"' >> .env.local
 ```
 
-## Le pont presse-papiers : tourner une clé qu'une console affiche une fois
+## Le pont par fichier : tourner une clé qu'une console affiche une fois
 
 Quand le fournisseur n'a pas d'API de frappe (Hetzner, Infomaniak, OpenAI, Gemini, ElevenLabs,
 HeyGen, Coolify, GitHub, Bitwarden…), la clé neuve n'existe que dans une page web, une fois. Le
-geste tient la valeur hors de la conversation et hors du disque :
+geste tient la valeur hors de la conversation ; elle ne touche le disque que quelques secondes,
+dans un fichier effacé aussitôt lu :
 
-1. **Avant** : Raycast, Paste ou tout gestionnaire à historique de presse-papiers est quitté —
-   sinon l'historique garde la clé.
-2. **Frapper** : dans la console, pilotée par Chrome (`claude-in-chrome`), créer la clé neuve avec
-   un nom qui dit son consommateur (`ops`, `avqn-os`…). Manu ne fait que se connecter. À partir
-   de là, **ni capture d'écran, ni `get_page_text`, ni `find`** : la page porte la valeur, et
-   `find` rend le texte des éléments qu'il trouve — il a fait sortir un jeton Coolify le 11.09,
-   qu'il a fallu refrapper. Le seul `find` admis est celui du bouton « copier », fait **avant**
-   la frappe, quand la page ne porte encore rien.
-3. **Copier** : cliquer « copier » si le bouton est connu d'avance. Sinon, sélectionner la valeur
-   par `javascript_tool` sans la renvoyer (chercher l'élément dont le texte a la forme du jeton,
-   `Range` + `getSelection`, ne rendre que la longueur), puis cmd+C par `computer`. Pas de
-   `navigator.clipboard.writeText` : sans focus, l'appel pend. La valeur est dans le
-   presse-papiers, nulle part ailleurs.
-4. **Ranger** : une commande locale la consomme et vide le presse-papiers dans la foulée, sortie
-   masquée. `bws secret edit` remplace la valeur sous le même nom, l'id est celui de `bws secret
-   list` :
-
-   ```bash
-   set -a; source ~/.config/avqn/vault.env; set +a
-   bws secret edit --value "$(pbpaste)" <id> >/dev/null && pbcopy </dev/null && echo "rangé"
-   ```
-
-5. **Câbler et prouver** : `ops:secret_wire` sur chaque consommateur (la table est celle de
+1. **Frapper** : dans la console, pilotée par Chrome (`claude-in-chrome`), créer la clé neuve avec
+   un nom qui dit son consommateur et sa date (`ops-2026-09`). Manu ne fait que se connecter.
+   Vérifier les cases (droits, expiration) **avant** de créer : un `zoom` sur le formulaire ; une
+   case qui n'a pas pris se voit là, pas après (un jeton Coolify est parti en lecture seule).
+2. **Ne plus rien lire de la page** : ni capture d'écran, ni `get_page_text`, ni `find` — `find`
+   rend le texte des éléments qu'il décrit, et une ligne de la liste peut porter la valeur (un
+   jeton Coolify et un jeton GitHub sont sortis comme ça, tous deux refrappés). Seul
+   `javascript_tool` touche la page, et il ne renvoie que des longueurs et des booléens.
+3. **Sortir la valeur par un téléchargement** : `javascript_tool` cherche l'élément dont le texte
+   a la forme du jeton (`ghp_…`, `<id>|…`, `sk-…`), en fait un `Blob` et clique un `<a download>`
+   nommé `jeton-<fournisseur>.txt`. Ça marche onglet caché ou visible, sans presse-papiers, et
+   les CSP des sites ne s'y opposent pas (`fetch` vers un serveur local, si : GitHub le bloque ;
+   le presse-papiers exige un onglet visible et une fenêtre au premier plan).
+4. **Ranger** : en local, lire `~/Downloads/jeton-<fournisseur>.txt`, l'effacer (`rm -P`),
+   **tester** la valeur contre l'API du fournisseur (un 200, jamais un affichage), puis
+   `bws secret edit --value "$V" <id>` avec l'id de `bws secret list`. Un test qui échoue ne
+   range rien.
+5. **Quitter la page** avant tout autre geste (`navigate` vers la liste) : la valeur y est
+   encore affichée tant qu'on ne recharge pas.
+6. **Câbler et prouver** : `ops:secret_wire` sur chaque consommateur (la table est celle de
    `ops:secret_inventaire`), `ops:coolify_deploy`, puis `/healthz` 200 avec le **même sha** — et un
    appel réel qui utilise la clé (`ops:hetzner_servers` pour Hetzner, `ops:dns_domains` pour
-   Infomaniak…). Un consommateur hôte (`GHCR_PULL_TOKEN`) se repose par `bws … | ssh`.
-6. **Révoquer** l'ancienne dans la console, seulement après la preuve. Jamais l'inverse.
+   Infomaniak, `lister_voix` de contentos pour ElevenLabs…). Un consommateur hôte
+   (`GHCR_PULL_TOKEN`) se repose par `bws … | ssh <hôte> 'docker login … --password-stdin'`.
+   Si ops lui-même tourne, câbler et redéployer depuis le poste (`curl` avec le jeton du coffre),
+   pas par ops.
+7. **Révoquer** les anciennes dans la console, seulement après la preuve, **une par une et
+   ciblée sur sa ligne** (`a.closest('.access-token')`, jamais « le premier bouton Supprimer
+   trouvé ») : une suppression qui vise large a retiré le jeton vivant, refrappé aussitôt.
+   Re-tester la valeur du coffre après chaque suppression.
 
 Ce que le pont ne couvre pas : une clé qui chiffre des données au repos (`COMMS_MASTER_KEY`,
 `AGE_VAULT_PRIVATE_KEY`) ne tourne pas sans plan de relecture ; un jeton recopié à la main ailleurs
