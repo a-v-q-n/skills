@@ -7,9 +7,12 @@ description: >-
   l'article », « on passe la vidéo en article » ou « écris un papier sur X ». Porte la
   séquence et les jalons : choisir le type (fiche ou actu), proposer l'angle et le plan,
   faire valider, écrire, faire valider, construire l'article via le MCP Autonomes en
-  brouillon, publier sur feu vert. Charge d'abord le socle ecrire-comme-manu pour la voix.
-  NE COUVRE PAS la cover (composer-une-cover-d-article), les ressources d'apprentissage
-  (creer-une-ressource) ni la vidéo source (Contentos).
+  brouillon, publier sur feu vert. À utiliser aussi par la routine de rédaction du dépôt
+  redaction-routine, en mode routine : sans humain dans la boucle, les deux jalons de
+  validation deviennent une porte qualité tenue par un second agent, et la publication
+  suit. Charge d'abord le socle ecrire-comme-manu pour la voix. NE COUVRE PAS la cover
+  (composer-une-cover-d-article), les ressources d'apprentissage (creer-une-ressource) ni
+  la vidéo source (Contentos).
 couche: recette
 moment: >-
   De la matière à l'article publié : type, angle, plan, écriture, construction en brouillon.
@@ -58,13 +61,39 @@ mémoire, et lier ces sources dans le texte.
    module annoté par son type (`[text]`, `[heading]`, `[callout warn]`, `[comparison]`,
    `[video]`, `[cta]`). L'envoyer en entier à Manu, sans « Salut Manu » ni formule de
    clôture. Attendre la validation ; capitaliser les corrections qui révèlent une règle.
-3. **Construire.** `article_create` avec titre, slug, chapô, tags — l'article naît en
-   brouillon, jamais publié d'office. Puis `article_add_modules` dans l'ordre du fichier,
-   et relire le résultat (`article_get`) contre le fichier de travail.
+3. **Construire.** `article_create` avec titre, slug, chapô, tags et **rubrique**
+   (`categorieSlug` : `actualites` pour une actu, la rubrique du geste pour une fiche) —
+   l'article naît en brouillon, jamais publié d'office. Puis `article_add_modules` dans
+   l'ordre du fichier, et relire le résultat (`article_get`) contre le fichier de travail.
 4. **La cover.** Une fois le titre arrêté, `composer-une-cover-d-article` prend le relais
    (trois variantes, validation, `imageUrl` et `imageAlt` posés sur l'article).
 5. **Publier** (`article_publish`) seulement sur le feu vert explicite de Manu. Le slug
    est une adresse : on ne le change plus après.
+
+## Mode routine
+
+Quand c'est la routine de rédaction du dépôt `a-v-q-n/redaction-routine` qui écrit —
+elle le dit en tête de sa marche — il n'y a personne pour valider, et la séquence change
+sur trois points, rien d'autre :
+
+- **Les jalons 1 et 2 n'attendent personne.** L'angle, le plan, le titre et le chapô se
+  décident depuis la matière de l'issue et `strategie.md` du dépôt ; le texte s'écrit en
+  entier dans le fichier de travail, comme au jalon 2.
+- **La porte qualité remplace la validation.** Un second agent, qui n'a vu ni les sources
+  ni le raisonnement, note l'article sur dix points (la grille est dans
+  `routines/redaction.md` du dépôt : réponse complète, apport introuvable ailleurs,
+  tutoiement, chaque chiffre sourcé, zéro tic du socle, titre en langage de requête, fin
+  qui ouvre, rubrique et tags cohérents, longueur qui suit le sujet, lisible par un
+  non-dev). Sous huit, une réécriture puis un second passage ; toujours sous huit, ou un
+  échec sur les chiffres ou la lisibilité, l'article ne sort pas et le sujet retourne au
+  stock. La porte est la validation : ce qu'elle refuse, Manu l'aurait refusé.
+- **La publication suit la porte**, sans feu vert : `article_publish` dès que l'article
+  a sa cover (composée en mode routine, une variante contrôlée) et que `article_get` ne
+  rend aucun manque. Manu relit après coup ; un article qu'il dépublie est un signal que
+  le bilan du dépôt enregistre.
+
+Tout le reste tient : la voix du socle, les deux types, l'anatomie, le maillage, le CTA
+seulement quand une ressource approfondit, le slug qu'on ne change plus.
 
 ## L'anatomie
 
@@ -93,11 +122,15 @@ mémoire, et lier ces sources dans le texte.
 - [ ] Titre factuel, chapô en deux ou trois phrases sobres, 500 à 900 mots
 - [ ] Deux à quatre liens dans le texte, un CTA au plus avec son `?src=blog:`
 - [ ] Checklist anti-tics du socle `ecrire-comme-manu` passée
-- [ ] L'article est né en brouillon ; publication seulement sur feu vert explicite
+- [ ] La rubrique est posée (`categorieSlug`) : sans elle, l'article n'apparaît dans aucun hub
+- [ ] L'article est né en brouillon ; publication sur feu vert explicite — ou, en mode
+      routine, après la porte qualité
 
 ## Boucle d'amélioration
 
 Ce skill est jeune : il vient des premiers articles publiés, pas encore de dizaines de
 relectures. Quand Manu coupe, reformule ou refuse un passage, chercher la règle qui aurait
 évité la correction et l'ajouter ici avec un exemple avant/après ; une question de voix va
-dans `ecrire-comme-manu`.
+dans `ecrire-comme-manu`. Un article publié par la routine que Manu dépublie ou corrige
+vaut une relecture de la grille de la porte : ce qu'elle a laissé passer devient un point
+de plus, ou un point plus dur.
