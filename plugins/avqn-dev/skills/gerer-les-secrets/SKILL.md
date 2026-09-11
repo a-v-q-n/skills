@@ -59,9 +59,14 @@ geste tient la valeur hors de la conversation et hors du disque :
    sinon l'historique garde la clé.
 2. **Frapper** : dans la console, pilotée par Chrome (`claude-in-chrome`), créer la clé neuve avec
    un nom qui dit son consommateur (`ops`, `avqn-os`…). Manu ne fait que se connecter. À partir
-   de là, **ni capture d'écran ni `get_page_text`** : la page porte la valeur. `find` ne sert
-   qu'à viser le bouton « copier ».
-3. **Copier** : cliquer « copier » (ou sélectionner le champ et cmd+C). La valeur est dans le
+   de là, **ni capture d'écran, ni `get_page_text`, ni `find`** : la page porte la valeur, et
+   `find` rend le texte des éléments qu'il trouve — il a fait sortir un jeton Coolify le 11.09,
+   qu'il a fallu refrapper. Le seul `find` admis est celui du bouton « copier », fait **avant**
+   la frappe, quand la page ne porte encore rien.
+3. **Copier** : cliquer « copier » si le bouton est connu d'avance. Sinon, sélectionner la valeur
+   par `javascript_tool` sans la renvoyer (chercher l'élément dont le texte a la forme du jeton,
+   `Range` + `getSelection`, ne rendre que la longueur), puis cmd+C par `computer`. Pas de
+   `navigator.clipboard.writeText` : sans focus, l'appel pend. La valeur est dans le
    presse-papiers, nulle part ailleurs.
 4. **Ranger** : une commande locale la consomme et vide le presse-papiers dans la foulée, sortie
    masquée. `bws secret edit` remplace la valeur sous le même nom, l'id est celui de `bws secret
