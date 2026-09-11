@@ -58,6 +58,11 @@ dans un fichier effacé aussitôt lu :
 
 1. **Frapper** : dans la console, pilotée par Chrome (`claude-in-chrome`), créer la clé neuve avec
    un nom qui dit son consommateur et sa date (`ops-2026-09`). Manu ne fait que se connecter.
+   L'onglet doit être **visible** au moment de soumettre : un onglet caché ne fait pas tourner
+   `requestAnimationFrame`, et une soumission React y reste bloquée (bouton grisé, aucune
+   requête). L'amener devant depuis le Mac (`osascript` : `activate`, puis `set active tab index`
+   de la fenêtre qui porte l'URL) et vérifier `document.hidden === false` par `javascript_tool`
+   avant le clic — l'extension n'y arrive pas seule, ses onglets naissent en arrière-plan.
    Vérifier les cases (droits, expiration) **avant** de créer : un `zoom` sur le formulaire ; une
    case qui n'a pas pris se voit là, pas après (un jeton Coolify est parti en lecture seule).
 2. **Ne plus rien lire de la page** : ni capture d'écran, ni `get_page_text`, ni `find` — `find`
